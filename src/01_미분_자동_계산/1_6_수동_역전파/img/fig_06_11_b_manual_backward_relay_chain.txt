@@ -1,0 +1,16 @@
+[TAG LAYER]
+dorothy, 1girl, toto, 1dog, tinman, 1robot, jiny cat, backward relay chain, gradient baton, y.grad = 1.0, C to B to A, pure solid white background, clean anime line art, soft 2d cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Dorothy, Toto, Tinman, and Assistant Jiny demonstrate the manual backpropagation relay race. On the right, Assistant Jiny starts the relay by raising a glowing baton labeled '1.0' (y.grad). Next in line, Tinman (Function C) catches it and passes a baton labeled 'b.grad' to Function B (Toto holding with paw), which passes 'a.grad' to Function A, finally delivering the computed gradient 'x.grad = 3.29744' safely into Dorothy’s hands on the left. The reverse relay flow is clear, orderly, and triumphant. Pure solid clean white background (#FFFFFF), isolated character relay lineup cutout, subtle soft contact shadow at base, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Dorothy, Toto, Tinman, Assistant Jiny
+Model: Dorothy STEM Universe Master LoRA
+Trigger: dorothy, toto, tinman, jiny, manual backward relay
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Manual Backward Relay: Output to input sequential backward calls C -> B -> A

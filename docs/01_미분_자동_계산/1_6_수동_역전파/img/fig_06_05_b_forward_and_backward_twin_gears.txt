@@ -1,0 +1,16 @@
+[TAG LAYER]
+tinman, 1robot, jiny cat, twin gears, forward and backward, input caching, self.input slot, pure solid white background, clean anime line art, soft 2d cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Tinman (silver tin robot body, cute retro monitor head, cheerful cyan LED dot eyes) and Assistant Jiny (smart tuxedo cat with round scholar glasses and red bell collar) assemble the twin mechanisms of the upgraded 'Function' class. One side features a glowing blue gear labeled 'forward' that takes input x and automatically slides a backup copy into a slot labeled 'self.input'. The opposite side features an interlocking golden gear labeled 'backward' that takes incoming gradient gy, reads self.input, and computes reverse gradient gx. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at base, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Tinman, Assistant Jiny
+Model: Dorothy STEM Universe Master LoRA
+Trigger: tinman, jiny, function dual gears, forward backward self.input
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Function Class Dual Roles: Forward computation with input caching and Backward gradient calculation

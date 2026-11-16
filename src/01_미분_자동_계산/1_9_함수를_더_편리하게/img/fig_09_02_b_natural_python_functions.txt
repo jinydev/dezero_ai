@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, 1man, dorothy, 1girl, toto, 1dog, python code editor, natural functions, square exp, ergonomics, pure solid white background, clean anime line art, soft 2d cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Professor Hojin (early 40s, smooth youthful skin, salt-and-pepper short hair, thin wire-rim glasses, plain dark charcoal navy polo shirt NO badges, blue jeans) and Dorothy (chestnut pigtails, denim overalls) celebrate Pythonic ergonomics. Dorothy happily types on a glowing holographic code editor showing clean nested functions: 'y = square(exp(square(x)))'. The bulky class instantiations 'Square()(x)' have vanished into sleek, reusable Python function wrappers. Toto (white puppy, sky-blue bandana) wags his tail happily beside Dorothy's red sneakers. Pure solid clean white background (#FFFFFF), isolated character and editor cutout, subtle soft contact shadow at base, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, dorothy, toto, pythonic function wrapper, square exp
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Pythonic Function Wrappers: Simplifying Class Calls into Natural Functions square(x) and exp(x)

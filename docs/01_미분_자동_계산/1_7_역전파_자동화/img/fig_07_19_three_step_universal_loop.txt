@@ -1,0 +1,14 @@
+[TAG LAYER]
+professor hojin, three numbered brass wall dials showing steps 1 2 3, pure solid white background, Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, pure solid white background (#FFFFFF), subtle soft contact shadow, 1:1 square ratio, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Professor Hojin pointing to three numbered brass clock dials: 1. Get Creator, 2. Get Input, 3. Call Backward. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy World LoRA v1.0
+Trigger: fig_07_19
+Target Concept: The 3-step universal loop: Get function, Get input, Call backward
+Aspect Ratio: 1:1 (1024x1024)

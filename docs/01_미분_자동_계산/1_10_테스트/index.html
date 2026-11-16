@@ -496,28 +496,47 @@
         <div class="bd-content ps-lg-4">
             <h1 id="10단계-테스트">10단계 테스트</h1>
 
-<p>소프트웨어 개발에서는 테스트를 빼놓을 수 없습니다. 테스트를 해야 실수(버그)를 예방할 수 있으며 테스트를 자동화해야 소프트웨어의 품질을 유지할 수 있습니다. DeZero도 마찬가지입니다. 그래서 이번 단계에서는 테스트 방법, 특히 딥러닝 프레임워크의 테스트 방법에 대해 설명하겠습니다.</p>
+<p><img src="./1_10_테스트.png" alt="1_10_테스트" />
+<strong>그림 10-Intro</strong> 단위 테스트(unittest)와 기울기 확인(Gradient Checking)을 통한 DeZero 무결성 자동 검증 (이호진 교수와 도로시 탐험대)</p>
 
-<p><img src="./img/fig_10_01.jpg" alt="그림 10-1 딥러닝 프레임워크와 테스트의 중요성" />
+<hr />
+
+<p>소프트웨어 개발에서는 테스트를 빼놓을 수 없습니다.</p>
+
+<p>테스트를 해야 실수(버그)를 예방할 수 있으며 테스트를 자동화해야 소프트웨어의 품질을 유지할 수 있습니다.</p>
+
+<hr />
+
+<p>DeZero도 마찬가지입니다.</p>
+
+<p>그래서 이번 단계에서는 테스트 방법, 특히 딥러닝 프레임워크의 테스트 방법에 대해 설명하겠습니다.</p>
+
+<p><img src="./img/fig_10_01_intro_testing_quality_lab.jpg" alt="그림 10-1 딥러닝 프레임워크와 테스트의 중요성" />
 <em>그림 10-1: 복잡한 계산 그래프의 무결성을 지키고 버그를 방지하는 자동화 테스트</em></p>
 
 <hr />
 
 <blockquote>
   <p><strong>NOTE</strong><br />
-소프트웨어 테스트는 규모가 커지면 독특한 규약이나 세세한 규칙이 많아지기 쉽습니다. 그렇다고 테스트를 처음부터 어렵게 생각할 필요는 없습니다. 우선 ‘테스트한다’는 그 자체가 중요합니다. 이번 단계에서는 본격적인 테스트가 아니라 가능한 한 간단한 테스트를 해보겠습니다.</p>
+소프트웨어 테스트는 규모가 커지면 독특한 규약이나 세세한 규칙이 많아지기 쉽습니다.</p>
+
+  <p>그렇다고 테스트를 처음부터 어렵게 생각할 필요는 없습니다. 우선 ‘테스트한다’는 그 자체가 중요합니다.</p>
+
+  <p>이번 단계에서는 본격적인 테스트가 아니라 가능한 한 간단한 테스트를 해보겠습니다.</p>
 </blockquote>
 
-<p><img src="./img/fig_10_02.jpg" alt="그림 10-2 테스트를 대하는 가벼운 마음가짐" />
+<p><img src="./img/fig_10_02_starting_simple_with_testing.jpg" alt="그림 10-2 테스트를 대하는 가벼운 마음가짐" />
 <em>그림 10-2: 거창한 규칙보다 ‘작은 단위부터 테스트한다’는 핵심 실천의 중요성</em></p>
 
 <hr />
 
 <h2 id="101-파이썬-단위-테스트">10.1 파이썬 단위 테스트</h2>
 
-<p>파이썬으로 테스트할 때는 표준 라이브러리에 포함된 <code class="language-plaintext highlighter-rouge">unittest</code>를 사용하면 편합니다. 여기에서는 이전 단계에서 구현한 <code class="language-plaintext highlighter-rouge">square</code> 함수를 테스트해봅시다.</p>
+<p>파이썬으로 테스트할 때는 표준 라이브러리에 포함된 <code class="language-plaintext highlighter-rouge">unittest</code>를 사용하면 편합니다.</p>
 
-<p><img src="./img/fig_10_03.jpg" alt="그림 10-3 파이썬 표준 라이브러리 unittest" />
+<p>여기에서는 이전 단계에서 구현한 <code class="language-plaintext highlighter-rouge">square</code> 함수를 테스트해봅시다.</p>
+
+<p><img src="./img/fig_10_03_unittest_toolbox.jpg" alt="그림 10-3 파이썬 표준 라이브러리 unittest" />
 <em>그림 10-3: 파이썬에 내장된 신뢰도 높은 단위 테스트 도구 unittest</em></p>
 
 <hr />
@@ -537,24 +556,39 @@
 
 <hr />
 
-<p>이와 같이 우선 unittest를 임포트하고 <code class="language-plaintext highlighter-rouge">unittest.TestCase</code>를 상속한 <code class="language-plaintext highlighter-rouge">SquareTest</code> 클래스를 구현합니다. 여기서 기억할 규칙이 있습니다. 테스트할 때는 이름이 <code class="language-plaintext highlighter-rouge">test</code>로 시작하는 메서드를 만들고 그 안에 테스트할 내용을 적습니다. 앞의 테스트는 square 함수의 출력이 기댓값 <code class="language-plaintext highlighter-rouge">expected</code>과 같은지 확인합니다. 정확하게는 입력이 2.0일 때 출력이 4.0이 맞는지 확인합니다.</p>
+<p>이와 같이 우선 unittest를 임포트하고 <code class="language-plaintext highlighter-rouge">unittest.TestCase</code>를 상속한 <code class="language-plaintext highlighter-rouge">SquareTest</code> 클래스를 구현합니다.</p>
 
-<p><img src="./img/fig_10_04.jpg" alt="그림 10-4 TestCase 클래스와 test_ 메서드 규칙" />
+<p>여기서 기억할 규칙이 있습니다. 테스트할 때는 이름이 <code class="language-plaintext highlighter-rouge">test</code>로 시작하는 메서드를 만들고 그 안에 테스트할 내용을 적습니다.</p>
+
+<p><img src="./img/fig_10_04_test_case_methods_lanterns.jpg" alt="그림 10-4 TestCase 클래스와 test_ 메서드 규칙" />
 <em>그림 10-4: test로 시작하는 메서드를 통해 테스트 시나리오를 정의하는 규칙</em></p>
+
+<hr />
+
+<p>앞의 테스트는 square 함수의 출력이 기댓값 <code class="language-plaintext highlighter-rouge">expected</code>과 같은지 확인합니다.</p>
+
+<p>정확하게는 입력이 2.0일 때 출력이 4.0이 맞는지 확인합니다.</p>
+
+<p><img src="./img/fig_10_04_b_assert_equal_verification.jpg" alt="그림 10-4-b assertEqual을 통한 기댓값 검증" />
+<em>그림 10-4-b: 계산된 출력 4.0과 이론적 기댓값 4.0이 일치함을 assertEqual로 정밀 검증</em></p>
 
 <hr />
 
 <blockquote>
   <p><strong>NOTE</strong><br />
-앞의 예에서 square 함수의 출력이 기댓값과 같은지 확인하기 위해 <code class="language-plaintext highlighter-rouge">self.assertEqual</code>이라는 메서드를 사용했습니다. 이 메서드는 주어진 두 객체가 동일한지 여부를 판정합니다. 이 메서드 외에도 <code class="language-plaintext highlighter-rouge">self.assertGreater</code>와 <code class="language-plaintext highlighter-rouge">self.assertTrue</code> 등 unittest에는 다양한 메서드가 준비되어 있습니다. 다른 메서드들의 사용법은 unittest 문서를 참고하세요.</p>
+앞의 예에서 square 함수의 출력이 기댓값과 같은지 확인하기 위해 <code class="language-plaintext highlighter-rouge">self.assertEqual</code>이라는 메서드를 사용했습니다. 이 메서드는 주어진 두 객체가 동일한지 여부를 판정합니다.</p>
+
+  <p>이 메서드 외에도 <code class="language-plaintext highlighter-rouge">self.assertGreater</code>와 <code class="language-plaintext highlighter-rouge">self.assertTrue</code> 등 unittest에는 다양한 메서드가 준비되어 있습니다. 다른 메서드들의 사용법은 unittest 문서를 참고하세요.</p>
 </blockquote>
 
-<p><img src="./img/fig_10_05.jpg" alt="그림 10-5 assertEqual을 통한 기댓값 판정" />
+<p><img src="./img/fig_10_05_assert_equal_crystal_cubes.jpg" alt="그림 10-5 assertEqual을 통한 기댓값 판정" />
 <em>그림 10-5: 계산된 출력과 이론적 기댓값이 동일한지 검증하는 assertEqual</em></p>
 
 <hr />
 
-<p>이제 테스트를 실행해볼까요? 앞의 테스트 코드가 <code class="language-plaintext highlighter-rouge">steps/step10.py</code> 파일에 있다고 가정했을 때 터미널에서 다음 명령을 실행하면 됩니다.</p>
+<p>이제 테스트를 실행해볼까요?</p>
+
+<p>앞의 테스트 코드가 <code class="language-plaintext highlighter-rouge">steps/step10.py</code> 파일에 있다고 가정했을 때 터미널에서 다음 명령을 실행하면 됩니다.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python <span class="nt">-m</span> unittest steps/step10.py
 </code></pre></div></div>
@@ -571,7 +605,9 @@
 
 <hr />
 
-<p>테스트가 뭐라고 출력했는지 확인할 차례입니다. 실제로 앞의 명령을 실행하면 다음 결과가 출력됩니다.</p>
+<p>테스트가 뭐라고 출력했는지 확인할 차례입니다.</p>
+
+<p>실제로 앞의 명령을 실행하면 다음 결과가 출력됩니다.</p>
 
 <p><strong>실행 결과</strong></p>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
@@ -581,13 +617,17 @@ Ran 1 tests in 0.000s
 OK
 </code></pre></div></div>
 
-<p>‘1개의 테스트를 실행했고, 결과는 OK다’라는 뜻입니다. 즉, 테스트를 통과한 것입니다. 만약 무언가 문제가 있다면 ‘FAIL: test_forward (step10.SquareTest)’ 같은 문장이 출력되어 테스트가 실패했음을 알려줄 것입니다.</p>
+<p>‘1개의 테스트를 실행했고, 결과는 OK다’라는 뜻입니다.</p>
+
+<p>즉, 테스트를 통과한 것입니다. 만약 무언가 문제가 있다면 ‘FAIL: test_forward (step10.SquareTest)’ 같은 문장이 출력되어 테스트가 실패했음을 알려줄 것입니다.</p>
 
 <hr />
 
 <h2 id="102-square-함수의-역전파-테스트">10.2 square 함수의 역전파 테스트</h2>
 
-<p>이어서 square 함수의 역전파도 테스트해보겠습니다. 방금 구현한 <code class="language-plaintext highlighter-rouge">SquareTest</code> 클래스에 다음 코드를 추가합니다.</p>
+<p>이어서 square 함수의 역전파도 테스트해보겠습니다.</p>
+
+<p>방금 구현한 <code class="language-plaintext highlighter-rouge">SquareTest</code> 클래스에 다음 코드를 추가합니다.</p>
 
 <p><strong>steps/step10.py</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SquareTest</span><span class="p">(</span><span class="n">unittest</span><span class="p">.</span><span class="n">TestCase</span><span class="p">):</span>
@@ -601,11 +641,15 @@ OK
         <span class="n">self</span><span class="p">.</span><span class="nf">assertEqual</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">grad</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">test_backward</code> 메서드를 추가했습니다. 메서드 안에서 <code class="language-plaintext highlighter-rouge">y.backward()</code>로 미분값을 구하고, 그 값이 기댓값과 일치하는지 확인합니다. 참고로 여기에서 설정한 기댓값 6.0은 손으로 계산해서 구한 값을 하드코딩한 것입니다.</p>
+<p><code class="language-plaintext highlighter-rouge">test_backward</code> 메서드를 추가했습니다.</p>
+
+<p>메서드 안에서 <code class="language-plaintext highlighter-rouge">y.backward()</code>로 미분값을 구하고, 그 값이 기댓값과 일치하는지 확인합니다. 참고로 여기에서 설정한 기댓값 6.0은 손으로 계산해서 구한 값을 하드코딩한 것입니다.</p>
 
 <hr />
 
-<p>그럼 다시 테스트를 돌려봅시다. 결과는 다음과 같습니다.</p>
+<p>그럼 다시 테스트를 돌려봅시다.</p>
+
+<p>결과는 다음과 같습니다.</p>
 
 <p><strong>실행 결과</strong></p>
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>..
@@ -615,32 +659,55 @@ Ran 2 tests in 0.001s
 OK
 </code></pre></div></div>
 
-<p>결과를 보면 2개의 테스트를 통과했음을 알 수 있습니다. 원한다면 지금까지와 같은 요령으로 다른 테스트 케이스(입력과 기댓값)도 추가해나갈 수 있습니다. 테스트 케이스가 많아질수록 square 함수의 신뢰도도 높아질 겁니다. 그리고 코드를 수정할 때마다 즉시즉시 테스트를 실행해주면 square 함수의 상태를 반복해서 확인할 수 있습니다.</p>
+<p>결과를 보면 2개의 테스트를 통과했음을 알 수 있습니다.</p>
+
+<hr />
+
+<p>원한다면 지금까지와 같은 요령으로 다른 테스트 케이스(입력과 기댓값)도 추가해나갈 수 있습니다.</p>
+
+<p>테스트 케이스가 많아질수록 square 함수의 신뢰도도 높아질 겁니다.</p>
+
+<p>그리고 코드를 수정할 때마다 즉시즉시 테스트를 실행해주면 square 함수의 상태를 반복해서 확인할 수 있습니다.</p>
+
+<p><img src="./img/fig_10_08_b_gradient_checking_digital_caliper.jpg" alt="그림 10-8-b 캘리퍼와 저울을 이용한 기울기 확인 교차 검증" />
+<em>그림 10-8-b: 수치 미분과 역전파 기울기 간의 오차를 허용 오차 범위 내에서 정밀 비교하는 기울기 확인</em></p>
 
 <hr />
 
 <h2 id="103-기울기-확인을-이용한-자동-테스트">10.3 기울기 확인을 이용한 자동 테스트</h2>
 
-<p>앞 절에서 역전파 테스트를 작성하며 미분의 기댓값을 손으로 계산해 입력했습니다. 사실 이 부분을 자동화할 방법이 있습니다. 바로 기울기 확인<sup>gradient checking</sup>이라는 방법이죠. 기울기 확인이란 수치 미분으로 구한 결과와 역전파로 구한 결과를 비교하여 그 차이가 크면 역전파 구현에 문제가 있다고 판단하는 검증 기법입니다.</p>
+<p>앞 절에서 역전파 테스트를 작성하며 미분의 기댓값을 손으로 계산해 입력했습니다.</p>
 
-<p><img src="./img/fig_10_06.jpg" alt="그림 10-6 테스트 실행과 초록빛 OK 결과" />
+<p>사실 이 부분을 자동화할 방법이 있습니다. 바로 기울기 확인<sup>gradient checking</sup>이라는 방법이죠.</p>
+
+<p>기울기 확인이란 수치 미분으로 구한 결과와 역전파로 구한 결과를 비교하여 그 차이가 크면 역전파 구현에 문제가 있다고 판단하는 검증 기법입니다.</p>
+
+<p><img src="./img/fig_10_06_running_tests_green_ok.jpg" alt="그림 10-6 테스트 실행과 초록빛 OK 결과" />
 <em>그림 10-6: 터미널에서 모든 테스트 케이스가 통과했음을 알리는 OK 사인</em></p>
 
 <hr />
 
 <blockquote>
   <p><strong>NOTE</strong><br />
-우리는 4단계에서 수치 미분을 구현했습니다. 수치 미분은 쉽게 구현할 수 있고 거의 정확한 미분값을 내어줍니다. 따라서 수치 미분의 결과와 비교하면 역전파를 정확히 구현했는지 검증할 수 있습니다.</p>
+우리는 4단계에서 수치 미분을 구현했습니다.</p>
+
+  <p>수치 미분은 쉽게 구현할 수 있고 거의 정확한 미분값을 내어줍니다.</p>
+
+  <p>따라서 수치 미분의 결과와 비교하면 역전파를 정확히 구현했는지 검증할 수 있습니다.</p>
 </blockquote>
 
-<p><img src="./img/fig_10_07.jpg" alt="그림 10-7 역전파 backward 테스트" />
+<p><img src="./img/fig_10_07_testing_backward_chalkboard.jpg" alt="그림 10-7 역전파 backward 테스트" />
 <em>그림 10-7: 순전파뿐만 아니라 역전파로 구해진 기울기(x.grad)의 정확성 검증</em></p>
 
 <hr />
 
-<p>기울기 확인은 (기댓값을 몰라도) 입력값만 준비하면 되므로 테스트 효율을 높여줍니다. 그러니 우리 테스트에서도 기울기 확인을 이용하겠습니다. 4단계에서 구현한 <code class="language-plaintext highlighter-rouge">numerical_diff</code> 함수를 사용하면 되겠군요.</p>
+<h4 id="기울기-확인은-기댓값을-몰라도-입력값만-준비하면-되므로-테스트-효율을-높여줍니다">기울기 확인은 (기댓값을 몰라도) 입력값만 준비하면 되므로 테스트 효율을 높여줍니다.</h4>
 
-<p><img src="./img/fig_10_08.jpg" alt="그림 10-8 기울기 확인(Gradient Checking)의 원리" />
+<p>그러니 우리 테스트에서도 기울기 확인을 이용하겠습니다.</p>
+
+<p>4단계에서 구현한 <code class="language-plaintext highlighter-rouge">numerical_diff</code> 함수를 사용하면 되겠군요.</p>
+
+<p><img src="./img/fig_10_08_gradient_checking_twin_balances.jpg" alt="그림 10-8 기울기 확인(Gradient Checking)의 원리" />
 <em>그림 10-8: 수치 미분값과 역전파 미분값을 비교하여 구현의 정합성을 교차 검증</em></p>
 
 <hr />
@@ -671,16 +738,22 @@ OK
 
 <hr />
 
-<p>이어서 역전파로 미분값을 구하고, <code class="language-plaintext highlighter-rouge">numerical_diff</code> 함수를 사용해서 수치 미분으로도 계산해봅니다. 그런 다음 두 메서드로 각각 구한 값들이 거의 일치하는지 확인합니다. 이때 <code class="language-plaintext highlighter-rouge">np.allclose</code>라는 넘파이 함수를 이용합니다.</p>
+<p>이어서 역전파로 미분값을 구하고, <code class="language-plaintext highlighter-rouge">numerical_diff</code> 함수를 사용해서 수치 미분으로도 계산해봅니다.</p>
 
-<p><img src="./img/fig_10_09.jpg" alt="그림 10-9 손 계산의 번거로움 해소" />
+<p>그런 다음 두 메서드로 각각 구한 값들이 거의 일치하는지 확인합니다.</p>
+
+<p>이때 <code class="language-plaintext highlighter-rouge">np.allclose</code>라는 넘파이 함수를 이용합니다.</p>
+
+<p><img src="./img/fig_10_09_eliminating_hand_calculations.jpg" alt="그림 10-9 손 계산의 번거로움 해소" />
 <em>그림 10-9: 손으로 기댓값을 일일이 미분하지 않고 수치 미분을 참값(Ground Truth)으로 활용</em></p>
 
 <hr />
 
-<p><code class="language-plaintext highlighter-rouge">np.allclose(a, b)</code>는 ndarray 인스턴스인 $a$ 와 $b$ 의 값이 가까운지<sup>close</sup> 판정합니다. 얼마나 가까워야 가까운 것인지는 <code class="language-plaintext highlighter-rouge">np.allclose(a, b, rtol=1e-05, atol=1e-08)</code>과 같이 인수 <code class="language-plaintext highlighter-rouge">rtol</code>과 <code class="language-plaintext highlighter-rouge">atol</code>로 지정할 수 있습니다.</p>
+<h4 id="npallclosea-b는-ndarray-인스턴스인-a-와-b-의-값이-가까운지close-판정합니다"><code class="language-plaintext highlighter-rouge">np.allclose(a, b)</code>는 ndarray 인스턴스인 $a$ 와 $b$ 의 값이 가까운지<sup>close</sup> 판정합니다.</h4>
 
-<p><img src="./img/fig_10_10.jpg" alt="그림 10-10 np.allclose를 통한 부동소수점 근사 판정" />
+<p>얼마나 가까워야 가까운 것인지는 <code class="language-plaintext highlighter-rouge">np.allclose(a, b, rtol=1e-05, atol=1e-08)</code>과 같이 인수 <code class="language-plaintext highlighter-rouge">rtol</code>과 <code class="language-plaintext highlighter-rouge">atol</code>로 지정할 수 있습니다.</p>
+
+<p><img src="./img/fig_10_10_allclose_precision_micrometer.jpg" alt="그림 10-10 np.allclose를 통한 부동소수점 근사 판정" />
 <em>그림 10-10: 미세한 오차가 발생하는 부동소수점 연산에서 허용 오차 내 일치 여부 판정</em></p>
 
 <hr />
@@ -689,7 +762,7 @@ OK
 
 \[|a - b| \le (\text{atol} + \text{rtol} \times |b|)\]
 
-<p><img src="./img/fig_10_11.jpg" alt="그림 10-11 allclose 판정 수식의 이해" />
+<p><img src="./img/fig_10_11_allclose_formula_chalkboard.jpg" alt="그림 10-11 allclose 판정 수식의 이해" />
 <em>그림 10-11: 절대 오차(atol)와 상대 오차(rtol)를 결합한 판정 부등식</em></p>
 
 <hr />
@@ -706,9 +779,13 @@ OK
   </table>
 </blockquote>
 
-<p>한편 기울기 확인을 하는 대상의 계산(함수)에 따라 <code class="language-plaintext highlighter-rouge">atol</code>과 <code class="language-plaintext highlighter-rouge">rtol</code>의 값을 미세하게 조정해야 할 수도 있습니다. 기준을 정하는 데는 참고문헌 등을 참고하면 도움이 됩니다. 그럼 이상의 기울기 확인을 코드에 추가하고 테스트를 돌려봅시다.</p>
+<p>한편 기울기 확인을 하는 대상의 계산(함수)에 따라 <code class="language-plaintext highlighter-rouge">atol</code>과 <code class="language-plaintext highlighter-rouge">rtol</code>의 값을 미세하게 조정해야 할 수도 있습니다.</p>
 
-<p><img src="./img/fig_10_12.jpg" alt="그림 10-12 무작위 입력값을 활용한 테스트 확장" />
+<p>기준을 정하는 데는 참고문헌 등을 참고하면 도움이 됩니다.</p>
+
+<p>그럼 이상의 기울기 확인을 코드에 추가하고 테스트를 돌려봅시다.</p>
+
+<p><img src="./img/fig_10_12_random_inputs_golden_dice.jpg" alt="그림 10-12 무작위 입력값을 활용한 테스트 확장" />
 <em>그림 10-12: np.random.rand로 생성한 임의의 입력값으로 테스트의 일반성 확보</em></p>
 
 <hr />
@@ -728,16 +805,24 @@ OK
 
 <h2 id="104-테스트-정리">10.4 테스트 정리</h2>
 
-<p>DeZero 개발에 한정한다면 테스트에 관한 지식은 이 정도면 충분합니다. 여기서 배운 것만으로도 DeZero 테스트 코드를 작성하는 데 아무런 무리가 없을 겁니다. 다만 앞으로 이 교제에서는 테스트에 대한 직접적인 설명은 생략하고 진행하겠습니다. 만약 테스트 코드가 필요하다고 느껴지면 스스로 추가해보기 바랍니다.</p>
+<p>DeZero 개발에 한정한다면 테스트에 관한 지식은 이 정도면 충분합니다.</p>
 
-<p><img src="./img/fig_10_13.jpg" alt="그림 10-13 3개 테스트 전체 통과 트로피" />
+<p>여기서 배운 것만으로도 DeZero 테스트 코드를 작성하는 데 아무런 무리가 없을 겁니다. 다만 앞으로 이 교제에서는 테스트에 대한 직접적인 설명은 생략하고 진행하겠습니다. 만약 테스트 코드가 필요하다고 느껴지면 스스로 추가해보기 바랍니다.</p>
+
+<p><img src="./img/fig_10_13_all_tests_passing_trophy.jpg" alt="그림 10-13 3개 테스트 전체 통과 트로피" />
 <em>그림 10-13: 순전파, 수동 기댓값 역전파, 기울기 확인 테스트 모두 완벽 통과</em></p>
 
 <hr />
 
-<p>또한 테스트 파일들은 하나의 장소에 모아 관리하는 것이 일반적입니다. 이 교제에서도 테스트 코드는 tests 디렉터리에 모아뒀습니다(테스트용 편의 기능도 추가로 구현해뒀습니다). 관심 있는 분은 해당 테스트 코드를 찾아보세요. 이번 단계에서 작성한 것과 비슷한 코드를 많이 발견할 수 있을 겁니다.</p>
+<p>또한 테스트 파일들은 하나의 장소에 모아 관리하는 것이 일반적입니다.</p>
 
-<p><img src="./img/fig_10_14.jpg" alt="그림 10-14 unittest discover 명령을 통한 자동 탐색" />
+<p>이 교제에서도 테스트 코드는 tests 디렉터리에 모아뒀습니다(테스트용 편의 기능도 추가로 구현해뒀습니다).</p>
+
+<p>관심 있는 분은 해당 테스트 코드를 찾아보세요.</p>
+
+<p>이번 단계에서 작성한 것과 비슷한 코드를 많이 발견할 수 있을 겁니다.</p>
+
+<p><img src="./img/fig_10_14_test_discover_searchlight.jpg" alt="그림 10-14 unittest discover 명령을 통한 자동 탐색" />
 <em>그림 10-14: 디렉터리 내 모든 테스트 파일을 일괄 발굴하여 실행하는 discover 기능</em></p>
 
 <hr />
@@ -747,23 +832,36 @@ OK
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>python <span class="nt">-m</span> unittest discover tests
 </code></pre></div></div>
 
-<p>이와 같이 <code class="language-plaintext highlighter-rouge">discover</code>라는 하위 명령을 사용하면 <code class="language-plaintext highlighter-rouge">discover</code> 다음에 지정한 디렉터리에서 테스트 파일이 있는지 검색합니다. 그리고 발견한 모든 파일을 실행하는 것이죠. 기본적으로는 지정한 디렉터리에서 이름이 <code class="language-plaintext highlighter-rouge">test*.py</code> 형태인 파일을 테스트 파일로 인식합니다(변경할 수 있습니다). 이것으로 tests 디렉터리에 들어 있는 모든 테스트를 한 번에 실행할 수 있습니다.</p>
+<p>이와 같이 <code class="language-plaintext highlighter-rouge">discover</code>라는 하위 명령을 사용하면 <code class="language-plaintext highlighter-rouge">discover</code> 다음에 지정한 디렉터리에서 테스트 파일이 있는지 검색합니다.</p>
+
+<p><img src="./img/fig_10_14_b_test_suite_runner_procession.jpg" alt="그림 10-14-b 일괄 탐색과 자동 실행 퍼레이드" />
+<em>그림 10-14-b: tests 디렉터리 내의 모든 test</em>.py 모듈을 자동으로 수집하여 일괄 실행하는 discover 러너*</p>
+
+<hr />
+
+<p>그리고 발견한 모든 파일을 실행하는 것이죠.</p>
+
+<p>기본적으로는 지정한 디렉터리에서 이름이 <code class="language-plaintext highlighter-rouge">test*.py</code> 형태인 파일을 테스트 파일로 인식합니다(변경할 수 있습니다).</p>
+
+<p>이것으로 tests 디렉터리에 들어 있는 모든 테스트를 한 번에 실행할 수 있습니다.</p>
 
 <hr />
 
 <blockquote>
   <p><strong>NOTE</strong><br />
-DeZero의 tests 디렉터리에는 정답을 체이너(Chainer)에게 묻는 테스트도 있습니다. 예를 들어 시그모이드 함수를 테스트하는 경우 동일한 입력으로 DeZero와 Chainer 각각에 계산을 시키고 출력값이 거의 같은지 비교합니다.</p>
+DeZero의 tests 디렉터리에는 정답을 체이너(Chainer)에게 묻는 테스트도 있습니다.</p>
+
+  <p>예를 들어 시그모이드 함수를 테스트하는 경우 동일한 입력으로 DeZero와 Chainer 각각에 계산을 시키고 출력값이 거의 같은지 비교합니다.</p>
 </blockquote>
 
-<p><img src="./img/fig_10_15.jpg" alt="그림 10-15 지속적 통합(CI) 환경과의 연계" />
+<p><img src="./img/fig_10_15_continuous_integration_cloud.jpg" alt="그림 10-15 지속적 통합(CI) 환경과의 연계" />
 <em>그림 10-15: 깃허브 액션 등 CI 서버와 결합하여 코드 커밋마다 자동으로 테스트 수행</em></p>
 
 <hr />
 
 <p>또한 DeZero의 깃허브 저장소는 트래비스 CI<sup>Travis CI</sup>라는 지속적 통합<sup>continuous integration (CI)</sup> 서비스와 연계해뒀습니다. DeZero의 깃허브 저장소에서 코드를 푸시<sup>push</sup>하고, 풀 리퀘스트<sup>pull request</sup>를 병합하고, 매시간 자동으로 테스트가 실행되도록 설정해놓은 것이죠. 테스트 결과에 문제가 있으면 메일 등으로 보고됩니다.</p>
 
-<p><img src="./img/fig_10_16.jpg" alt="그림 10-16 테스트 코드가 제공하는 안전망" />
+<p><img src="./img/fig_10_16_test_as_safety_net.jpg" alt="그림 10-16 테스트 코드가 제공하는 안전망" />
 <em>그림 10-16: 코드베이스가 거대해져도 리팩터링을 두려워하지 않게 해주는 든든한 안전망</em></p>
 
 <hr />
@@ -773,22 +871,30 @@ DeZero의 tests 디렉터리에는 정답을 체이너(Chainer)에게 묻는 테
 <p><img src="./img/fig-1374.jpg" alt="그림 10-1 DeZero의 깃허브 저장소 첫 화면" /><br />
 <em>그림 10-1 DeZero의 깃허브 저장소 첫 화면</em></p>
 
-<p>지금의 DeZero는 작은 소프트웨어지만 앞으로 더 큰 소프트웨어로 성장시킬 것입니다. 여기에서 설명한 테스트 방식을 도입하면 성장 과정에서도 코드의 신뢰성을 꾸준히 유지할 수 있을 것입니다.</p>
+<p>지금의 DeZero는 작은 소프트웨어지만 앞으로 더 큰 소프트웨어로 성장시킬 것입니다.</p>
+
+<p>여기에서 설명한 테스트 방식을 도입하면 성장 과정에서도 코드의 신뢰성을 꾸준히 유지할 수 있을 것입니다.</p>
 
 <hr />
 
 <p>축하합니다! 이상으로 제1고지를 무사히 점령했습니다!</p>
 
-<p><img src="./img/fig_10_17.jpg" alt="그림 10-17 자신감 있는 리팩터링의 원동력" />
+<p><img src="./img/fig_10_17_confident_refactoring_gears.jpg" alt="그림 10-17 자신감 있는 리팩터링의 원동력" />
 <em>그림 10-17: 테스트 스위트의 초록 신호등을 믿고 구조를 과감하게 개선하는 힘</em></p>
 
 <hr />
 
 <p>★ ★ ★ ★ ★ ★ ★</p>
 
-<p>여기까지 우리는 조금씩 그리고 꾸준히 DeZero를 만들어왔습니다. ‘작은 상자(변수)’밖에 없는 모습으로 탄생했지만 지금은 역전파라는 복잡한 알고리즘도 수행할 만큼 성장했습니다. 그러나 현재의 역전파 구현은 간단한 계산밖에 처리하지 못합니다. 그래서 다음 고지에서는 더 복잡한 계산에도 적용할 수 있도록 DeZero를 확장해보겠습니다.</p>
+<p>여기까지 우리는 조금씩 그리고 꾸준히 DeZero를 만들어왔습니다.</p>
 
-<p><img src="./img/fig_10_18.jpg" alt="그림 10-18 제1고지 완등과 제2고지로의 도약" />
+<p>‘작은 상자(변수)’밖에 없는 모습으로 탄생했지만 지금은 역전파라는 복잡한 알고리즘도 수행할 만큼 성장했습니다.</p>
+
+<p>그러나 현재의 역전파 구현은 간단한 계산밖에 처리하지 못합니다.</p>
+
+<p>그래서 다음 고지에서는 더 복잡한 계산에도 적용할 수 있도록 DeZero를 확장해보겠습니다.</p>
+
+<p><img src="./img/fig_10_18_stage_1_complete_summit.jpg" alt="그림 10-18 제1고지 완등과 제2고지로의 도약" />
 <em>그림 10-18: 10단계를 거쳐 미분 자동 계산의 기초를 확립하고 자연스러운 코드로 도약</em></p>
 
 
@@ -871,27 +977,35 @@ DeZero의 tests 디렉터리에는 정답을 체이너(Chainer)에게 묻는 테
         </div>
       </div>
 
-      <!-- 학습 로드맵 바로가기 -->
+      <!-- 관련 학습 사이트 -->
       <div class="col-6 col-lg-4">
-        <h6 class="fw-bold text-dark mb-3">🗺️ 학습 로드맵</h6>
-        <div class="row g-2 small">
-          <div class="col-6">
-            <ul class="list-unstyled mb-0">
-              <li class="mb-2"><a href="/00_%ED%94%84%EB%A1%A4%EB%A1%9C%EA%B7%B8/" class="text-secondary text-decoration-none hover-primary">00. 프롤로그</a></li>
-              <li class="mb-2"><a href="/01_%EB%AF%B8%EB%B6%84_%EC%9E%90%EB%8F%99_%EA%B3%84%EC%82%B0/" class="text-secondary text-decoration-none hover-primary">01. 제1고지 미분 계산</a></li>
-              <li class="mb-2"><a href="/02_%EC%9E%90%EC%97%B0%EC%8A%A4%EB%9F%AC%EC%9A%B4_%EC%BD%94%EB%93%9C%EB%A1%9C/" class="text-secondary text-decoration-none hover-primary">02. 제2고지 자연스러운 코드</a></li>
-              <li class="mb-2"><a href="/03_%EA%B3%A0%EC%B0%A8_%EB%AF%B8%EB%B6%84_%EA%B3%84%EC%82%B0/" class="text-secondary text-decoration-none hover-primary">03. 제3고지 고차 미분</a></li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <ul class="list-unstyled mb-0">
-              <li class="mb-2"><a href="/04_%EC%8B%A0%EA%B2%BD%EB%A7%9D_%EB%A7%8C%EB%93%A4%EA%B8%B0/" class="text-secondary text-decoration-none hover-primary">04. 제4고지 신경망 구축</a></li>
-              <li class="mb-2"><a href="/05_DeZero%EC%9D%98_%EB%8F%84%EC%A0%84/" class="text-secondary text-decoration-none hover-primary">05. 제5고지 GPU·CNN·RNN</a></li>
-              <li class="mb-2"><a href="/06_%EB%B6%80%EB%A1%9D/" class="text-secondary text-decoration-none hover-primary">06. 부록 & API</a></li>
-              <li class="mb-2"><a href="/curriculum/" class="text-dark fw-bold text-decoration-none hover-primary">📋 전체 60단계 목차</a></li>
-            </ul>
-          </div>
-        </div>
+        <h6 class="fw-bold text-dark mb-3">🔗 관련 학습 사이트</h6>
+        <ul class="list-unstyled small mb-0">
+          <li class="mb-2">
+            <a href="https://ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🤖</span>
+              <span><strong>인공지능기초</strong> <span class="text-muted ms-1">(ai.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://rl.ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🎯</span>
+              <span><strong>강화학습</strong> <span class="text-muted ms-1">(rl.ai.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://python.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🐍</span>
+              <span><strong>파이썬</strong> <span class="text-muted ms-1">(python.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://pytoch.ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🔥</span>
+              <span><strong>파이토치</strong> <span class="text-muted ms-1">(pytoch.ai.jiny.dev)</span></span>
+            </a>
+          </li>
+        </ul>
       </div>
 
       <!-- 강의 안내 및 커뮤니티 -->
@@ -899,6 +1013,7 @@ DeZero의 tests 디렉터리에는 정답을 체이너(Chainer)에게 묻는 테
         <h6 class="fw-bold text-dark mb-3">🧭 안내 및 정보</h6>
         <ul class="list-unstyled small mb-0">
           <li class="mb-2"><a href="/character/" class="text-secondary text-decoration-none hover-primary">🧭 탐험대 캐릭터 소개</a></li>
+          <li class="mb-2"><a href="/curriculum/" class="text-secondary text-decoration-none hover-primary">📋 전체 60단계 목차</a></li>
           <li class="mb-2"><a href="/#book-ref" class="text-secondary text-decoration-none hover-primary">📚 참고 교재 (한빛미디어)</a></li>
           <li class="mb-2"><a href="https://github.com/jinydev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary">💻 GitHub 저장소</a></li>
           <li class="mb-2"><a href="mailto:infohojin@naver.com" class="text-secondary text-decoration-none hover-primary">✉️ 문의 및 피드백 (Contact)</a></li>

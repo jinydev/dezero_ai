@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, 1man, dorothy, 1girl, toto, 1dog, wobbly plate tower, recursion call stack, flat conveyor belt, while loop, pure solid white background, clean anime line art, soft 2d cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Professor Hojin (early 40s, smooth youthful skin without wrinkles, stylish salt-and-pepper short hair, thin wire-rim glasses, plain dark charcoal navy polo shirt NO badges, blue jeans) and Dorothy (chestnut pigtails, denim overalls) contrast recursion with iteration. On the left, a dangerously tall, wobbling stack of blue function plates labeled 'Call Stack' threatens to topple (Recursion). On the right, Tinman smoothly manages a flat, safe conveyor belt loop labeled 'while funcs:' that neatly processes one task at a time with zero risk of stack overflow. Toto (white puppy, sky-blue bandana) happily wags his tail by the conveyor belt. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at base, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, dorothy, toto, call stack tower vs while loop conveyor
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Recursion vs While Loop: Preventing Stack Overflow via Flat Iterative Queue

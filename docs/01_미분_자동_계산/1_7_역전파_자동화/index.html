@@ -496,14 +496,25 @@
         <div class="bd-content ps-lg-4">
             <h1 id="7단계-역전파-자동화">7단계 역전파 자동화</h1>
 
-<p>이전 단계에서 역전파를 동작시키는 데 성공했습니다. 그러나 역전파 계산 코드를 수동으로 조합해야 했습니다. 새로운 계산을 할 때마다 역전파 코드를 직접 작성해야 한다는 뜻이죠.</p>
-
-<p><img src="./img/fig_07_01.jpg" alt="그림 7-1 수동 역전파의 한계와 자동화의 필요성" />
-<em>그림 7-1: 수동으로 연결하기 번거로운 역전파 호출을 자동화하려는 이유</em></p>
+<p><img src="./1_7_역전파_자동화.png" alt="1_7_역전파_자동화" />
+<strong>그림 07-Intro</strong> 출력 변수와 창조자 함수(creator)의 결합을 통해 단 한 번의 y.backward()로 작동하는 자동 역전파 (이호진 교수와 도로시 탐험대)</p>
 
 <hr />
 
+<p>이전 단계에서 역전파를 동작시키는 데 성공했습니다.</p>
+
+<p>그러나 역전파 계산 코드를 수동으로 조합해야 했습니다.</p>
+
+<hr />
+
+<p>새로운 계산을 할 때마다 역전파 코드를 직접 작성해야 한다는 뜻이죠.</p>
+
+<p><img src="./img/fig_07_01_manual_backward_tedium.jpg" alt="그림 7-1 수동 역전파의 한계와 자동화의 필요성" />
+<em>그림 7-1: 수동으로 연결하기 번거로운 역전파 호출을 자동화하려는 이유</em></p>
+
 <p>[그림 7-1]처럼 계산 그래프가 여러 개라면 각각의 계산에 맞게 역전파 코드를 수동으로 따로따로 작성해야 합니다.</p>
+
+<hr />
 
 <p>그러다 보면 실수가 생길 수 있고, 무엇보다도 지루할 것입니다.</p>
 
@@ -512,11 +523,20 @@
 
 <hr />
 
-<p>지루한 일은 파이썬에게 시키자고요!</p>
+<h4 id="지루한-일은-파이썬에게-시키자고요">지루한 일은 파이썬에게 시키자고요!</h4>
 
-<p>그래서 이제부터 역전파를 자동화하려 합니다. 더 정확히 말하면, 일반적인 계산(순전파)을 한 번만 해주면 어떤 계산이라도 상관없이 역전파가 자동으로 이루어지는 구조를 만들 것입니다. 두둥! 지금부터가 바로 Define-by-Run의 핵심을 건드리는 내용입니다!</p>
+<p>그래서 이제부터 역전파를 자동화하려 합니다.</p>
 
-<p><img src="./img/fig_07_02.jpg" alt="그림 7-2 Define-by-Run 동적 계산 그래프의 구상" />
+<p>더 정확히 말하면, 일반적인 계산(순전파)을 한 번만 해주면 어떤 계산이라도 상관없이 역전파가 자동으로 이루어지는 구조를 만들 것입니다.</p>
+
+<p><img src="./img/fig_07_01_b_define_by_run_dynamic_graph.jpg" alt="그림 7-0 Define-by-Run 동적 계산 그래프" />
+<em>그림 7-0: 계산이 실행되는 과정에서 실시간으로 계산 그래프가 직조되는 Define-by-Run 철학</em></p>
+
+<hr />
+
+<p>두둥! 지금부터가 바로 Define-by-Run의 핵심을 건드리는 내용입니다!</p>
+
+<p><img src="./img/fig_07_02_define_by_run_vision.jpg" alt="그림 7-2 Define-by-Run 동적 계산 그래프의 구상" />
 <em>그림 7-2: 순전파를 실행하는 순간 동적으로 계산 그래프를 연결하는 Define-by-Run</em></p>
 
 <hr />
@@ -526,23 +546,23 @@
 Define-by-Run이란 딥러닝에서 수행하는 계산들을 계산 시점에 ‘연결’하는 방식으로, ‘동적 계산 그래프’라고도 합니다. Define-by-Run의 개념과 장점은 제2고지 마지막의 ‘칼럼: Define-by-Run’에서 자세히 설명합니다.</p>
 </blockquote>
 
-<p><img src="./img/fig_07_03.jpg" alt="그림 7-3 실행 시점에 생성되는 동적 연결" />
+<p><img src="./img/fig_07_03_runtime_graph_generation_note.jpg" alt="그림 7-3 실행 시점에 생성되는 동적 연결" />
 <em>그림 7-3: 실제 연산이 일어나는 런타임에 유연하게 조립되는 동적 그래프 메커니즘</em></p>
 
 <hr />
 
 <p>그런데 [그림 7-1]의 계산 그래프들은 모두 일직선으로 늘어선 계산입니다.</p>
 
-<p>따라서 함수의 순서를 리스트 형태로 저장해두면 나중에 거꾸로 추적하는 식으로 역전파를 자동화할 수 있습니다.</p>
+<p>따라서 함수의 순서를 리스트 형태로 저장해두면 나중에 <strong>거꾸로 추적하는 식</strong>으로 역전파를 자동화할 수 있습니다.</p>
 
-<p><img src="./img/fig_07_04.jpg" alt="그림 7-4 일직선으로 늘어선 단순 계산 그래프" />
+<p><img src="./img/fig_07_04_straight_line_graph.jpg" alt="그림 7-4 일직선으로 늘어선 단순 계산 그래프" />
 <em>그림 7-4: 분기 없이 일렬로 순차 연결된 선형 계산 그래프의 특징</em></p>
 
 <hr />
 
 <p>그러나 <code class="language-plaintext highlighter-rouge">분기</code>가 있는 계산 그래프나 같은 변수가 <code class="language-plaintext highlighter-rouge">여러 번 사용</code>되는 복잡한 계산 그래프는 단순히 리스트로 저장하는 식으로는 풀 수 없습니다.</p>
 
-<p><img src="./img/fig_07_05.jpg" alt="그림 7-5 단순 리스트 방식의 한계" />
+<p><img src="./img/fig_07_05_list_limitations_branching_graphs.jpg" alt="그림 7-5 단순 리스트 방식의 한계" />
 <em>그림 7-5: 복잡한 분기와 재사용이 발생하는 그래프에서는 단순 리스트로 해결할 수 없음</em></p>
 
 <p>우리 목표는 아무리 복잡한 계산 그래프라 하더라도 역전파를 자동으로 할 수 있는 구조를 마련하는 것입니다.</p>
@@ -551,38 +571,59 @@ Define-by-Run이란 딥러닝에서 수행하는 계산들을 계산 시점에 �
 
 <blockquote>
   <p><strong>CAUTION</strong><br />
-사실 리스트 데이터 구조를 응용하면 수행한 계산을 리스트에 추가해 나가는 것만으로 어떠한 계산 그래프의 역전파도 제대로 해낼 수 있습니다. 이 데이터 구조를 웬거트 리스트<sup>Wengert List</sup>(혹은 테이프<sup>tape</sup>)라고 합니다. 이 교제에서는 웬거트 리스트에 대한 설명은 하지 않으니 관심 있는 분은 참고문헌 [2]와 [3]을 참고하시고, 웬거트 리스트를 활용하는 Define-by-Run의 장점은 참고문헌 [4]를 참고해주세요.</p>
+사실 리스트 데이터 구조를 응용하면 수행한 계산을 리스트에 추가해 나가는 것만으로 어떠한 계산 그래프의 역전파도 제대로 해낼 수 있습니다.</p>
 </blockquote>
 
-<p><img src="./img/fig_07_06.jpg" alt="그림 7-6 웬거트 리스트(테이프) 방식 참고" />
+<hr />
+
+<blockquote>
+  <p>이 데이터 구조를 웬거트 리스트<sup>Wengert List</sup>(혹은 테이프<sup>tape</sup>)라고 합니다.</p>
+
+  <p>이 교제에서는 웬거트 리스트에 대한 설명은 하지 않으니 관심 있는 분은 참고문헌 [2]와 [3]을 참고하시고, 웬거트 리스트를 활용하는 Define-by-Run의 장점은 참고문헌 [4]를 참고해주세요.</p>
+</blockquote>
+
+<p><img src="./img/fig_07_06_wengert_list_tape_caution.jpg" alt="그림 7-6 웬거트 리스트(테이프) 방식 참고" />
 <em>그림 7-6: 연산 순서를 테이프에 기록하듯 관리하는 웬거트 리스트(Wengert List)</em></p>
 
 <hr />
 
 <h2 id="71-역전파-자동화의-시작">7.1 역전파 자동화의 시작</h2>
 
-<p>역전파 자동화로 가는 길은 변수와 함수의 ‘관계’를 이해하는 데서 출발합니다. 우선 함수 관점에서 ‘함수는 변수를 어떻게 바라볼까’를 생각해봅시다.</p>
+<p>역전파 자동화로 가는 길은 변수와 <strong>함수의 ‘관계’</strong>를 이해하는 데서 출발합니다.</p>
 
-<p><img src="./img/fig_07_07.jpg" alt="그림 7-7 함수의 관점: 입력 변수와 출력 변수" />
+<p>우선 함수 관점에서 ‘함수는 변수를 어떻게 바라볼까’를 생각해봅시다.</p>
+
+<p><img src="./img/fig_07_07_function_perspective_inputs_outputs.jpg" alt="그림 7-7 함수의 관점: 입력 변수와 출력 변수" />
 <em>그림 7-7: Function은 입력 변수를 받아 새로운 출력 변수를 생성한다</em></p>
 
 <hr />
 
-<p>함수 입장에서 변수는 ‘입력’과 ‘출력’에 쓰입니다.</p>
+<h4 id="함수-입장에서-변수는-입력과-출력에-쓰입니다">함수 입장에서 변수는 ‘입력’과 ‘출력’에 쓰입니다.</h4>
 
-<p>즉, [그림 7-2]의 왼쪽과 같이 함수에게 변수는 ‘입력 변수(input)’와 ‘출력 변수(output)’로서 존재합니다(그림의 점선은 참조<sup>reference</sup>를 뜻합니다).</p>
+<p>즉, [그림 7-2]의 왼쪽과 같이 함수에게 변수는 ‘입력 변수(input)’와 ‘출력 변수(output)’로서 존재합니다.</p>
+
+<p>(그림의 점선은 참조<sup>reference</sup>를 뜻합니다).</p>
 
 <p>그림 7-2 함수 입장에서 본 변수와의 관계(왼쪽)와 변수 입장에서 본 함수와의 관계(오른쪽)
 <img src="./img/fig-1350.jpg" alt="그림 7-2" /></p>
 
 <hr />
 
-<p>변수 관점에서 함수는 어떤 존재일까요?</p>
+<h4 id="변수-관점에서-함수는-어떤-존재일까요">변수 관점에서 함수는 어떤 존재일까요?</h4>
 
-<p>여기서 눈여겨볼 점은 변수는 함수에 의해 ‘만들어진다’라는 것입니다. 즉, 변수에게 있어 함수는 ‘창조자<sup>creator</sup>’ 혹은 ‘부모’입니다. 창조자인 함수가 존재하지 않는 변수는 함수 이외의 존재, 예컨대 사용자에 의해 만들어진 변수로 간주됩니다.</p>
+<p>여기서 눈여겨볼 점은 변수는 함수에 의해 ‘만들어진다’라는 것입니다.</p>
 
-<p><img src="./img/fig_07_08.jpg" alt="그림 7-8 변수의 관점: 함수는 나를 낳은 창조자(Creator)" />
+<p>즉, 변수에게 있어 함수는 ‘창조자<sup>creator</sup>’ 혹은 ‘부모’입니다.</p>
+
+<p><img src="./img/fig_07_08_variable_perspective_creator_parent.jpg" alt="그림 7-8 변수의 관점: 함수는 나를 낳은 창조자(Creator)" />
 <em>그림 7-8: 변수에게 있어 함수는 자신을 만들어낸 창조자(creator/부모)이다</em></p>
+
+<hr />
+
+<p>창조자인 함수가 존재하지 않는 변수는 함수 이외의 존재, 예컨대 <strong>사용자에 의해 만들어진 변수</strong>로 간주됩니다.</p>
+
+<p><img src="./img/fig_07_10_b_creator_umbilical_cord.jpg" alt="그림 7-10-b creator 태그 연결" />
+<em>그림 7-10-b: 변수가 탄생할 때 생성자 함수를 가리키는 황금빛 creator 태그 연결 (output.creator = self)</em></p>
 
 <hr />
 
@@ -590,7 +631,7 @@ Define-by-Run이란 딥러닝에서 수행하는 계산들을 계산 시점에 �
 
 <p>여기서는 일반적인 계산(순전파)이 이루어지는 시점에 ‘관계’를 맺어주도록(즉, 함수와 변수를 연결 짓도록) 만들겠습니다.</p>
 
-<p><img src="./img/fig_07_09.jpg" alt="그림 7-9 순전파 시점에 함수와 변수의 관계 맺기" />
+<p><img src="./img/fig_07_09_forward_binding_relationship.jpg" alt="그림 7-9 순전파 시점에 함수와 변수의 관계 맺기" />
 <em>그림 7-9: 순전파 계산이 일어나는 순간 변수에 창조자 링크를 동적으로 연결</em></p>
 
 <hr />
@@ -608,7 +649,9 @@ Define-by-Run이란 딥러닝에서 수행하는 계산들을 계산 시점에 �
         <span class="n">self</span><span class="p">.</span><span class="n">creator</span> <span class="o">=</span> <span class="n">func</span>
 </code></pre></div></div>
 
-<p>creator라는 인스턴스 변수를 추가했습니다. 그리고 creator를 설정할 수 있도록 <code class="language-plaintext highlighter-rouge">set_creator</code> 메서드도 추가합니다.</p>
+<p>creator라는 인스턴스 변수를 추가했습니다.</p>
+
+<p>그리고 creator를 설정할 수 있도록 <code class="language-plaintext highlighter-rouge">set_creator</code> 메서드도 추가합니다.</p>
 
 <hr />
 
@@ -628,26 +671,32 @@ Define-by-Run이란 딥러닝에서 수행하는 계산들을 계산 시점에 �
 
 <hr />
 
-<p>순전파를 계산하면 그 결과로 output이라는 Variable 인스턴스가 생성됩니다. 이때 생성된 output에 ‘내가 너의 창조자임’을 기억시킵니다. 이 부분이 ‘연결’을 동적으로 만드는 기법의 핵심입니다. 그런 다음 앞으로를 위해 output을 인스턴스 변수에 저장했습니다.</p>
+<p>순전파를 계산하면 그 결과로 output이라는 Variable 인스턴스가 생성됩니다.</p>
 
-<p><img src="./img/fig_07_10.jpg" alt="그림 7-10 output.creator = self 기억 메커니즘" />
+<p>이때 생성된 output에 ‘내가 너의 창조자임’을 기억시킵니다. 이 부분이 ‘연결’을 동적으로 만드는 기법의 핵심입니다.</p>
+
+<p>그런 다음 앞으로를 위해 output을 인스턴스 변수에 저장했습니다.</p>
+
+<p><img src="./img/fig_07_10_output_creator_self_binding.jpg" alt="그림 7-10 output.creator = self 기억 메커니즘" />
 <em>그림 7-10: 생성된 출력 변수에 자신(함수)을 창조자로 각인시키는 연결 기법</em></p>
 
 <hr />
 
 <blockquote>
   <p><strong>NOTE</strong><br />
-DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실제 계산이 이루어질 때 변수(상자)에 관련 ‘연결’을 기록하는 방식으로 만들어집니다. 체이너와 파이토치의 방식도 이와 비슷합니다.</p>
+DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실제 계산이 이루어질 때 변수(상자)에 관련 ‘연결’을 기록하는 방식으로 만들어집니다.</p>
+
+  <p>체이너와 파이토치의 방식도 이와 비슷합니다.</p>
 </blockquote>
 
-<p><img src="./img/fig_07_11.jpg" alt="그림 7-11 Chainer와 PyTorch의 동적 그래프 철학" />
+<p><img src="./img/fig_07_11_chainer_pytorch_heritage_note.jpg" alt="그림 7-11 Chainer와 PyTorch의 동적 그래프 철학" />
 <em>그림 7-11: 현대 딥러닝 프레임워크의 근간이 된 Define-by-Run 철학</em></p>
 
 <hr />
 
 <p>이와 같이 ‘연결’된 Variable과 Function이 있다면 계산 그래프를 거꾸로 거슬러 올라갈 수 있습니다.</p>
 
-<p><img src="./img/fig_07_12.jpg" alt="그림 7-12 creator 연결을 따라 거꾸로 거슬러 올라가기" />
+<p><img src="./img/fig_07_12_creator_link_traversal.jpg" alt="그림 7-12 creator 연결을 따라 거꾸로 거슬러 올라가기" />
 <em>그림 7-12: 출력 y에서 creator를 추적하여 이전 함수와 입력 변수로 이동하는 역방향 탐색</em></p>
 
 <hr />
@@ -659,9 +708,8 @@ DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실�
 <span class="n">C</span> <span class="o">=</span> <span class="nc">Square</span><span class="p">()</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="nc">Variable</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
-</code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="nc">A</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nc">A</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nc">B</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="nc">C</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 
@@ -676,18 +724,28 @@ DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실�
 
 <hr />
 
-<p>우선 assert 문이 무엇인지 설명해야겠네요.</p>
+<h4 id="우선-assert-문이-무엇인지-설명해야겠네요">우선 assert 문이 무엇인지 설명해야겠네요.</h4>
 
-<p>먼저 ‘assert’는 우리말로 ‘단호하게 주장하다’, ‘단언하다’라는 뜻입니다. assert 문은 <code class="language-plaintext highlighter-rouge">assert ...</code> 형태로 사용합니다. 여기서 <code class="language-plaintext highlighter-rouge">...</code> 부분이 ‘주장’에 해당하는 내용으로, 그 평가 결과가 True가 아니면 예외가 발생합니다. 따라서 assert 문은 조건을 충족하는지 여부를 확인하는 데 사용할 수 있습니다. 참고로 앞의 코드는 문제없이(예외가 발생하지 않고) 실행되므로 assert 문의 조건을 모두 충족함을 알 수 있습니다.</p>
+<p>먼저 ‘assert’는 우리말로 ‘단호하게 주장하다’, ‘단언하다’라는 뜻입니다.</p>
 
-<p><img src="./img/fig_07_13.jpg" alt="그림 7-13 assert 문을 통한 창조자 타입 안전성 검증" />
+<p>assert 문은 <code class="language-plaintext highlighter-rouge">assert ...</code> 형태로 사용합니다. 여기서 <code class="language-plaintext highlighter-rouge">...</code> 부분이 ‘주장’에 해당하는 내용으로, 그 평가 결과가 True가 아니면 예외가 발생합니다.</p>
+
+<hr />
+
+<p>따라서 assert 문은 조건을 충족하는지 여부를 확인하는 데 사용할 수 있습니다.</p>
+
+<p>참고로 앞의 코드는 문제없이(예외가 발생하지 않고) 실행되므로 assert 문의 조건을 모두 충족함을 알 수 있습니다.</p>
+
+<p><img src="./img/fig_07_13_assert_statement_guarantee.jpg" alt="그림 7-13 assert 문을 통한 창조자 타입 안전성 검증" />
 <em>그림 7-13: 연결된 creator가 Function 인스턴스인지 엄격하게 검증하는 assert 문</em></p>
 
 <hr />
 
-<p>앞의 코드가 보여주듯 Variable의 인스턴스 변수 <code class="language-plaintext highlighter-rouge">creator</code>에서 바로 앞의 Function으로 건너갑니다. 그리고 그 Function의 인스턴스 변수 <code class="language-plaintext highlighter-rouge">input</code>에서 다시 하나 더 앞의 Variable로 건너가죠.</p>
+<p>앞의 코드가 보여주듯 Variable의 인스턴스 변수 <code class="language-plaintext highlighter-rouge">creator</code>에서 바로 앞의 Function으로 건너갑니다.</p>
 
-<p><img src="./img/fig_07_14.jpg" alt="그림 7-14 creator의 input 속성으로 입력 변수 추출" />
+<p>그리고 그 Function의 인스턴스 변수 <code class="language-plaintext highlighter-rouge">input</code>에서 다시 하나 더 앞의 Variable로 건너가죠.</p>
+
+<p><img src="./img/fig_07_14_accessing_creator_input.jpg" alt="그림 7-14 creator의 input 속성으로 입력 변수 추출" />
 <em>그림 7-14: 창조자 함수의 input 변수로부터 역전파에 필요한 입력값을 손쉽게 접근</em></p>
 
 <hr />
@@ -697,22 +755,32 @@ DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실�
 <p>그림 7-3 계산 그래프 역추적($y$ 에서 시작)
 <img src="./img/fig-1352.jpg" alt="그림 7-3" /></p>
 
-<p>[그림 7-3]과 같이 우리 계산 그래프는 함수와 변수 사이의 연결로 구성됩니다. 그리고 중요한 점은 이 ‘연결’이 실제로 계산을 수행하는 시점에 (순전파로 데이터를 흘려보낼 때) 만들어진다는 것입니다. 이러한 특성에 이름을 붙인 것이 Define-by-Run입니다. 데이터를 흘려보냄으로써(Run함으로써) 연결이 규정된다는(Define된다는) 뜻입니다.</p>
+<p>[그림 7-3]과 같이 우리 계산 그래프는 함수와 변수 사이의 연결로 구성됩니다.</p>
+
+<p>그리고 중요한 점은 이 ‘연결’이 실제로 계산을 수행하는 시점에 (순전파로 데이터를 흘려보낼 때) 만들어진다는 것입니다. 이러한 특성에 이름을 붙인 것이 Define-by-Run입니다.</p>
+
+<p>데이터를 흘려보냄으로써(Run함으로써) 연결이 규정된다는(Define된다는) 뜻입니다.</p>
 
 <hr />
 
-<p>또한 [그림 7-3]과 같이 노드들의 연결로 이루어진 데이터 구조를 ‘링크드 리스트<sup>linked list</sup>‘라고 합니다. 노드는 그래프를 구성하는 요소이며, 링크<sup>link</sup>는 다른 노드를 가리키는 참조를 뜻합니다. 결국 우리는 ‘링크드 리스트’라는 데이터 구조를 이용해 계산 그래프를 표현하고 있는 것입니다.</p>
+<p>또한 [그림 7-3]과 같이 노드들의 연결로 이루어진 데이터 구조를 ‘링크드 리스트<sup>linked list</sup>‘라고 합니다.</p>
 
-<p><img src="./img/fig_07_15.jpg" alt="그림 7-15 링크드 리스트로 표현되는 계산 그래프" />
+<p>노드는 그래프를 구성하는 요소이며, 링크<sup>link</sup>는 다른 노드를 가리키는 참조를 뜻합니다.</p>
+
+<p>결국 우리는 ‘링크드 리스트’라는 데이터 구조를 이용해 계산 그래프를 표현하고 있는 것입니다.</p>
+
+<p><img src="./img/fig_07_15_linked_list_graph_structure.jpg" alt="그림 7-15 링크드 리스트로 표현되는 계산 그래프" />
 <em>그림 7-15: 노드와 참조 링크로 유연하게 연결된 DeZero의 링크드 리스트 계산 그래프</em></p>
 
 <hr />
 
 <h2 id="72-역전파-도전">7.2 역전파 도전!</h2>
 
-<p>변수와 함수의 관계를 이용하여 역전파를 시도해보겠습니다. 우선 $y$ 에서 $b$ 까지의 역전파를 시도해보죠.</p>
+<p>변수와 함수의 관계를 이용하여 역전파를 시도해보겠습니다.</p>
 
-<p><img src="./img/fig_07_16.jpg" alt="그림 7-16 y에서 b로의 첫 번째 역전파 시도" />
+<p>우선 $y$ 에서 $b$ 까지의 역전파를 시도해보죠.</p>
+
+<p><img src="./img/fig_07_16_first_backward_attempt_y_to_b.jpg" alt="그림 7-16 y에서 b로의 첫 번째 역전파 시도" />
 <em>그림 7-16: 관계 링크를 활용해 출력 y에서 중간 변수 b로 역전파를 수행하는 첫 걸음</em></p>
 
 <hr />
@@ -726,12 +794,18 @@ DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실�
 </span><span class="n">b</span><span class="p">.</span><span class="n">grad</span> <span class="o">=</span> <span class="n">C</span><span class="p">.</span><span class="nf">backward</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">grad</span><span class="p">)</span>  <span class="c1"># 3. 함수의 backward 메서드를 호출한다.
 </span></code></pre></div></div>
 
-<p>$y$ 의 인스턴스 변수 <code class="language-plaintext highlighter-rouge">creator</code>에서 함수를 얻어오고, 그 함수의 <code class="language-plaintext highlighter-rouge">input</code>에서 입력 변수를 가져왔습니다. 그런 다음 함수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출합니다.</p>
+<hr />
 
-<p><img src="./img/fig_07_17.jpg" alt="그림 7-17 f.backward 호출을 통한 b.grad 산출" />
+<p>$y$ 의 인스턴스 변수 <code class="language-plaintext highlighter-rouge">creator</code>에서 함수를 얻어오고, 그 함수의 <code class="language-plaintext highlighter-rouge">input</code>에서 입력 변수를 가져왔습니다.</p>
+
+<p>그런 다음 함수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출합니다.</p>
+
+<p><img src="./img/fig_07_17_calling_f_backward_for_b_grad.jpg" alt="그림 7-17 f.backward 호출을 통한 b.grad 산출" />
 <em>그림 7-17: 창조자 함수의 backward(y.grad)를 호출하여 b의 기울기를 획득</em></p>
 
-<p>—이어서 변수 $b$ 에서 $a$ 로의 역전파를 보겠습니다.</p>
+<hr />
+
+<p>이어서 변수 $b$ 에서 $a$ 로의 역전파를 보겠습니다.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">B</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">creator</span>  <span class="c1"># 1. 함수를 가져온다.
 </span><span class="n">a</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="nb">input</span>    <span class="c1"># 2. 함수의 입력을 가져온다.
@@ -740,7 +814,7 @@ DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실�
 
 <p>똑같은 흐름입니다.</p>
 
-<p><img src="./img/fig_07_18.jpg" alt="그림 7-18 변수 b에서 a로 동일한 역전파 계속" />
+<p><img src="./img/fig_07_18_continuing_backward_b_to_a.jpg" alt="그림 7-18 변수 b에서 a로 동일한 역전파 계속" />
 <em>그림 7-18: 동일한 패턴으로 b의 creator를 얻어 a의 기울기를 계산하는 연속성</em></p>
 
 <hr />
@@ -753,7 +827,7 @@ DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실�
   <li>함수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출한다.</li>
 </ol>
 
-<p><img src="./img/fig_07_19.jpg" alt="그림 7-19 역전파 3단계 만능 루프" />
+<p><img src="./img/fig_07_19_three_step_universal_loop.jpg" alt="그림 7-19 역전파 3단계 만능 루프" />
 <em>그림 7-19: 1. 함수 가져오기 -&gt; 2. 입력 가져오기 -&gt; 3. backward 호출의 3단계 자동화 패턴</em></p>
 
 <hr />
@@ -775,16 +849,20 @@ DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실�
 
 <p>이상으로 모든 역전파가 끝났습니다.</p>
 
-<p><img src="./img/fig_07_20.jpg" alt="그림 7-20 최종 입력 x에 도달하며 역전파 완주" />
+<p><img src="./img/fig_07_20_reaching_input_x_sweep_done.jpg" alt="그림 7-20 최종 입력 x에 도달하며 역전파 완주" />
 <em>그림 7-20: 출발점인 입력 x까지 성공적으로 도달하여 모든 기울기를 완성</em></p>
 
 <hr />
 
 <h2 id="73-backward-메서드-추가">7.3 backward 메서드 추가</h2>
 
-<p>방금 보여드린 역전파 코드에는 똑같은 처리 흐름이 반복해서 나타났습니다. 변수에서 하나 앞의 변수로 거슬러 올라가는 로직이 그러했습니다. 그러므로 이 반복 작업을 자동화할 수 있도록 Variable 클래스에 <code class="language-plaintext highlighter-rouge">backward</code>라는 새로운 메서드를 추가하겠습니다.</p>
+<p>방금 보여드린 역전파 코드에는 똑같은 처리 흐름이 반복해서 나타났습니다.</p>
 
-<p><img src="./img/fig_07_21.jpg" alt="그림 7-21 Variable 클래스에 backward 메서드 추가" />
+<p>변수에서 하나 앞의 변수로 거슬러 올라가는 로직이 그러했습니다.</p>
+
+<p>그러므로 이 반복 작업을 자동화할 수 있도록 Variable 클래스에 <code class="language-plaintext highlighter-rouge">backward</code>라는 새로운 메서드를 추가하겠습니다.</p>
+
+<p><img src="./img/fig_07_21_variable_class_backward_method.jpg" alt="그림 7-21 Variable 클래스에 backward 메서드 추가" />
 <em>그림 7-21: 수동 루프를 캡슐화하여 Variable 자체에 backward 메서드를 장착</em></p>
 
 <hr />
@@ -809,20 +887,29 @@ DeZero의 동적 계산 그래프<sup>Dynamic Computational Graph</sup>는 실�
 
 <hr />
 
-<p><code class="language-plaintext highlighter-rouge">backward</code> 메서드는 지금까지 반복한 처리 흐름과 거의 동일합니다. Variable의 <code class="language-plaintext highlighter-rouge">creator</code>에서 함수를 얻어오고, 그 함수의 입력 변수를 가져옵니다. 그런 다음 함수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출합니다. 마지막으로 자신보다 하나 앞에 놓인 변수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출합니다. 이런 식으로 각 변수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드가 재귀적으로 불리게 됩니다.</p>
+<p><code class="language-plaintext highlighter-rouge">backward</code> 메서드는 지금까지 반복한 처리 흐름과 거의 동일합니다.</p>
 
-<p><img src="./img/fig_07_22.jpg" alt="그림 7-22 재귀적(Recursive) 역전파의 연쇄 흐름" />
+<p>Variable의 <code class="language-plaintext highlighter-rouge">creator</code>에서 함수를 얻어오고, 그 함수의 입력 변수를 가져옵니다.</p>
+
+<p>그런 다음 함수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출합니다.</p>
+
+<p>마지막으로 자신보다 하나 앞에 놓인 변수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출합니다.</p>
+
+<p>이런 식으로 각 변수의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드가 재귀적으로 불리게 됩니다.</p>
+
+<p><img src="./img/fig_07_22_recursive_backward_propagation.jpg" alt="그림 7-22 재귀적(Recursive) 역전파의 연쇄 흐름" />
 <em>그림 7-22: y.backward() 호출 하나로 앞선 변수들의 backward가 연쇄적으로 불리는 재귀 구조</em></p>
 
 <hr />
 
 <blockquote>
-
   <p><strong>NOTE</strong><br />
-Variable 인스턴스의 <code class="language-plaintext highlighter-rouge">creator</code>가 <code class="language-plaintext highlighter-rouge">None</code>이면 역전파가 중단됩니다. 창조자가 없으므로 이 Variable 인스턴스는 함수 바깥에서 생성됐음을 뜻합니다(높은 확률로 사용자가 만들어 건넨 변수일 것입니다).</p>
+Variable 인스턴스의 <code class="language-plaintext highlighter-rouge">creator</code>가 <code class="language-plaintext highlighter-rouge">None</code>이면 역전파가 중단됩니다.</p>
+
+  <p>창조자가 없으므로 이 Variable 인스턴스는 함수 바깥에서 생성됐음을 뜻합니다(높은 확률로 사용자가 만들어 건넨 변수일 것입니다).</p>
 </blockquote>
 
-<p><img src="./img/fig_07_23.jpg" alt="그림 7-23 creator가 None일 때의 안전한 재귀 정지" />
+<p><img src="./img/fig_07_23_recursion_base_case_creator_none.jpg" alt="그림 7-23 creator가 None일 때의 안전한 재귀 정지" />
 <em>그림 7-23: 사용자가 직접 생성한 입력 변수에 도달하면(creator=None) 안전하게 역전파 종료</em></p>
 
 <hr />
@@ -852,9 +939,18 @@ Variable 인스턴스의 <code class="language-plaintext highlighter-rouge">crea
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3.297442541400256
 </code></pre></div></div>
 
-<p>이와 같이 변수 $y$ 의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출하면 역전파가 자동으로 진행됩니다. 실행 결과도 지금까지와 동일합니다. 축하합니다! 여러분은 방금 DeZero에서 가장 중요한 개념인 자동 미분의 기초를 완성했습니다.</p>
+<p>이와 같이 변수 $y$ 의 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출하면 역전파가 자동으로 진행됩니다.</p>
 
-<p><img src="./img/fig_07_24.jpg" alt="그림 7-24 한 줄의 기적: y.backward()로 자동 미분 완성" />
+<p>실행 결과도 지금까지와 동일합니다.</p>
+
+<p><img src="./img/fig_07_24_b_one_line_backward_magic.jpg" alt="그림 7-24-b 단 한 줄의 y.backward() 마법" />
+<em>그림 7-24-b: 단 한 줄의 y.backward() 명령으로 전체 계산 그래프를 역전파하는 완전 자동화의 승리</em></p>
+
+<hr />
+
+<p>축하합니다! 여러분은 방금 DeZero에서 가장 중요한 개념인 자동 미분의 기초를 완성했습니다.</p>
+
+<p><img src="./img/fig_07_24_one_line_y_backward_magic.jpg" alt="그림 7-24 한 줄의 기적: y.backward()로 자동 미분 완성" />
 <em>그림 7-24: 단 한 줄의 코드로 전체 미분이 자동 계산되는 Define-by-Run DeZero의 완성</em></p>
 
 
@@ -937,27 +1033,35 @@ Variable 인스턴스의 <code class="language-plaintext highlighter-rouge">crea
         </div>
       </div>
 
-      <!-- 학습 로드맵 바로가기 -->
+      <!-- 관련 학습 사이트 -->
       <div class="col-6 col-lg-4">
-        <h6 class="fw-bold text-dark mb-3">🗺️ 학습 로드맵</h6>
-        <div class="row g-2 small">
-          <div class="col-6">
-            <ul class="list-unstyled mb-0">
-              <li class="mb-2"><a href="/00_%ED%94%84%EB%A1%A4%EB%A1%9C%EA%B7%B8/" class="text-secondary text-decoration-none hover-primary">00. 프롤로그</a></li>
-              <li class="mb-2"><a href="/01_%EB%AF%B8%EB%B6%84_%EC%9E%90%EB%8F%99_%EA%B3%84%EC%82%B0/" class="text-secondary text-decoration-none hover-primary">01. 제1고지 미분 계산</a></li>
-              <li class="mb-2"><a href="/02_%EC%9E%90%EC%97%B0%EC%8A%A4%EB%9F%AC%EC%9A%B4_%EC%BD%94%EB%93%9C%EB%A1%9C/" class="text-secondary text-decoration-none hover-primary">02. 제2고지 자연스러운 코드</a></li>
-              <li class="mb-2"><a href="/03_%EA%B3%A0%EC%B0%A8_%EB%AF%B8%EB%B6%84_%EA%B3%84%EC%82%B0/" class="text-secondary text-decoration-none hover-primary">03. 제3고지 고차 미분</a></li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <ul class="list-unstyled mb-0">
-              <li class="mb-2"><a href="/04_%EC%8B%A0%EA%B2%BD%EB%A7%9D_%EB%A7%8C%EB%93%A4%EA%B8%B0/" class="text-secondary text-decoration-none hover-primary">04. 제4고지 신경망 구축</a></li>
-              <li class="mb-2"><a href="/05_DeZero%EC%9D%98_%EB%8F%84%EC%A0%84/" class="text-secondary text-decoration-none hover-primary">05. 제5고지 GPU·CNN·RNN</a></li>
-              <li class="mb-2"><a href="/06_%EB%B6%80%EB%A1%9D/" class="text-secondary text-decoration-none hover-primary">06. 부록 & API</a></li>
-              <li class="mb-2"><a href="/curriculum/" class="text-dark fw-bold text-decoration-none hover-primary">📋 전체 60단계 목차</a></li>
-            </ul>
-          </div>
-        </div>
+        <h6 class="fw-bold text-dark mb-3">🔗 관련 학습 사이트</h6>
+        <ul class="list-unstyled small mb-0">
+          <li class="mb-2">
+            <a href="https://ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🤖</span>
+              <span><strong>인공지능기초</strong> <span class="text-muted ms-1">(ai.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://rl.ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🎯</span>
+              <span><strong>강화학습</strong> <span class="text-muted ms-1">(rl.ai.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://python.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🐍</span>
+              <span><strong>파이썬</strong> <span class="text-muted ms-1">(python.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://pytoch.ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🔥</span>
+              <span><strong>파이토치</strong> <span class="text-muted ms-1">(pytoch.ai.jiny.dev)</span></span>
+            </a>
+          </li>
+        </ul>
       </div>
 
       <!-- 강의 안내 및 커뮤니티 -->
@@ -965,6 +1069,7 @@ Variable 인스턴스의 <code class="language-plaintext highlighter-rouge">crea
         <h6 class="fw-bold text-dark mb-3">🧭 안내 및 정보</h6>
         <ul class="list-unstyled small mb-0">
           <li class="mb-2"><a href="/character/" class="text-secondary text-decoration-none hover-primary">🧭 탐험대 캐릭터 소개</a></li>
+          <li class="mb-2"><a href="/curriculum/" class="text-secondary text-decoration-none hover-primary">📋 전체 60단계 목차</a></li>
           <li class="mb-2"><a href="/#book-ref" class="text-secondary text-decoration-none hover-primary">📚 참고 교재 (한빛미디어)</a></li>
           <li class="mb-2"><a href="https://github.com/jinydev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary">💻 GitHub 저장소</a></li>
           <li class="mb-2"><a href="mailto:infohojin@naver.com" class="text-secondary text-decoration-none hover-primary">✉️ 문의 및 피드백 (Contact)</a></li>

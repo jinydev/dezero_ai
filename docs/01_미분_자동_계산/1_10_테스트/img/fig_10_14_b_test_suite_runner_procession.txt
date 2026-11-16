@@ -1,0 +1,14 @@
+[TAG LAYER]
+dorothy, 1girl, toto dog, tinman robot, test suite discovery runner, windup toys parade, green checkmark lanterns, pure solid white background, Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, pure solid white background (#FFFFFF), subtle soft contact shadow, 1:1 square ratio, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Dorothy (twin pigtails, denim overalls) directing a cheerful automated test suite parade with Toto (pure white small dog with sky-blue bandana). Cute mechanical windup toy messengers carrying green test lanterns stamped "test_forward", "test_backward", "test_gradient_check" marching in line through a wooden archway labeled "tests/". Tinman stands by with an illuminated clipboard ticking off all test cases with green checkmarks. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy World LoRA v1.0
+Trigger: fig_10_14_b
+Target Concept: Test discover automation: running all test cases across the tests directory
+Aspect Ratio: 1:1 (1024x1024)

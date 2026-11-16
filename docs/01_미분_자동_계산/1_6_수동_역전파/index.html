@@ -496,9 +496,19 @@
         <div class="bd-content ps-lg-4">
             <h1 id="6단계-수동-역전파">6단계 수동 역전파</h1>
 
-<p>이전 단계에서 역전파의 구동 원리를 설명했습니다. 이번 단계에서는 Variable과 Function 클래스를 확장하여 역전파를 이용한 미분을 구현하겠습니다. Variable 클래스부터 살펴보죠.</p>
+<p><img src="./1_6_수동_역전파.png" alt="1_6_수동_역전파" />
+<strong>그림 06-Intro</strong> Variable 상자에 미분값(grad) 보관함을 신설하고 손수 역전파 계산 릴레이를 수행하는 여정 (이호진 교수와 도로시 탐험대)</p>
 
-<p><img src="./img/fig_06_01.jpg" alt="그림 6-1 수동 역전파의 개요" />
+<hr />
+
+<p>이전 단계에서 역전파의 구동 원리를 설명했습니다. 이번 단계에서는 Variable과 Function 클래스를 확장하여 역전파를 이용한 미분을 구현하겠습니다.</p>
+
+<p><img src="./img/fig_06_01_b_variable_grad_field_reveal.jpg" alt="그림 6-0 grad 서랍을 장착한 Variable 상자" />
+<em>그림 6-0: 통상값(data) 옆에 미분값(grad) 서랍을 장착하며 역전파 준비를 마친 Variable 상자</em>
+—
+Variable 클래스부터 살펴보죠.</p>
+
+<p><img src="./img/fig_06_01_intro_manual_backprop.jpg" alt="그림 6-1 수동 역전파의 개요" />
 <em>그림 6-1: Variable과 Function 클래스에 역전파 기능을 추가하는 수동 역전파 개요</em></p>
 
 <hr />
@@ -507,7 +517,7 @@
 
 <p>역전파에 대응하는 Variable 클래스를 구현하겠습니다. 그러기 위해 통상값(data)과 더불어 그에 대응하는 미분값(grad)도 저장하도록 확장합니다.</p>
 
-<p><img src="./img/fig_06_02.jpg" alt="그림 6-2 Variable 클래스에 grad 추가" />
+<p><img src="./img/fig_06_02_variable_grad_field.jpg" alt="그림 6-2 Variable 클래스에 grad 추가" />
 <em>그림 6-2: 통상값(data)과 함께 미분값(grad)을 보관하도록 확장된 Variable 상자</em></p>
 
 <hr />
@@ -521,16 +531,16 @@
         <span class="n">self</span><span class="p">.</span><span class="n">grad</span> <span class="o">=</span> <span class="bp">None</span>
 </code></pre></div></div>
 
-<p>이와 같이 새로 grad라는 인스턴스 변수를 추가했습니다. 인스턴스 변수인 data와 grad는 모두 넘파이의 다차원 배열(ndarray)이라고 가정합니다. 또한 grad는 None으로 초기화해둔 다음, 나중에 실제로 역전파를 하면 미분값을 계산하여 대입합니다.</p>
-
-<hr />
+<h2 id="이와-같이-새로-grad라는-인스턴스-변수를-추가했습니다-인스턴스-변수인-data와-grad는-모두-넘파이의-다차원-배열ndarray이라고-가정합니다">이와 같이 새로 grad라는 인스턴스 변수를 추가했습니다. 인스턴스 변수인 data와 grad는 모두 넘파이의 다차원 배열(ndarray)이라고 가정합니다.</h2>
+<p>또한 grad는 None으로 초기화해둔 다음, 나중에 실제로 역전파를 하면 미분값을 계산하여 대입합니다.
+—</p>
 
 <blockquote>
   <p><strong>NOTE</strong><br />
 벡터나 행렬 등 다변수에 대한 미분은 기울기<sup>gradient</sup>라고 합니다. Variable 클래스에 새로 추가한 grad 변수의 이름은 gradient를 줄인 것입니다.</p>
 </blockquote>
 
-<p><img src="./img/fig_06_03.jpg" alt="그림 6-3 기울기(Gradient) 용어 설명" />
+<p><img src="./img/fig_06_03_gradient_terminology_note.jpg" alt="그림 6-3 기울기(Gradient) 용어 설명" />
 <em>그림 6-3: 다변수에 대한 미분 벡터를 의미하는 기울기(gradient)와 grad 필드</em></p>
 
 <hr />
@@ -541,7 +551,7 @@
 
 <p>이전 단계까지의 Function 클래스는 일반적인 계산을 하는 순전파(forward 메서드) 기능만 지원하는 상태입니다.</p>
 
-<p><img src="./img/fig_06_04.jpg" alt="그림 6-4 순전파만 가능했던 과거의 Function" />
+<p><img src="./img/fig_06_04_forward_only_function_review.jpg" alt="그림 6-4 순전파만 가능했던 과거의 Function" />
 <em>그림 6-4: 순방향 계산(forward)만 지원하던 기존 Function 클래스</em></p>
 
 <hr />
@@ -553,8 +563,13 @@
   <li>forward 메서드 호출 시 건네받은 Variable 인스턴스 유지</li>
 </ul>
 
-<p><img src="./img/fig_06_05.jpg" alt="그림 6-5 Function에 추가되는 2가지 핵심 기능" />
+<p><img src="./img/fig_06_05_function_two_new_features.jpg" alt="그림 6-5 Function에 추가되는 2가지 핵심 기능" />
 <em>그림 6-5: 미분을 계산하는 backward 메서드와 순전파 시 입력 변수 보관(self.input)</em></p>
+
+<hr />
+
+<p><img src="./img/fig_06_05_b_forward_and_backward_twin_gears.jpg" alt="그림 6-5-b Function의 트윈 기어 메커니즘" />
+<em>그림 6-5-b: 순전파 실행과 입력값 보관(self.input), 그리고 역전파 계산(backward)을 담당하는 Function의 트윈 기어</em></p>
 
 <hr />
 
@@ -578,9 +593,11 @@
 
 <hr />
 
-<p>코드에서 보듯 <code class="language-plaintext highlighter-rouge">__call__</code> 메서드에서 입력된 input을 인스턴스 변수인 <code class="language-plaintext highlighter-rouge">self.input</code>에 저장합니다. 이렇게 해서 나중에 <code class="language-plaintext highlighter-rouge">backward</code> 메서드에서 함수(Function)에 입력한 변수(Variable 인스턴스)가 필요할 때 <code class="language-plaintext highlighter-rouge">self.input</code>에서 가져와 사용할 수 있습니다.</p>
+<p>코드에서 보듯 <code class="language-plaintext highlighter-rouge">__call__</code> 메서드에서 입력된 input을 인스턴스 변수인 <code class="language-plaintext highlighter-rouge">self.input</code>에 저장합니다.</p>
 
-<p><img src="./img/fig_06_06.jpg" alt="그림 6-6 __call__ 메서드에서 입력값 저장" />
+<p>이렇게 해서 나중에 <code class="language-plaintext highlighter-rouge">backward</code> 메서드에서 함수(Function)에 입력한 변수(Variable 인스턴스)가 필요할 때 <code class="language-plaintext highlighter-rouge">self.input</code>에서 가져와 사용할 수 있습니다.</p>
+
+<p><img src="./img/fig_06_06_retaining_input_in_call.jpg" alt="그림 6-6 __call__ 메서드에서 입력값 저장" />
 <em>그림 6-6: 역전파 시 도함수 계산에 필요한 입력값을 self.input에 기억하는 과정</em></p>
 
 <hr />
@@ -589,9 +606,11 @@
 
 <p>이어서 Function을 상속한 구체적인 함수에서 역전파(backward)를 구현해보겠습니다.</p>
 
-<p>첫 번째 대상은 제곱을 계산하는 Square 클래스입니다. $y = x^2$ 의 미분은 $\frac{dy}{dx} = 2x$ 가 되기 때문에 다음과 같이 구현할 수 있습니다.</p>
+<p>첫 번째 대상은 제곱을 계산하는 Square 클래스입니다.</p>
 
-<p><img src="./img/fig_06_07.jpg" alt="그림 6-7 Square 클래스의 backward 구현" />
+<p>$y = x^2$ 의 미분은 $\frac{dy}{dx} = 2x$ 가 되기 때문에 다음과 같이 구현할 수 있습니다.</p>
+
+<p><img src="./img/fig_06_07_square_backward_implementation.jpg" alt="그림 6-7 Square 클래스의 backward 구현" />
 <em>그림 6-7: 제곱 계산의 도함수 2x를 이용해 역전파를 계산하는 Square backward</em></p>
 
 <hr />
@@ -616,9 +635,11 @@
 
 <p>그리고 인수로 전달된 미분에 ‘$y = x^2$ 의 미분’을 곱한 값이 backward의 결과가 됩니다.</p>
 
+<hr />
+
 <p>역전파에서는 이 결과값을 입력 쪽에 더 가까운 다음 함수로 전파해나갈 것입니다.</p>
 
-<p><img src="./img/fig_06_08.jpg" alt="그림 6-8 계산된 미분값의 역방향 전달" />
+<p><img src="./img/fig_06_08_gradient_passing_backward.jpg" alt="그림 6-8 계산된 미분값의 역방향 전달" />
 <em>그림 6-8: 상위에서 전달받은 gy에 자신의 도함수를 곱해 이전 단계로 전달하는 gx</em></p>
 
 <hr />
@@ -627,7 +648,7 @@
 
 <p>이 계산의 미분은 $\frac{dy}{dx} = e^x$ 이기 때문에 다음과 같이 구현할 수 있습니다.</p>
 
-<p><img src="./img/fig_06_09.jpg" alt="그림 6-9 Exp 클래스의 backward 구현" />
+<p><img src="./img/fig_06_09_exp_backward_implementation.jpg" alt="그림 6-9 Exp 클래스의 backward 구현" />
 <em>그림 6-9: 도함수가 e^x인 지수 함수의 역전파 계산: gx = np.exp(x) * gy</em> gy*</p>
 
 <hr />
@@ -644,7 +665,7 @@
         <span class="k">return</span> <span class="n">gx</span>
 </code></pre></div></div>
 
-<p><img src="./img/fig_06_10.jpg" alt="그림 6-10 합성 함수 순전파 실행" />
+<p><img src="./img/fig_06_10_composite_function_forward_execution.jpg" alt="그림 6-10 합성 함수 순전파 실행" />
 <em>그림 6-10: Square -&gt; Exp -&gt; Square 순서로 연결된 합성 함수의 순방향 계산</em></p>
 
 <hr />
@@ -709,9 +730,20 @@
 
 <hr />
 
-<p>역전파는 $\frac{dy}{dy} = 1$ 에서 시작합니다. 따라서 출력 $y$ 의 미분값을 <code class="language-plaintext highlighter-rouge">np.array(1.0)</code>으로 설정합니다. 그런 다음 C $\to$ B $\to$ A 순으로 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출하기만 하면 됩니다. 이것으로 각 변수의 미분값이 구해집니다.</p>
+<p>역전파는 $\frac{dy}{dy} = 1$ 에서 시작합니다.</p>
 
-<p><img src="./img/fig_06_11.jpg" alt="그림 6-11 역전파 시작 신호와 수동 호출" />
+<p>따라서 출력 $y$ 의 미분값을 <code class="language-plaintext highlighter-rouge">np.array(1.0)</code>으로 설정합니다.</p>
+
+<p><img src="./img/fig_06_11_b_manual_backward_relay_chain.jpg" alt="그림 6-11-b 수동 역전파 릴레이 경주" />
+<em>그림 6-11-b: y.grad = 1.0 신호로부터 C -&gt; B -&gt; A 순서로 기울기 배턴을 전달하는 수동 역전파 릴레이</em></p>
+
+<hr />
+
+<p>그런 다음 C $\to$ B $\to$ A 순으로 <code class="language-plaintext highlighter-rouge">backward</code> 메서드를 호출하기만 하면 됩니다.</p>
+
+<p>이것으로 각 변수의 미분값이 구해집니다.</p>
+
+<p><img src="./img/fig_06_11_manual_backward_calls.jpg" alt="그림 6-11 역전파 시작 신호와 수동 호출" />
 <em>그림 6-11: y.grad = 1.0 설정 후 C -&gt; B -&gt; A 순서로 backward 메서드를 호출하는 역전파</em></p>
 
 <hr />
@@ -720,18 +752,24 @@
 
 <p>이 값이 $y$ 의 $x$ 에 대한 미분 결과입니다.</p>
 
-<p>4단계에서 수치 미분으로 구한 값이 3.2974426293330694였으니 두 결과가 거의 같음을 알 수 있습니다. 역전파를 제대로 구현한 것입니다(더 정확하게는, 올바르게 구현했을 가능성이 큽니다).</p>
+<p>4단계에서 수치 미분으로 구한 값이 3.2974426293330694였으니 두 결과가 거의 같음을 알 수 있습니다.</p>
 
-<p><img src="./img/fig_06_12.jpg" alt="그림 6-12 수치 미분과 해석적 역전파 결과 비교" />
+<p>역전파를 제대로 구현한 것입니다.</p>
+
+<p>(더 정확하게는, 올바르게 구현했을 가능성이 큽니다).</p>
+
+<p><img src="./img/fig_06_12_backprop_vs_numerical_diff_match.jpg" alt="그림 6-12 수치 미분과 해석적 역전파 결과 비교" />
 <em>그림 6-12: 4단계의 수치 미분값과 완벽하게 일치하는 역전파 결과(3.29744) 검증</em></p>
 
 <hr />
 
 <p>이상이 역전파 구현입니다.</p>
 
-<p>제대로 동작하지만 역전파 순서(C $\to$ B $\to$ A)에 맞춰 호출하는 코드를 우리가 일일이 작성해 넣는 건 영 불편할 것 같습니다. 그래서 다음 단계에서는 이 작업을 자동화하겠습니다.</p>
+<p>제대로 동작하지만 역전파 순서(C $\to$ B $\to$ A)에 맞춰 호출하는 코드를 우리가 일일이 작성해 넣는 건 영 불편할 것 같습니다.</p>
 
-<p><img src="./img/fig_06_13.jpg" alt="그림 6-13 역전파 자동화의 필요성" />
+<p>그래서 다음 단계에서는 이 작업을 자동화하겠습니다.</p>
+
+<p><img src="./img/fig_06_13_need_for_automatic_backprop.jpg" alt="그림 6-13 역전파 자동화의 필요성" />
 <em>그림 6-13: 수동 호출의 번거로움을 넘어 자동 역전파(7단계)로 나아가는 동기</em></p>
 
 
@@ -814,27 +852,35 @@
         </div>
       </div>
 
-      <!-- 학습 로드맵 바로가기 -->
+      <!-- 관련 학습 사이트 -->
       <div class="col-6 col-lg-4">
-        <h6 class="fw-bold text-dark mb-3">🗺️ 학습 로드맵</h6>
-        <div class="row g-2 small">
-          <div class="col-6">
-            <ul class="list-unstyled mb-0">
-              <li class="mb-2"><a href="/00_%ED%94%84%EB%A1%A4%EB%A1%9C%EA%B7%B8/" class="text-secondary text-decoration-none hover-primary">00. 프롤로그</a></li>
-              <li class="mb-2"><a href="/01_%EB%AF%B8%EB%B6%84_%EC%9E%90%EB%8F%99_%EA%B3%84%EC%82%B0/" class="text-secondary text-decoration-none hover-primary">01. 제1고지 미분 계산</a></li>
-              <li class="mb-2"><a href="/02_%EC%9E%90%EC%97%B0%EC%8A%A4%EB%9F%AC%EC%9A%B4_%EC%BD%94%EB%93%9C%EB%A1%9C/" class="text-secondary text-decoration-none hover-primary">02. 제2고지 자연스러운 코드</a></li>
-              <li class="mb-2"><a href="/03_%EA%B3%A0%EC%B0%A8_%EB%AF%B8%EB%B6%84_%EA%B3%84%EC%82%B0/" class="text-secondary text-decoration-none hover-primary">03. 제3고지 고차 미분</a></li>
-            </ul>
-          </div>
-          <div class="col-6">
-            <ul class="list-unstyled mb-0">
-              <li class="mb-2"><a href="/04_%EC%8B%A0%EA%B2%BD%EB%A7%9D_%EB%A7%8C%EB%93%A4%EA%B8%B0/" class="text-secondary text-decoration-none hover-primary">04. 제4고지 신경망 구축</a></li>
-              <li class="mb-2"><a href="/05_DeZero%EC%9D%98_%EB%8F%84%EC%A0%84/" class="text-secondary text-decoration-none hover-primary">05. 제5고지 GPU·CNN·RNN</a></li>
-              <li class="mb-2"><a href="/06_%EB%B6%80%EB%A1%9D/" class="text-secondary text-decoration-none hover-primary">06. 부록 & API</a></li>
-              <li class="mb-2"><a href="/curriculum/" class="text-dark fw-bold text-decoration-none hover-primary">📋 전체 60단계 목차</a></li>
-            </ul>
-          </div>
-        </div>
+        <h6 class="fw-bold text-dark mb-3">🔗 관련 학습 사이트</h6>
+        <ul class="list-unstyled small mb-0">
+          <li class="mb-2">
+            <a href="https://ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🤖</span>
+              <span><strong>인공지능기초</strong> <span class="text-muted ms-1">(ai.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://rl.ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🎯</span>
+              <span><strong>강화학습</strong> <span class="text-muted ms-1">(rl.ai.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://python.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🐍</span>
+              <span><strong>파이썬</strong> <span class="text-muted ms-1">(python.jiny.dev)</span></span>
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="https://pytoch.ai.jiny.dev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary d-flex align-items-center">
+              <span class="me-2">🔥</span>
+              <span><strong>파이토치</strong> <span class="text-muted ms-1">(pytoch.ai.jiny.dev)</span></span>
+            </a>
+          </li>
+        </ul>
       </div>
 
       <!-- 강의 안내 및 커뮤니티 -->
@@ -842,6 +888,7 @@
         <h6 class="fw-bold text-dark mb-3">🧭 안내 및 정보</h6>
         <ul class="list-unstyled small mb-0">
           <li class="mb-2"><a href="/character/" class="text-secondary text-decoration-none hover-primary">🧭 탐험대 캐릭터 소개</a></li>
+          <li class="mb-2"><a href="/curriculum/" class="text-secondary text-decoration-none hover-primary">📋 전체 60단계 목차</a></li>
           <li class="mb-2"><a href="/#book-ref" class="text-secondary text-decoration-none hover-primary">📚 참고 교재 (한빛미디어)</a></li>
           <li class="mb-2"><a href="https://github.com/jinydev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary">💻 GitHub 저장소</a></li>
           <li class="mb-2"><a href="mailto:infohojin@naver.com" class="text-secondary text-decoration-none hover-primary">✉️ 문의 및 피드백 (Contact)</a></li>

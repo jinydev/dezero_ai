@@ -1,0 +1,14 @@
+[TAG LAYER]
+professor hojin, dorothy, toto dog, tinman robot, assistant jiny cat, gateway to stage 2, natural python code, pure solid white background, Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, pure solid white background (#FFFFFF), subtle soft contact shadow, 1:1 square ratio, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. The whole companion team: Professor Hojin, Dorothy (twin pigtails, denim overalls), pure white terrier Toto with sky-blue bandana, Tinman (silver tin robot with monitor head, cyan LED dot eyes), and Assistant Jiny (tuxedo cat with scholar glasses). Standing together at an illuminated stone archway engraved "Stage 2: Natural Python Syntax", stepping forward with excitement from the completed Stage 1 summit into the next learning adventure. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy World LoRA v1.0
+Trigger: fig_11_13_b
+Target Concept: Transition to Stage 2: embarking from Automatic Differentiation into Natural Python Syntax
+Aspect Ratio: 1:1 (1024x1024)

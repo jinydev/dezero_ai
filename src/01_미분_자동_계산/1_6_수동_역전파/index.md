@@ -5,9 +5,20 @@ title: "6단계 수동 역전파"
 
 # 6단계 수동 역전파
 
-이전 단계에서 역전파의 구동 원리를 설명했습니다. 이번 단계에서는 Variable과 Function 클래스를 확장하여 역전파를 이용한 미분을 구현하겠습니다. Variable 클래스부터 살펴보죠.
+![1_6_수동_역전파](./1_6_수동_역전파.png)
+**그림 06-Intro** Variable 상자에 미분값(grad) 보관함을 신설하고 손수 역전파 계산 릴레이를 수행하는 여정 (이호진 교수와 도로시 탐험대)
 
-![그림 6-1 수동 역전파의 개요](./img/fig_06_01.jpg)
+---
+
+
+이전 단계에서 역전파의 구동 원리를 설명했습니다. 이번 단계에서는 Variable과 Function 클래스를 확장하여 역전파를 이용한 미분을 구현하겠습니다. 
+
+![그림 6-0 grad 서랍을 장착한 Variable 상자](./img/fig_06_01_b_variable_grad_field_reveal.jpg)
+*그림 6-0: 통상값(data) 옆에 미분값(grad) 서랍을 장착하며 역전파 준비를 마친 Variable 상자*
+---
+Variable 클래스부터 살펴보죠.
+
+![그림 6-1 수동 역전파의 개요](./img/fig_06_01_intro_manual_backprop.jpg)
 *그림 6-1: Variable과 Function 클래스에 역전파 기능을 추가하는 수동 역전파 개요*
 
 ---
@@ -16,7 +27,7 @@ title: "6단계 수동 역전파"
 
 역전파에 대응하는 Variable 클래스를 구현하겠습니다. 그러기 위해 통상값(data)과 더불어 그에 대응하는 미분값(grad)도 저장하도록 확장합니다. 
 
-![그림 6-2 Variable 클래스에 grad 추가](./img/fig_06_02.jpg)
+![그림 6-2 Variable 클래스에 grad 추가](./img/fig_06_02_variable_grad_field.jpg)
 *그림 6-2: 통상값(data)과 함께 미분값(grad)을 보관하도록 확장된 Variable 상자*
 
 ---
@@ -31,14 +42,15 @@ class Variable:
         self.grad = None
 ```
 
-이와 같이 새로 grad라는 인스턴스 변수를 추가했습니다. 인스턴스 변수인 data와 grad는 모두 넘파이의 다차원 배열(ndarray)이라고 가정합니다. 또한 grad는 None으로 초기화해둔 다음, 나중에 실제로 역전파를 하면 미분값을 계산하여 대입합니다.
-
+이와 같이 새로 grad라는 인스턴스 변수를 추가했습니다. 인스턴스 변수인 data와 grad는 모두 넘파이의 다차원 배열(ndarray)이라고 가정합니다. 
+---
+또한 grad는 None으로 초기화해둔 다음, 나중에 실제로 역전파를 하면 미분값을 계산하여 대입합니다.
 ---
 
 > **NOTE**  
 > 벡터나 행렬 등 다변수에 대한 미분은 기울기<sup>gradient</sup>라고 합니다. Variable 클래스에 새로 추가한 grad 변수의 이름은 gradient를 줄인 것입니다.
 
-![그림 6-3 기울기(Gradient) 용어 설명](./img/fig_06_03.jpg)
+![그림 6-3 기울기(Gradient) 용어 설명](./img/fig_06_03_gradient_terminology_note.jpg)
 *그림 6-3: 다변수에 대한 미분 벡터를 의미하는 기울기(gradient)와 grad 필드*
 
 ---
@@ -49,7 +61,7 @@ Function 클래스를 알아볼 차례입니다.
 
 이전 단계까지의 Function 클래스는 일반적인 계산을 하는 순전파(forward 메서드) 기능만 지원하는 상태입니다. 
 
-![그림 6-4 순전파만 가능했던 과거의 Function](./img/fig_06_04.jpg)
+![그림 6-4 순전파만 가능했던 과거의 Function](./img/fig_06_04_forward_only_function_review.jpg)
 *그림 6-4: 순방향 계산(forward)만 지원하던 기존 Function 클래스*
 
 ---
@@ -59,8 +71,13 @@ Function 클래스를 알아볼 차례입니다.
 * 미분을 계산하는 역전파(backward 메서드)
 * forward 메서드 호출 시 건네받은 Variable 인스턴스 유지
 
-![그림 6-5 Function에 추가되는 2가지 핵심 기능](./img/fig_06_05.jpg)
+![그림 6-5 Function에 추가되는 2가지 핵심 기능](./img/fig_06_05_function_two_new_features.jpg)
 *그림 6-5: 미분을 계산하는 backward 메서드와 순전파 시 입력 변수 보관(self.input)*
+
+---
+
+![그림 6-5-b Function의 트윈 기어 메커니즘](./img/fig_06_05_b_forward_and_backward_twin_gears.jpg)
+*그림 6-5-b: 순전파 실행과 입력값 보관(self.input), 그리고 역전파 계산(backward)을 담당하는 Function의 트윈 기어*
 
 ---
 
@@ -85,9 +102,11 @@ class Function:
 
 ---
 
-코드에서 보듯 `__call__` 메서드에서 입력된 input을 인스턴스 변수인 `self.input`에 저장합니다. 이렇게 해서 나중에 `backward` 메서드에서 함수(Function)에 입력한 변수(Variable 인스턴스)가 필요할 때 `self.input`에서 가져와 사용할 수 있습니다.
+코드에서 보듯 `__call__` 메서드에서 입력된 input을 인스턴스 변수인 `self.input`에 저장합니다. 
 
-![그림 6-6 __call__ 메서드에서 입력값 저장](./img/fig_06_06.jpg)
+이렇게 해서 나중에 `backward` 메서드에서 함수(Function)에 입력한 변수(Variable 인스턴스)가 필요할 때 `self.input`에서 가져와 사용할 수 있습니다.
+
+![그림 6-6 __call__ 메서드에서 입력값 저장](./img/fig_06_06_retaining_input_in_call.jpg)
 *그림 6-6: 역전파 시 도함수 계산에 필요한 입력값을 self.input에 기억하는 과정*
 
 ---
@@ -96,9 +115,11 @@ class Function:
 
 이어서 Function을 상속한 구체적인 함수에서 역전파(backward)를 구현해보겠습니다. 
 
-첫 번째 대상은 제곱을 계산하는 Square 클래스입니다. $y = x^2$ 의 미분은 $\frac{dy}{dx} = 2x$ 가 되기 때문에 다음과 같이 구현할 수 있습니다.
+첫 번째 대상은 제곱을 계산하는 Square 클래스입니다.
 
-![그림 6-7 Square 클래스의 backward 구현](./img/fig_06_07.jpg)
+$y = x^2$ 의 미분은 $\frac{dy}{dx} = 2x$ 가 되기 때문에 다음과 같이 구현할 수 있습니다.
+
+![그림 6-7 Square 클래스의 backward 구현](./img/fig_06_07_square_backward_implementation.jpg)
 *그림 6-7: 제곱 계산의 도함수 2x를 이용해 역전파를 계산하는 Square backward*
 
 ---
@@ -124,9 +145,14 @@ class Square(Function):
 
 그리고 인수로 전달된 미분에 '$y = x^2$ 의 미분'을 곱한 값이 backward의 결과가 됩니다. 
 
+
+---
+
+
+
 역전파에서는 이 결과값을 입력 쪽에 더 가까운 다음 함수로 전파해나갈 것입니다.
 
-![그림 6-8 계산된 미분값의 역방향 전달](./img/fig_06_08.jpg)
+![그림 6-8 계산된 미분값의 역방향 전달](./img/fig_06_08_gradient_passing_backward.jpg)
 *그림 6-8: 상위에서 전달받은 gy에 자신의 도함수를 곱해 이전 단계로 전달하는 gx*
 
 ---
@@ -135,7 +161,7 @@ class Square(Function):
 
 이 계산의 미분은 $\frac{dy}{dx} = e^x$ 이기 때문에 다음과 같이 구현할 수 있습니다.
 
-![그림 6-9 Exp 클래스의 backward 구현](./img/fig_06_09.jpg)
+![그림 6-9 Exp 클래스의 backward 구현](./img/fig_06_09_exp_backward_implementation.jpg)
 *그림 6-9: 도함수가 e^x인 지수 함수의 역전파 계산: gx = np.exp(x) * gy* gy*
 
 ---
@@ -153,7 +179,7 @@ class Exp(Function):
         return gx
 ```
 
-![그림 6-10 합성 함수 순전파 실행](./img/fig_06_10.jpg)
+![그림 6-10 합성 함수 순전파 실행](./img/fig_06_10_composite_function_forward_execution.jpg)
 *그림 6-10: Square -> Exp -> Square 순서로 연결된 합성 함수의 순방향 계산*
 
 ---
@@ -221,9 +247,20 @@ print(x.grad)
 
 ---
 
-역전파는 $\frac{dy}{dy} = 1$ 에서 시작합니다. 따라서 출력 $y$ 의 미분값을 `np.array(1.0)`으로 설정합니다. 그런 다음 C $\to$ B $\to$ A 순으로 `backward` 메서드를 호출하기만 하면 됩니다. 이것으로 각 변수의 미분값이 구해집니다.
+역전파는 $\frac{dy}{dy} = 1$ 에서 시작합니다. 
 
-![그림 6-11 역전파 시작 신호와 수동 호출](./img/fig_06_11.jpg)
+따라서 출력 $y$ 의 미분값을 `np.array(1.0)`으로 설정합니다. 
+
+![그림 6-11-b 수동 역전파 릴레이 경주](./img/fig_06_11_b_manual_backward_relay_chain.jpg)
+*그림 6-11-b: y.grad = 1.0 신호로부터 C -> B -> A 순서로 기울기 배턴을 전달하는 수동 역전파 릴레이*
+
+---
+
+그런 다음 C $\to$ B $\to$ A 순으로 `backward` 메서드를 호출하기만 하면 됩니다. 
+
+이것으로 각 변수의 미분값이 구해집니다.
+
+![그림 6-11 역전파 시작 신호와 수동 호출](./img/fig_06_11_manual_backward_calls.jpg)
 *그림 6-11: y.grad = 1.0 설정 후 C -> B -> A 순서로 backward 메서드를 호출하는 역전파*
 
 ---
@@ -232,16 +269,22 @@ print(x.grad)
 
 이 값이 $y$ 의 $x$ 에 대한 미분 결과입니다. 
 
-4단계에서 수치 미분으로 구한 값이 3.2974426293330694였으니 두 결과가 거의 같음을 알 수 있습니다. 역전파를 제대로 구현한 것입니다(더 정확하게는, 올바르게 구현했을 가능성이 큽니다).
+4단계에서 수치 미분으로 구한 값이 3.2974426293330694였으니 두 결과가 거의 같음을 알 수 있습니다. 
 
-![그림 6-12 수치 미분과 해석적 역전파 결과 비교](./img/fig_06_12.jpg)
+역전파를 제대로 구현한 것입니다.
+
+(더 정확하게는, 올바르게 구현했을 가능성이 큽니다).
+
+![그림 6-12 수치 미분과 해석적 역전파 결과 비교](./img/fig_06_12_backprop_vs_numerical_diff_match.jpg)
 *그림 6-12: 4단계의 수치 미분값과 완벽하게 일치하는 역전파 결과(3.29744) 검증*
 
 ---
 
 이상이 역전파 구현입니다. 
 
-제대로 동작하지만 역전파 순서(C $\to$ B $\to$ A)에 맞춰 호출하는 코드를 우리가 일일이 작성해 넣는 건 영 불편할 것 같습니다. 그래서 다음 단계에서는 이 작업을 자동화하겠습니다.
+제대로 동작하지만 역전파 순서(C $\to$ B $\to$ A)에 맞춰 호출하는 코드를 우리가 일일이 작성해 넣는 건 영 불편할 것 같습니다. 
 
-![그림 6-13 역전파 자동화의 필요성](./img/fig_06_13.jpg)
+그래서 다음 단계에서는 이 작업을 자동화하겠습니다.
+
+![그림 6-13 역전파 자동화의 필요성](./img/fig_06_13_need_for_automatic_backprop.jpg)
 *그림 6-13: 수동 호출의 번거로움을 넘어 자동 역전파(7단계)로 나아가는 동기*

@@ -1,0 +1,49 @@
+# Chapter 1_10: Testing & Verification (1_10. 테스트) 16:9 Cover Specification & Prompt
+# File: 1_10_테스트.png (16:9 widescreen ratio, 1376x768)
+# Guide Standard: /Users/hojin9/Library/Mobile Documents/com~apple~CloudDocs/02.강의/A04_Dezero/guides/커버생성_가이드.md
+# Reference Dataset: Professor Hojin Adult 7-heads proportion, 7:3 salt & pepper hair, thin metal glasses
+# Content Source: /Users/hojin9/Library/Mobile Documents/com~apple~CloudDocs/02.강의/A04_Dezero/src/01_미분_자동_계산/1_10_테스트/index.md
+
+================================================================================
+[1. 이호진 교수님 얼굴 데이터셋 및 스타일 참조 유의사항 (Facial Consistency Guidelines)]
+================================================================================
+본 챕터 일러스트레이션의 이호진 교수님(Professor Hojin)은 공식 가이드의 얼굴 조형을 100% 영구 보존해야 합니다:
+
+1. 얼굴 조형 및 성인 동안 유지 (Anti-Aging & Adult Male Anatomy):
+   - 신체 비율: 정확한 7등신(7 heads tall) 성인 남성 2D 애니메이션 비율 (절대 소년/치비 체형 금지).
+   - 연령대: 40대 초반의 지적이고 건강한 성인 남성 (Early 40s adult Korean professor).
+   - 안면 특징: 갸름하면서도 단정하고 신뢰감을 주는 스마트한 성인 턱선, 잔주름이나 노안 인상 없는 건강한 살구빛 피부 (#FEEFE6 / #F5CEBA).
+
+2. 헤어스타일 (Hairstyle):
+   - 스타일: 세련된 7:3 가르마 숏 컷 (Stylishly parted short hair with forehead exposed).
+   - 색상: 다크 차콜 흑발 베이스 (#2C2D30)에 이마 양옆과 구레나룻에 뚜렷하게 섞인 은빛 솔트앤페퍼 스트릭 (#8C9098).
+
+3. 안경 (Glasses):
+   - 슬림하고 얇은 실버 라운드 메탈 와이어테 안경 (Thin minimalist round metal wire-rim glasses, #9EA7B0). 두꺼운 뿔테 엄격 금지.
+
+4. 복장 및 로고 금지 (Strict Plain Outfit Rule):
+   - 어떠한 대학 마크, 로고, 배지도 없는 순수 단색 솔리드 다크 차콜 네이비 반팔 폴로 셔츠 (#1F242C).
+   - 클래식 스트레이트 핏 중청 데님 청바지 (#3F638A) 및 레트로 그레이 스웨이드 스니커즈 (#7F8287).
+
+5. 엄격한 상단 여백 및 칠판 배제 (Strict Zero Upper Title & Zero Blackboard):
+   - 상단 영역(y: 0~120px)은 100% 순백색 (#FFFFFF) 유지. 칠판/분필 전면 배제.
+
+================================================================================
+[2. 최종 이미지 생성 실행 프롬프트 (Master Production Prompt)]
+================================================================================
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed. 16:9 wide composition, pure solid clean white background (#FFFFFF), isolated character group with subtle soft contact shadows under feet, NO chalkboard, NO blackboard, NO banner, NO slide borders, upper area completely blank solid white (#FFFFFF).
+
+On the right, Professor Hojin: Adult Korean male engineering professor in his early 40s, 7 heads tall adult proportions (NOT a boy), handsome mature face with smooth healthy skin, neatly parted 7:3 short dark hair with distinct silver salt-and-pepper streaks along temples, thin minimalist round metal wire-rim glasses, kind intelligent narrow warm brown eyes with a gentle crinkle, and a friendly mentor smile. He wears a plain solid dark charcoal navy polo shirt with NO logos, medium-wash blue denim jeans, and classic grey suede sneakers. He holds a precision digital caliper and a glass display comparing backprop gradients against numerical diff results within 1e-4 tolerance, giving an encouraging warm smile.
+
+In the center, Dorothy: 9-year-old girl (4.5 heads tall, wavy chestnut twin pigtails with red ribbons, amber-brown eyes, joyful smile, blue denim overalls with STEM hero patch, lemon-yellow t-shirt, red canvas sneakers), alongside Tinman (silver tin robot with monitor head, cyan LED dot eyes), joyfully placing glowing green checkmark stamps onto test case blocks labeled 'test_forward', 'test_backward', and 'test_gradient_check'.
+
+Beside Dorothy, Toto: adorable fluffy solid milk-white terrier puppy (NO spots, sky-blue bandana, black button nose), proudly sitting beside a shining golden trophy engraved with 'ALL TESTS PASSED: OK', wagging his tail happily.
+
+On the left, Assistant Jiny: smart tuxedo cat wearing tiny round scholar wire glasses and a red collar with gold bell, sitting at a wooden desk running `python -m unittest discover tests` on a console, watching green pass signals light up across the testing suite.
+
+Balanced 16:9 wide composition, pure solid white background, upper 25 percent completely clean and empty white space, no Japanese text.
+
+================================================================================
+[3. 마스터 네거티브 프롬프트 (Master Negative Prompt)]
+================================================================================
+chalkboard, blackboard, board banner, writing on board, holding chalk, teenage boy professor, young boy face, child face on professor, huge anime eyes on professor, round baby face on adult, wrinkles, old elderly man, sagging skin, university logo, school badge, name tag, presentation frame, slide border, title banner, upper text, headlines, top typography, floating abstract icons, 3d cgi render, photorealistic, dark background, room walls, blurry, deformed hands, extra fingers, garbled text, kanji, hiragana, katakana, japanese text, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, watermark, signature

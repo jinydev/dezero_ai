@@ -1,0 +1,16 @@
+[TAG LAYER]
+dorothy, 1girl, toto, 1dog, tinman, 1robot, jiny cat, professor hojin, 1man, one-line magic, y.backward(), launch button, reverse wave, confetti, pure solid white background, clean anime line art, soft 2d cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Dorothy (chestnut pigtails, denim overalls, red sneakers) joyfully presses a glowing circular console button labeled 'y.backward()'. An automatic, dazzling reverse cyan-blue light wave surges backward through the entire computational graph (from C to B to A), automatically calculating every gradient and illuminating 'x.grad = 3.29744' in golden sparks. In the background, Professor Hojin, puppy Toto, Tinman, and Assistant Jiny celebrate with high-fives and confetti, marking the triumph of fully automated backpropagation. Pure solid clean white background (#FFFFFF), isolated celebratory character cutout, subtle soft contact shadow at base, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Dorothy, Toto, Tinman, Assistant Jiny, Professor Hojin
+Model: Dorothy STEM Universe Master LoRA
+Trigger: dorothy, toto, tinman, jiny, professor hojin, y.backward button
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: One-Line Triumph: y.backward() Triggers Automatic Full Graph Backpropagation
