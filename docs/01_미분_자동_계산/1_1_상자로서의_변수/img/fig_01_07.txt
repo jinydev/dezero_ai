@@ -1,0 +1,16 @@
+[TAG LAYER]
+dorothy, 1girl, toto, 1dog, brass stamp np.array, workbench, converting numbers to ndarray, blue glowing cube, denim overalls, stem hero badge, red sneakers, pure solid white background, clean line art, warm cel shading, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Dorothy, an adorable 9-year-old anime girl (4.5 heads tall, chestnut twin pigtails, denim overalls with 'STEM HERO' patch, red canvas sneakers), energetically presses an ornate brass handle stamp engraved with 'np.array()' onto a simple numeric token on a wooden workshop table. Upon impact, the token transforms into a beautifully faceted, glowing blue NumPy ndarray data block with magical golden sparkles. Fluffy cream-white puppy Toto (solid milk-white fur, sky-blue bandana) barks happily beside the table in celebration. Pure solid clean white background (#FFFFFF), isolated scene cutout, subtle soft contact shadow, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: dorothy, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Generating ndarray with np.array() Constructor

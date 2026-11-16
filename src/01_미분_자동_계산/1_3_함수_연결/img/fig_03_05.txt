@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, dorothy, toto, tinny, early 40s, youthful face, smooth skin, salt-and-pepper hair, thin round glasses, solid navy polo, blue jeans, forward arrow, reverse arrow, backpropagation gateway, pure white background, clean anime line art, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), rich warm flat cel shading, storybook educational illustration, masterpiece. Grand forward and reverse gateway: Professor Hojin (youthful early 40s, smooth unwrinkled skin, stylish salt-and-pepper short hair, thin minimalist round metal wire-rim glasses, plain dark charcoal navy polo shirt with NO badges, classic blue jeans) stands beside Dorothy, Tinny the robot, and fluffy puppy Toto. Professor Hojin points to an illuminated double-arrow archway on the desk: a forward blue arrow labeled 'Forward: Value Calculation' and a glowing golden reverse arrow pointing backward labeled 'Backward: Derivatives (Backprop)'. He enthusiastically announces that having mastered function composition, they are now ready to venture into backpropagation. Pure solid clean white background (#FFFFFF), isolated group composition, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Tinny, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Gateway to Backpropagation: Transitioning from Forward to Reverse Derivation

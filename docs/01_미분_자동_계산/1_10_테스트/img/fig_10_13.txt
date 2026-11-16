@@ -1,0 +1,14 @@
+[TAG LAYER]
+dorothy, toto dog, tinny robot, jiny cat, golden test trophy celebration, confetti, pure solid white background, Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, pure solid white background (#FFFFFF), subtle soft contact shadow, 1:1 square ratio, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Dorothy, Toto, Tinny, and Jiny celebrating around a glowing gold trophy as the terminal prints 'Ran 3 tests in 0.005s OK'. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy World LoRA v1.0
+Trigger: fig_10_13
+Target Concept: All tests passing: Ran 3 tests in 0.005s OK
+Aspect Ratio: 1:1 (1024x1024)

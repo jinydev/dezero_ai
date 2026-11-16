@@ -1,0 +1,16 @@
+[TAG LAYER]
+tinny robot, dorothy, lightning bolt speed, tiny error target, backpropagation triumph, pure white background, clean anime line art, soft cel shading, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp line art, soft warm flat cel shading, masterpiece. Tinny the AI maker robot and Dorothy stand cheering as a swift golden lightning spark (Backprop) zooms across a track in an instant and hits a bullseye target with zero error, while an old hand-crank machine (numerical diff) puffs smoke in the distance. Pure solid clean white background (#FFFFFF), isolated character and energetic concept cutout, subtle contact shadow, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Tinny, Dorothy
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: tinny robot, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Speed and Accuracy: Backprop vs Numerical Differentiation

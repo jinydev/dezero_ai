@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, dorothy, tinny, toto, early 40s, youthful face, smooth skin, salt-and-pepper hair, thin round glasses, solid navy polo, connecting function gears, square and exp, pure white background, clean anime line art, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Professor Hojin (youthful early 40s, smooth unwrinkled skin, stylish salt-and-pepper short hair, thin minimalist round metal wire-rim glasses, plain dark charcoal navy polo shirt with NO badges, classic blue jeans) stands in the center demonstrating how multiple function blocks seamlessly link together. In his hands, he connects a blue block labeled 'Square' and an amber block labeled 'Exp', showing Dorothy (pigtails, overalls with STEM HERO patch), Tinny the robot (glowing amber heart), and puppy Toto that combining simple functions creates powerful computational chains. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Tinny, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Intro to Connecting Functions: Combining Square and Exp

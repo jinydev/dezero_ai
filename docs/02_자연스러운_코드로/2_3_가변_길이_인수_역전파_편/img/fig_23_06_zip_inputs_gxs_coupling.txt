@@ -1,0 +1,15 @@
+[TAG LAYER]
+dorothy, girl, golden zipper linking variables and gradients, zip function, white background, studio ghibli, clean espresso lines, solid pure white background, warm cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading. Dorothy playfully pulling a large golden zipper slider labeled `zip(inputs, gxs)`, seamlessly joining each wooden Variable box with its corresponding gradient crystal without any misalignment. Pure solid white background (#FFFFFF), soft contact shadow, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy DeZero Educational Anime v1.0
+Trigger: studio ghibli 2d style, clean line art, solid pure white background
+Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: zip(f.inputs, gxs) 지퍼로 묶는 변수와 기울기의 만남

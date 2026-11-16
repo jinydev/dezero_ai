@@ -1,0 +1,15 @@
+[TAG LAYER]
+tinny, tin robot, laser unpacking items from container, spread out, white background, studio ghibli, clean espresso lines, solid pure white background, warm cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading. Tinny the robot emitting a gentle prism light beam labeled '*xs' onto a bundled container, smoothly spreading out individual crystal variables across the workstation bench. Pure solid white background (#FFFFFF), soft contact shadow, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy DeZero Educational Anime v1.0
+Trigger: studio ghibli 2d style, clean line art, solid pure white background
+Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: 호출 시 별표(*xs) 언패킹의 분해 마법

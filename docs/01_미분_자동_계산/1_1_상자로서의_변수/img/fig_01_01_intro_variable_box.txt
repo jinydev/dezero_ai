@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, 1man, dorothy, 1girl, toto, 1dog, korean, early 40s, engineering professor, youthful face, smooth skin, parted short salt-and-pepper hair, thin metal wire-rim glasses, kind warm brown eyes, encouraging friendly smile, solid dark charcoal navy polo shirt, no badge, no snu text, classic blue denim jeans, grey sneakers, wooden box, golden glow, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Full-body portrait of Professor Hojin, a youthful and friendly Korean engineering professor in his early 40s (strictly smooth youthful skin without wrinkles, energetic kind face), neatly parted stylish salt-and-pepper short black hair, thin minimalist round metal wire-rim glasses, kind warm brown eyes, encouraging warm smile. He wears a plain solid dark charcoal navy polo shirt (NO badges, NO name tags, NO SNU text), classic blue denim jeans, and grey retro running sneakers. He stands warmly in the center holding up a beautifully crafted smooth wooden gift box representing a 'Variable' in DeZero with its lid gently open, glowing with a warm soft inner light. Beside him, Dorothy (4.5 heads tall, chestnut twin pigtails with colorful beads, denim overalls with 'STEM HERO' patch, red canvas sneakers) and fluffy cream-white puppy Toto (solid milk-white coat, no spots, black button nose, sky-blue bandana) look up at the box with eager, sparkling curiosity. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Chapter 1 Intro - Variable as a Box

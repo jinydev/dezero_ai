@@ -1,0 +1,16 @@
+[TAG LAYER]
+tinny robot, ai maker robot, silver chassis, glowing amber heart, scalar 0D, vector 1D, matrix 2D, tensor 3D, holographic hierarchy, pure solid white background, clean anime line art, soft cel shading, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp line art, soft warm flat cel shading, masterpiece. Tinny the cute AI maker robot, a small bipedal humanoid robot with a warm matte silver tin body, white ceramic enamel panels, brass servo joints, round retro monitor head with cheerful crescent LED eyes (^^), brass spring antenna with lit yellow bulb, and a glowing warm amber heart core in his chest window. Tinny proudly holds out his mechanical hands, projecting a sequence of four floating holographic geometric concepts in ascending order: a bright glowing point (0D: Scalar), a linear row of connected beads (1D: Vector), a flat grid plane (2D: Matrix), and a translucent isometric cube (3D: Tensor), demonstrating the continuum of tensors in machine learning. Pure solid clean white background (#FFFFFF), isolated character and floating holographic graphics, subtle contact shadow, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Tinny
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: tinny robot, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Hierarchy of Tensors: Scalar, Vector, Matrix, Tensor

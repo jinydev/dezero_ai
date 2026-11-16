@@ -1,0 +1,16 @@
+[TAG LAYER]
+jiny, 1cat, tuxedo cat, scholar glasses, mirror reflection, rate of change 1, pure white background, clean line art, soft cel shading, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), soft warm flat cel shading, storybook educational illustration, masterpiece. Jiny the lab assistant cat looking thoughtfully into a polished silver mirror on a desk; as Jiny tilts his head, the reflection moves in exact 1:1 unison, playfully demonstrating that any variable changing with respect to itself has a rate of change equal to exactly 1. Pure solid clean white background (#FFFFFF), isolated character and mirror prop, subtle soft contact shadow at base, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Jiny
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: jiny, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: NOTE: dy/dy is Always 1 (Rate of Change of Self with Respect to Self)

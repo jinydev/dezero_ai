@@ -1,0 +1,15 @@
+[TAG LAYER]
+jiny, tuxedo cat, spectacles, blocking premature path to A, strict execution order, white background, studio ghibli, clean espresso lines, solid pure white background, warm cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading. Jiny the cat wearing spectacles firmly holding a red 'WAIT' baton across the entrance of track A, ensuring both function B and C workshops have stamped their clearance seals first. Pure solid white background (#FFFFFF), soft contact shadow, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy DeZero Educational Anime v1.0
+Trigger: studio ghibli 2d style, clean line art, solid pure white background
+Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: 철칙: 함수 B와 C의 역전파가 끝나기 전에는 A를 실행하지 말라

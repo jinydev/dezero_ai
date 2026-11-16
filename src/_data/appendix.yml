@@ -1,0 +1,16 @@
+main:
+- title: 부록
+  url: /06_부록/
+  subitems:
+  - title: APPENDIX A 인플레이스 연산(14단계 보충)
+    url: /06_부록/6_1_PPENDIX_A_인플레이스_연산_14단계_보충/
+  - title: APPENDIX B get_item 함수 구현(47단계 보충)
+    url: /06_부록/6_2_PPENDIX_B_get_item_함수_구현_47단계_보충/
+  - title: APPENDIX C 구글 콜랩에서 실행
+    url: /06_부록/6_3_PPENDIX_C_구글_콜랩에서_실행/
+  - title: 마치며
+    url: /06_부록/6_4_마치며/
+  - title: 참고문헌
+    url: /06_부록/6_5_참고문헌/
+  - title: INDEX 및 DeZero API
+    url: /06_부록/6_6_NDEX_및_DeZero_API/

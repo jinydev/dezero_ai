@@ -1,0 +1,14 @@
+[TAG LAYER]
+dorothy, 1girl, jiny cat, 1cat, wooden box with data and grad drawers, craftsman workbench, pure solid white background, Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, pure solid white background (#FFFFFF), subtle soft contact shadow, 1:1 square ratio, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Dorothy and Jiny the cat attaching a brand new golden drawer compartment labeled 'grad' (gradient) right below the existing 'data' compartment on a wooden Variable box. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy World LoRA v1.0
+Trigger: fig_06_02
+Target Concept: Extending Variable class with grad field
+Aspect Ratio: 1:1 (1024x1024)

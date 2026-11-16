@@ -1,0 +1,16 @@
+[TAG LAYER]
+tinny robot, jiny cat, balanced scale, x-h and x+h, centered difference, 2h denominator, pure white background, clean anime line art, cel shading, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp line art, soft warm flat cel shading, masterpiece. Tinny the friendly robot and Jiny the tuxedo cat demonstrate the centered difference method. Tinny holds a balanced wooden balance beam with two symmetrical weights labeled '$x - h$' and '$x + h$' spanning a total interval of '$2h$', showing how looking both backward and forward symmetrically cancels out approximation errors. Pure solid clean white background (#FFFFFF), isolated characters and balance prop, subtle contact shadow, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Tinny, Jiny
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: tinny robot, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Centered Difference to Reduce Approximation Error

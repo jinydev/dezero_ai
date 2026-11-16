@@ -1,0 +1,15 @@
+[TAG LAYER]
+jiny, tuxedo cat, spectacles, precision balance, zero difference, numerical vs analytical, white background, studio ghibli, clean espresso lines, solid pure white background, warm cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading. Jiny the cat wearing spectacles inspecting a high-precision brass twin-pan balance comparing 'numerical_diff' and 'backward()', displaying absolute equilibrium with tiny zero-error sparkles. Pure solid white background (#FFFFFF), soft contact shadow, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy DeZero Educational Anime v1.0
+Trigger: studio ghibli 2d style, clean line art, solid pure white background
+Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: 수치 미분과의 교차 검증: 완벽한 정밀도 일치

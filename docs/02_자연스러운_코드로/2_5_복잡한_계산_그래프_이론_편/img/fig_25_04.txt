@@ -1,0 +1,15 @@
+[TAG LAYER]
+dorothy, girl, waiting for both gradient packets to arrive before releasing, patient gatekeeper, white background, studio ghibli, clean espresso lines, solid pure white background, warm cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading. Dorothy acting as a patient gatekeeper in front of Variable box 'a', holding up a friendly stop paddle until both glowing gradient spheres from branch B and branch C have landed safely in the box before opening the outbound hatch. Pure solid white background (#FFFFFF), soft contact shadow, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy DeZero Educational Anime v1.0
+Trigger: studio ghibli 2d style, clean line art, solid pure white background
+Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: 노드 a에 2개 미분값이 모두 도달한 후 전파해야 하는 철칙

@@ -1,0 +1,24 @@
+main:
+- title: '제5고지: DeZero의 도전'
+  url: /05_DeZero의_도전/
+  subitems:
+  - title: 52단계 GPU 지원
+    url: /05_DeZero의_도전/5_1_GPU_지원/
+  - title: 53단계 모델 저장 및 읽어오기
+    url: /05_DeZero의_도전/5_2_모델_저장_및_읽어오기/
+  - title: 54단계 드롭아웃과 테스트 모드
+    url: /05_DeZero의_도전/5_3_드롭아웃과_테스트_모드/
+  - title: 55단계 CNN 메커니즘(1)
+    url: /05_DeZero의_도전/5_4_CNN_메커니즘_1/
+  - title: 56단계 CNN 메커니즘(2)
+    url: /05_DeZero의_도전/5_5_CNN_메커니즘_2/
+  - title: 57단계 conv2d 함수와 pooling 함수
+    url: /05_DeZero의_도전/5_6_conv2d_함수와_pooling_함수/
+  - title: 58단계 대표적인 CNN(VGG16)
+    url: /05_DeZero의_도전/5_7_대표적인_CNN_VGG16/
+  - title: 59단계 RNN을 활용한 시계열 데이터 처리
+    url: /05_DeZero의_도전/5_8_RNN을_활용한_시계열_데이터_처리/
+  - title: 60단계 LSTM과 데이터 로더
+    url: /05_DeZero의_도전/5_9_LSTM과_데이터_로더/
+  - title: 칼럼 앞으로 앞으로
+    url: /05_DeZero의_도전/5_10_칼럼_앞으로_앞으로/

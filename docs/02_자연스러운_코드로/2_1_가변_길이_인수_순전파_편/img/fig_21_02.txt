@@ -1,0 +1,15 @@
+[TAG LAYER]
+dorothy, girl, jiny, tuxedo cat, spectacles, wooden boxes, plus sign, multiplication sign, white background, studio ghibli, clean espresso lines, solid pure white background, warm cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading. Dorothy (pigtails, STEM HERO denim overalls, red sneakers) and Jiny (smart black-and-white tuxedo cat wearing round spectacles) curiously examining two wooden Variable boxes feeding into a glowing brass cogwheel mechanism marked with a plus (+) and multiply (x) sign. Pure solid white background (#FFFFFF), soft contact shadow, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy DeZero Educational Anime v1.0
+Trigger: studio ghibli 2d style, clean line art, solid pure white background
+Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: 여러 변수를 받는 다양한 수학 연산

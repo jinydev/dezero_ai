@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, dorothy, toto, early 40s, youthful face, smooth skin, salt-and-pepper hair, thin round glasses, solid navy polo, backward flowing river, backprop intro, pure white background, clean anime line art, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Professor Hojin (youthful early 40s, smooth skin, salt-and-pepper hair, thin round wire glasses, plain dark navy polo, blue jeans) stands warmly between Dorothy and Toto, unveiling a glowing golden diagram of reverse derivative flow. He introduces backpropagation as the algorithm that makes deep learning possible with immense speed and pinpoint accuracy. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Intro to Backpropagation: Solving the Speed and Accuracy Problem

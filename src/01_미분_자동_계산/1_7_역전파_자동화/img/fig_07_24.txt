@@ -1,0 +1,14 @@
+[TAG LAYER]
+professor hojin, dorothy, tinny robot, jiny cat, toto dog, pressing y.backward() master button, celebratory confetti, pure solid white background, Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, pure solid white background (#FFFFFF), subtle soft contact shadow, 1:1 square ratio, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Professor Hojin, Dorothy, Tinny, Jiny, and Toto celebrating around a single grand master button reading 'y.backward()', confetti falling. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy World LoRA v1.0
+Trigger: fig_07_24
+Target Concept: One-line magic: y.backward() automates full backpropagation
+Aspect Ratio: 1:1 (1024x1024)

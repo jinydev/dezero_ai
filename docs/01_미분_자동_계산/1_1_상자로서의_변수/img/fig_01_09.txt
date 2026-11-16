@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, 1man, early 40s, youthful face, smooth skin, salt-and-pepper hair, thin round glasses, plain navy polo, no snu, armillary sphere, 3D grid cube, multidimensional arrays, welcoming gesture, pure solid white background, clean anime line art, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Full-body standing portrait of Professor Hojin, a youthful and friendly Korean engineering professor in his early 40s (smooth unwrinkled skin, stylish salt-and-pepper short hair, thin minimalist round metal wire-rim glasses, plain dark charcoal navy polo shirt with NO badges, classic blue straight jeans, grey sneakers). He holds a miniature brass navigational armillary sphere in one hand and a geometric 3D wireframe coordinate cube in the other, making a welcoming, warm gesture toward the viewer to embark on exploring the multi-dimensional world of arrays and tensors. Pure solid clean white background (#FFFFFF), isolated character and educational props, subtle soft contact shadow at feet, centered, 1:1 square aspect ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Section 1.3 Intro to Multidimensional Arrays and Dimensions

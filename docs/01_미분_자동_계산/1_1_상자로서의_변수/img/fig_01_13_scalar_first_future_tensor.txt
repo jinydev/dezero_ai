@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, dorothy, toto, early 40s, youthful face, smooth skin, salt-and-pepper hair, thin round glasses, solid navy polo, blue jeans, encouraging mentor, blueprint roadmap, scalar to tensor, pure solid white background, clean anime line art, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), rich warm flat cel shading, storybook educational illustration, masterpiece. An inspiring closing mentor scene. Professor Hojin (youthful and friendly Korean professor in his early 40s, smooth youthful skin, stylish salt-and-pepper short hair, thin minimalist round metal wire-rim glasses, plain dark charcoal navy polo shirt with NO badges, classic blue jeans) stands warmly placing an encouraging hand on Dorothy's shoulder. With a confident, warm smile, he gestures forward toward a desktop blueprint roadmap showing a transition from a simple single wooden scalar box today toward grand multi-layered tensor networks at Step 37. Dorothy (pigtails, overalls with STEM HERO patch, red sneakers) looks up with excited, inspired eyes, ready for the learning journey. Fluffy puppy Toto happily pants sitting beside Dorothy's feet. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Scalar Foundations First, Expanding to Tensors in Step 37

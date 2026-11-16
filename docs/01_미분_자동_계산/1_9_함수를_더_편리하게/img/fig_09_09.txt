@@ -1,0 +1,14 @@
+[TAG LAYER]
+tinny robot, twin conveyors comparing numpy and cupy dimension handling, pure solid white background, Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, pure solid white background (#FFFFFF), subtle soft contact shadow, 1:1 square ratio, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Tinny showing two parallel conveyors: NumPy dropping to scalar vs CuPy steadfastly preserving cupy.ndarray regardless of dimension. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy World LoRA v1.0
+Trigger: fig_09_09
+Target Concept: CuPy dimension consistency note
+Aspect Ratio: 1:1 (1024x1024)

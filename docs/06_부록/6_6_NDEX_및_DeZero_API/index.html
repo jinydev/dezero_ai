@@ -1,0 +1,1484 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.9.0 -->
+<title>INDEX 및 DeZero API | 밑바닥부터 시작하는 딥러닝 3</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="INDEX 및 DeZero API" />
+<meta name="author" content="Hojin" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="파이썬으로 직접 구현하며 배우는 딥러닝 프레임워크 (DeZero)" />
+<meta name="twitter:description" property="og:description" content="파이썬으로 직접 구현하며 배우는 딥러닝 프레임워크 (DeZero)" />
+<link rel="canonical" href="https://dezero.ai.jiny.dev/06_%EB%B6%80%EB%A1%9D/6_6_NDEX_%EB%B0%8F_DeZero_API/" />
+<meta property="og:url" content="https://dezero.ai.jiny.dev/06_%EB%B6%80%EB%A1%9D/6_6_NDEX_%EB%B0%8F_DeZero_API/" />
+<meta property="og:site_name" content="밑바닥부터 시작하는 딥러닝 3" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="INDEX 및 DeZero API" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Hojin"},"description":"파이썬으로 직접 구현하며 배우는 딥러닝 프레임워크 (DeZero)","headline":"INDEX 및 DeZero API","url":"https://dezero.ai.jiny.dev/06_%EB%B6%80%EB%A1%9D/6_6_NDEX_%EB%B0%8F_DeZero_API/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/assets/css/docs.css" rel="stylesheet" />
+  <link href="/assets/css/highlight.css" rel="stylesheet" />
+
+  <style>
+    blockquote {
+      border-left: solid 5px #dee2e6;
+      padding: 5px 10px;
+      background-color: #f8f9fa;
+    }
+  </style>
+
+  <style>
+    h1 a {
+      text-decoration: none;
+    }
+
+    h2 a {
+      text-decoration: none;
+    }
+
+    h3 a {
+      text-decoration: none;
+    }
+
+    h4 a {
+      text-decoration: none;
+    }
+
+    h5 a {
+      text-decoration: none;
+    }
+
+    h6 a {
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: top
+    }
+
+    strong a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 스크롤바 커스텀 */
+    /* 임의의 영역 생성 */
+    .scrollBar {}
+
+    /* 아래의 모든 코드는 영역::코드로 사용 */
+    .scrollBar::-webkit-scrollbar {
+      width: 7px;
+      /* 스크롤바의 너비 */
+    }
+
+    .scrollBar::-webkit-scrollbar-thumb {
+      height: 30%;
+      /* 스크롤바의 길이 */
+      background: #cccccc;
+      /* 스크롤바의 색상 */
+
+      border-radius: 5px;
+    }
+
+    .scrollBar::-webkit-scrollbar-track {
+      background: rgba(33, 122, 244, .1);
+      /*스크롤바 뒷 배경 색상*/
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R4VBPCT3CR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-R4VBPCT3CR');
+  </script>
+
+  <!-- MathJax for LaTeX Rendering -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+
+</head>
+
+<body>
+  <header class="navbar navbar-expand-lg bd-navbar sticky-top">
+    <nav class="container bd-gutter flex-wrap flex-lg-nowrap position-relative" aria-label="Main navigation">
+
+      <!-- Mobile: Left Toggle (Browse) -->
+      <div class="bd-navbar-toggle d-lg-none">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdSidebar"
+          aria-controls="bdSidebar" aria-label="Toggle docs navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="bi" fill="currentColor"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z">
+            </path>
+          </svg>
+          <span class="d-none fs-6 pe-1">Browse</span>
+        </button>
+      </div>
+
+      <!-- Brand: Desktop (Static), Mobile (Absolute Center) -->
+      <a class="navbar-brand p-0 me-0 me-lg-2 ms-lg-0 d-none d-lg-inline-block" href="/" aria-label="jinydev">
+        <svg width="32" height="26" viewBox="0 0 32 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24.2746 5.33377C25.8486 7.33981 25.1183 11.1792 24.3961 13.0177C24.4028 13.0199 24.4094 13.0221 24.4161 13.0243L24.4013 13.0248L22.649 12.9082C22.649 12.9053 22.6488 12.9013 22.649 12.8993C22.9902 8.93373 22.5975 7.34575 22.2147 7.07677C17.6316 10.3896 13.5379 9.33658 12.2725 9.01111C11.928 8.9225 11.7932 8.88781 11.9152 9.00988C12.2872 9.38185 13.1336 9.82821 13.7371 10.1465H13.7372L13.7376 10.1467C13.8743 10.2188 13.9985 10.2843 14.1019 10.3409C9.12673 10.3984 7.12659 8.00279 6.53855 7.29846C6.47859 7.22664 6.4333 7.1724 6.40105 7.14015C6.11408 6.85318 4.49961 5.87252 3.99256 7.74227C3.50142 9.55335 3.81246 11.6775 3.97665 12.7988C3.99089 12.896 3.99257 12.8981 3.99257 12.9298L2.37635 13.0248L2.37213 13.0247C0.223493 8.05534 1.83854 5.26971 3.29536 4.2246C3.29536 1.78444 6.27428 -0.592359 10.0455 0.263262C14.8768 1.64043 16.3468 1.18409 18.0759 0.647278C18.774 0.430562 19.5143 0.200726 20.5351 0.073124C25.2219 -0.512739 26.7993 2.56612 27 4.16122C26.2141 3.70487 24.8556 4.73165 24.2746 5.33377ZM12.3374 1.5872C11.1225 1.16466 7.99257 0.717209 6.3478 2.41116C5.98397 2.78587 5.55554 3.48864 5.55554 3.48864C5.55554 3.48864 4.82665 4.81961 4.25622 4.24919C3.68579 3.67878 5.0168 1.96749 6.06259 1.46044C7.10838 0.953388 9.70703 0.0660505 12.3374 1.5872Z"
+            fill="currentColor" />
+          <path
+            d="M10.078 13.5002H3.10601C2.2309 13.5002 1.52148 14.2097 1.52148 15.0848V18.3172C1.52148 19.1923 2.2309 19.9018 3.10601 19.9018H10.078C10.9531 19.9018 11.6625 19.1923 11.6625 18.3172V15.0848C11.6625 14.2097 10.9531 13.5002 10.078 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M0.823513 14.6094H0.379847C0.187322 14.6094 0.03125 14.7654 0.03125 14.958V15.9721C0.03125 16.1646 0.187322 16.3207 0.379847 16.3207H0.823513C1.01604 16.3207 1.17211 16.1646 1.17211 15.9721V14.958C1.17211 14.7654 1.01604 14.6094 0.823513 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M16.7326 13.5002H23.7045C24.5796 13.5002 25.2891 14.2097 25.2891 15.0848V18.3172C25.2891 19.1923 24.5796 19.9018 23.7045 19.9018H16.7326C15.8575 19.9018 15.1481 19.1923 15.1481 18.3172V15.0848C15.1481 14.2097 15.8575 13.5002 16.7326 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M25.9861 14.6094H26.4297C26.6222 14.6094 26.7783 14.7654 26.7783 14.958V15.9721C26.7783 16.1646 26.6222 16.3207 26.4297 16.3207H25.9861C25.7935 16.3207 25.6375 16.1646 25.6375 15.9721V14.958C25.6375 14.7654 25.7935 14.6094 25.9861 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M12.2954 15.5601H14.5137C14.7062 15.5601 14.8623 15.7161 14.8623 15.9087V16.9228C14.8623 17.1153 14.7062 17.2713 14.5137 17.2713H12.2954C12.1028 17.2713 11.9468 17.1153 11.9468 16.9228V15.9087C11.9468 15.7161 12.1028 15.5601 12.2954 15.5601Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M9.93343 16.3937C9.93343 16.7087 9.76317 16.9641 9.55314 16.9641C9.34311 16.9641 9.17285 16.7087 9.17285 16.3937C9.17285 16.0786 9.34311 15.8232 9.55314 15.8232C9.76317 15.8232 9.93343 16.0786 9.93343 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M16.9688 16.3937C16.9688 16.7087 17.139 16.9641 17.3491 16.9641C17.5591 16.9641 17.7293 16.7087 17.7293 16.3937C17.7293 16.0786 17.5591 15.8232 17.3491 15.8232C17.139 15.8232 16.9688 16.0786 16.9688 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M14.2758 20.1016C13.642 20.6086 12.7863 20.3551 12.5645 20.1016C12.6278 20.4185 12.8687 20.8622 13.4518 20.8622C14.0349 20.8622 14.2441 20.3551 14.2758 20.1016Z"
+            fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1312 22.411C12.1575 22.2914 12.2759 22.2157 12.3956 22.2421L14.6347 22.735C14.7544 22.7614 14.83 22.8797 14.8036 22.9994C14.7773 23.119 14.659 23.1947 14.5393 23.1683L12.3002 22.6753C12.1805 22.649 12.1049 22.5307 12.1312 22.411Z"
+            fill="currentColor" />
+          <path
+            d="M13.4203 27.6754C9.00897 27.7261 5.77228 23.6613 4.70536 21.6225C4.54691 21.3197 4.42016 21.2739 4.32509 21.3373C4.17297 21.4387 4.28282 21.6437 4.32507 21.7493C4.85747 22.9916 5.58213 24.0416 5.87791 24.4113C4.83846 26.1353 4.49409 27.855 4.45183 28.4994C6.1758 26.8008 7.91668 26.8832 8.57162 27.1367C13.7055 29.7987 16.5577 27.929 18.1739 27.1367C19.4669 26.5029 21.4803 27.7388 22.3254 28.436C22.224 26.8642 21.3747 25.1402 20.9627 24.4747C21.6282 23.5873 22.1669 22.5099 22.4522 21.9711C22.6803 21.5401 22.6106 21.369 22.5472 21.3373C22.3951 21.2613 22.2092 21.4958 22.1353 21.6225C21.6599 22.4148 18.9345 27.6121 13.4203 27.6754Z"
+            fill="currentColor" />
+        </svg>
+      </a>
+      <a class="navbar-brand p-0 me-0 position-absolute top-50 start-50 translate-middle d-lg-none" href="/"
+        aria-label="jinydev">
+        <svg width="100" height="26" viewBox="0 0 112 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M24.2746 5.33377C25.8486 7.33981 25.1183 11.1792 24.3961 13.0177C24.4028 13.0199 24.4094 13.0221 24.4161 13.0243L24.4013 13.0248L22.649 12.9082C22.649 12.9053 22.6488 12.9013 22.649 12.8993C22.9902 8.93373 22.5975 7.34575 22.2147 7.07677C17.6316 10.3896 13.5379 9.33658 12.2725 9.01111C11.928 8.9225 11.7932 8.88781 11.9152 9.00988C12.2872 9.38185 13.1336 9.82821 13.7371 10.1465H13.7372L13.7376 10.1467C13.8743 10.2188 13.9985 10.2843 14.1019 10.3409C9.12673 10.3984 7.12659 8.00279 6.53855 7.29846C6.47859 7.22664 6.4333 7.1724 6.40105 7.14015C6.11408 6.85318 4.49961 5.87252 3.99256 7.74227C3.50142 9.55335 3.81246 11.6775 3.97665 12.7988C3.99089 12.896 3.99257 12.8981 3.99257 12.9298L2.37635 13.0248L2.37213 13.0247C0.223493 8.05534 1.83854 5.26971 3.29536 4.2246C3.29536 1.78444 6.27428 -0.592359 10.0455 0.263262C14.8768 1.64043 16.3468 1.18409 18.0759 0.647278C18.774 0.430562 19.5143 0.200726 20.5351 0.073124C25.2219 -0.512739 26.7993 2.56612 27 4.16122C26.2141 3.70487 24.8556 4.73165 24.2746 5.33377ZM12.3374 1.5872C11.1225 1.16466 7.99257 0.717209 6.3478 2.41116C5.98397 2.78587 5.55554 3.48864 5.55554 3.48864C5.55554 3.48864 4.82665 4.81961 4.25622 4.24919C3.68579 3.67878 5.0168 1.96749 6.06259 1.46044C7.10838 0.953388 9.70703 0.0660505 12.3374 1.5872Z"
+            fill="currentColor" />
+          <path
+            d="M10.078 13.5002H3.10601C2.2309 13.5002 1.52148 14.2097 1.52148 15.0848V18.3172C1.52148 19.1923 2.2309 19.9018 3.10601 19.9018H10.078C10.9531 19.9018 11.6625 19.1923 11.6625 18.3172V15.0848C11.6625 14.2097 10.9531 13.5002 10.078 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M0.823513 14.6094H0.379847C0.187322 14.6094 0.03125 14.7654 0.03125 14.958V15.9721C0.03125 16.1646 0.187322 16.3207 0.379847 16.3207H0.823513C1.01604 16.3207 1.17211 16.1646 1.17211 15.9721V14.958C1.17211 14.7654 1.01604 14.6094 0.823513 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M16.7326 13.5002H23.7045C24.5796 13.5002 25.2891 14.2097 25.2891 15.0848V18.3172C25.2891 19.1923 24.5796 19.9018 23.7045 19.9018H16.7326C15.8575 19.9018 15.1481 19.1923 15.1481 18.3172V15.0848C15.1481 14.2097 15.8575 13.5002 16.7326 13.5002Z"
+            stroke="currentColor" stroke-width="1.26763" />
+          <path
+            d="M25.9861 14.6094H26.4297C26.6222 14.6094 26.7783 14.7654 26.7783 14.958V15.9721C26.7783 16.1646 26.6222 16.3207 26.4297 16.3207H25.9861C25.7935 16.3207 25.6375 16.1646 25.6375 15.9721V14.958C25.6375 14.7654 25.7935 14.6094 25.9861 14.6094Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M12.2954 15.5601H14.5137C14.7062 15.5601 14.8623 15.7161 14.8623 15.9087V16.9228C14.8623 17.1153 14.7062 17.2713 14.5137 17.2713H12.2954C12.1028 17.2713 11.9468 17.1153 11.9468 16.9228V15.9087C11.9468 15.7161 12.1028 15.5601 12.2954 15.5601Z"
+            fill="currentColor" stroke="currentColor" stroke-width="0.0633813" />
+          <path
+            d="M9.93343 16.3937C9.93343 16.7087 9.76317 16.9641 9.55314 16.9641C9.34311 16.9641 9.17285 16.7087 9.17285 16.3937C9.17285 16.0786 9.34311 15.8232 9.55314 15.8232C9.76317 15.8232 9.93343 16.0786 9.93343 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M16.9688 16.3937C16.9688 16.7087 17.139 16.9641 17.3491 16.9641C17.5591 16.9641 17.7293 16.7087 17.7293 16.3937C17.7293 16.0786 17.5591 15.8232 17.3491 15.8232C17.139 15.8232 16.9688 16.0786 16.9688 16.3937Z"
+            fill="currentColor" />
+          <path
+            d="M14.2758 20.1016C13.642 20.6086 12.7863 20.3551 12.5645 20.1016C12.6278 20.4185 12.8687 20.8622 13.4518 20.8622C14.0349 20.8622 14.2441 20.3551 14.2758 20.1016Z"
+            fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M12.1312 22.411C12.1575 22.2914 12.2759 22.2157 12.3956 22.2421L14.6347 22.735C14.7544 22.7614 14.83 22.8797 14.8036 22.9994C14.7773 23.119 14.659 23.1947 14.5393 23.1683L12.3002 22.6753C12.1805 22.649 12.1049 22.5307 12.1312 22.411Z"
+            fill="currentColor" />
+          <path
+            d="M13.4203 27.6754C9.00897 27.7261 5.77228 23.6613 4.70536 21.6225C4.54691 21.3197 4.42016 21.2739 4.32509 21.3373C4.17297 21.4387 4.28282 21.6437 4.32507 21.7493C4.85747 22.9916 5.58213 24.0416 5.87791 24.4113C4.83846 26.1353 4.49409 27.855 4.45183 28.4994C6.1758 26.8008 7.91668 26.8832 8.57162 27.1367C13.7055 29.7987 16.5577 27.929 18.1739 27.1367C19.4669 26.5029 21.4803 27.7388 22.3254 28.436C22.224 26.8642 21.3747 25.1402 20.9627 24.4747C21.6282 23.5873 22.1669 22.5099 22.4522 21.9711C22.6803 21.5401 22.6106 21.369 22.5472 21.3373C22.3951 21.2613 22.2092 21.4958 22.1353 21.6225C21.6599 22.4148 18.9345 27.6121 13.4203 27.6754Z"
+            fill="currentColor" />
+          <text x="32" y="21" font-family="Arial, sans-serif" font-weight="bold" font-size="22"
+            fill="currentColor">Jiny</text>
+        </svg>
+      </a>
+
+      <!-- Mobile: Right Toggle (Menu) -->
+      <div class="d-flex d-lg-none ms-auto">
+        <button class="navbar-toggler p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar"
+          aria-controls="bdNavbar" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid"
+            viewBox="0 0 16 16">
+            <path
+              d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- OffCanvas -->
+      <div class="offcanvas-lg offcanvas-end flex-grow-1" tabindex="-1" id="bdNavbar"
+        aria-labelledby="bdNavbarOffcanvasLabel" data-bs-scroll="true">
+        <!-- OffCanver Header -->
+        <div class="offcanvas-header px-4 pb-0">
+          <h5 class="offcanvas-title text-white" id="bdNavbarOffcanvasLabel">Jiny</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"
+            data-bs-target="#bdNavbar">
+          </button>
+        </div>
+
+        <!-- OffCanver Body -->
+        <div class="offcanvas-body p-4 pt-0 p-lg-0">
+          <hr class="d-lg-none text-white-50">
+
+          
+          <ul class="navbar-nav flex-column flex-lg-row bd-navbar-nav">
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/00_프롤로그/">프롤로그</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/01_미분_자동_계산/">제1고지</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/02_자연스러운_코드로/">제2고지</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/03_고차_미분_계산/">제3고지</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/04_신경망_만들기/">제4고지</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 "
+                href="/05_DeZero의_도전/">제5고지</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link py-2 px-0 px-lg-2 active"
+                href="/06_부록/">부록</a>
+            </li>
+            
+          </ul>
+
+          <hr class="d-lg-none text-white-50">
+
+          <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
+            <li class="nav-item col-6 col-lg-auto">
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/rl_ai" target="_blank"
+                rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                  viewBox="0 0 512 499.36" role="img">
+                  <title>GitHub</title>
+                  <path fill="currentColor" fill-rule="evenodd"
+                    d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z">
+                  </path>
+                </svg>
+                <small class="d-lg-none ms-2">GitHub</small>
+              </a>
+            </li>
+
+            <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+              <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
+              <hr class="d-lg-none my-2 text-white-50">
+            </li>
+
+            <li class="nav-item col-6 col-lg-auto">
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://jiny.dev" aria-label="Home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
+                  viewBox="0 0 16 16" role="img">
+                  <title>Home</title>
+                  <path fill="currentColor"
+                    d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
+                </svg>
+                <small class="d-lg-none ms-2">Home</small>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container bd-gutter mt-3 my-md-4 bd-layout">
+    <aside class="bd-sidebar scrollBar">
+        <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="bdSidebar"
+            aria-labelledby="bdSidebarOffcanvasLabel">
+            <div class="offcanvas-header border-bottom">
+                <h5 class="offcanvas-title" id="bdSidebarOffcanvasLabel">학습목차</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                    data-bs-target="#bdSidebar"></button>
+            </div>
+
+            <div class="offcanvas-body">
+                <!-- 네비게이션 -->
+                <nav class="bd-links w-100" id="bd-docs-nav" aria-label="Docs navigation">
+  <ul class="bd-links-nav list-unstyled mb-0 pb-3 pb-md-2 pe-lg-2">
+    <li class="bd-links-group py-2">
+      <strong class="bd-links-heading d-flex w-100 align-items-center fw-semibold">
+        강의 목차
+      </strong>
+      <ul class="list-unstyled fw-normal pb-2 small">
+        
+        
+        
+        
+
+        
+
+        
+
+        
+        <li>
+          
+            
+            
+            <button
+              class="bd-links-link bd-links-btn btn d-inline-flex align-items-center rounded border-0  w-100"
+              data-bs-toggle="collapse" data-bs-target="#collapse-1"
+              aria-expanded="true">
+              부록
+              <svg class="bi ms-auto" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+              </svg>
+            </button>
+            <div class="collapse show" id="collapse-1">
+              <ul class="list-unstyled fw-normal pb-1 small ms-3">
+                
+                <li>
+                  <a href="/06_부록/6_1_PPENDIX_A_인플레이스_연산_14단계_보충/"
+                    class="bd-links-link d-inline-block rounded ">
+                    APPENDIX A 인플레이스 연산(14단계 보충)
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/06_부록/6_2_PPENDIX_B_get_item_함수_구현_47단계_보충/"
+                    class="bd-links-link d-inline-block rounded ">
+                    APPENDIX B get_item 함수 구현(47단계 보충)
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/06_부록/6_3_PPENDIX_C_구글_콜랩에서_실행/"
+                    class="bd-links-link d-inline-block rounded ">
+                    APPENDIX C 구글 콜랩에서 실행
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/06_부록/6_4_마치며/"
+                    class="bd-links-link d-inline-block rounded ">
+                    마치며
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/06_부록/6_5_참고문헌/"
+                    class="bd-links-link d-inline-block rounded ">
+                    참고문헌
+                  </a>
+                </li>
+                
+                <li>
+                  <a href="/06_부록/6_6_NDEX_및_DeZero_API/"
+                    class="bd-links-link d-inline-block rounded active">
+                    INDEX 및 DeZero API
+                  </a>
+                </li>
+                
+              </ul>
+            </div>
+          
+        </li>
+        
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+            </div>
+        </div>
+    </aside>
+
+    <main class="bd-main order-1">
+        <nav aria-label="breadcrumb" class="mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item"><a href="/06_%EB%B6%80%EB%A1%9D/">06 부록</a></li>
+        
+        
+        
+        
+        
+        
+        <li class="breadcrumb-item active" aria-current="page">INDEX 및 DeZero API</li>
+        
+        
+        
+    </ol>
+</nav>
+
+        <div class="bd-content ps-lg-4">
+            <h1 id="index-및-dezero-api">INDEX 및 DeZero API</h1>
+
+<h4 id="숫자--기호">숫자 / 기호</h4>
+<ul>
+  <li>2차 근사 241</li>
+  <li>* 연산자 170</li>
+  <li>
+    <ul>
+      <li>연산자 171</li>
+    </ul>
+  </li>
+  <li>∂ 기호 116</li>
+  <li>&gt;&gt;&gt; 43</li>
+  <li>@contextlib.contextmanager 158</li>
+  <li>@property 163</li>
+</ul>
+
+<h4 id="ㄴ">ㄴ</h4>
+<ul>
+  <li>나눗셈 183</li>
+  <li>넘파이의 다차원 배열 41, 42</li>
+  <li>네이피어 상수 51</li>
+  <li>노드 76</li>
+  <li>뉴턴 방법 239, 291</li>
+  <li>뉴턴 방법으로 푸는 최적화 267</li>
+</ul>
+
+<h4 id="ㄱ">ㄱ</h4>
+<ul>
+  <li>가변 길이 106</li>
+  <li>가변 길이 인수 105</li>
+  <li>가비지 컬렉션 144</li>
+  <li>가중치 351</li>
+  <li>가중치 감소 382, 455</li>
+  <li>가중치 초깃값 366</li>
+  <li>거듭제곱 184</li>
+  <li>게이트가 추가된 RNN 516</li>
+  <li>결정 경계 401</li>
+  <li>경사하강법 236</li>
+  <li>계산 그래프 46</li>
+  <li>계산 그래프 시각화 209, 215, 229</li>
+  <li>계층 컬렉션 430</li>
+  <li>고차 미분 247, 261</li>
+  <li>고차 미분 계산 그래프 277</li>
+  <li>고차 미분 계산 그래프 시각화 279</li>
+  <li>곱셈 105</li>
+  <li>과적합 419</li>
+  <li>교차 엔트로피 오차 393</li>
+  <li>구글 콜랩 446, 533</li>
+  <li>그래프 46</li>
+  <li>기울기 235</li>
+  <li>기울기 벡터 235</li>
+  <li>기울기 클리핑 382</li>
+  <li>기울기 확인 60, 96</li>
+  <li>기호 미분 100</li>
+  <li>기호 프로그래밍 201</li>
+  <li>꼬리 재귀 83</li>
+</ul>
+
+<h4 id="ㄷ">ㄷ</h4>
+<ul>
+  <li>다변수 함수 116</li>
+  <li>다변수 함수의 뉴턴 방법 291</li>
+  <li>다이렉트 드롭아웃 457</li>
+  <li>다중 클래스 분류 387</li>
+  <li>다층 퍼셉트론 379</li>
+  <li>대화 모드 43</li>
+  <li>덧셈 105</li>
+  <li>데이터 확장 409, 455</li>
+  <li>도메인 특화 언어 201</li>
+  <li>도함수 56</li>
+  <li>동적 계산 그래프 75, 202</li>
+  <li>동적 계산 그래프의 장점 203</li>
+  <li>드롭아웃 455</li>
+  <li>딥러닝 프레임워크 428</li>
+</ul>
+
+<h4 id="ㄹ">ㄹ</h4>
+<ul>
+  <li>라이브러리 187</li>
+  <li>렐루 함수 355</li>
+  <li>로젠브록 함수 233</li>
+  <li>리스트 106</li>
+  <li>리스트 내포 107</li>
+  <li>리스트 언팩 112</li>
+  <li>링크 76</li>
+  <li>링크드 리스트 76</li>
+</ul>
+
+<h4 id="ㅁ">ㅁ</h4>
+<ul>
+  <li>마차시(matyas) 함수 197</li>
+  <li>매클로린 전개 227</li>
+  <li>메모리 관리 143</li>
+  <li>
+    <p>메모리 누수 143</p>
+  </li>
+  <li>메모리 부족 143</li>
+  <li>모델 374</li>
+  <li>모듈 187</li>
+  <li>모드 전환 156</li>
+  <li>미니배치 399, 472</li>
+  <li>미분 55</li>
+  <li>미분 가능 프로그래밍 202</li>
+  <li>미분 재설정 125</li>
+</ul>
+
+<h4 id="ㅂ">ㅂ</h4>
+<ul>
+  <li>바나나 함수 233</li>
+  <li>반복문 82</li>
+  <li>반복문을 이용한 구현 82</li>
+  <li>반복자 411</li>
+  <li>배치 정규화 455</li>
+  <li>벡터 42</li>
+  <li>벡터의 내적 333</li>
+  <li>벡터화 처리 303</li>
+  <li>벤치마크 함수 196</li>
+  <li>변수 39</li>
+  <li>변수와 함수의 관계 74</li>
+  <li>복잡한 계산 그래프 135</li>
+  <li>복잡한 연결 127</li>
+  <li>부호 변환 180</li>
+  <li>분수 함수의 미분 278</li>
+  <li>비선형 데이터셋 354</li>
+  <li>뺄셈 181</li>
+</ul>
+
+<h4 id="ㅅ">ㅅ</h4>
+<ul>
+  <li>선형 변환 351</li>
+  <li>선형 회귀 341</li>
+  <li>세대 133</li>
+  <li>세대별 가비지 컬렉션 147</li>
+  <li>소프트맥스 함수 391</li>
+  <li>손실 함수 64, 301</li>
+  <li>수동 역전파 67</li>
+  <li>수치 미분 56, 100</li>
+  <li>수치 미분의 문제점 59</li>
+  <li>순환 신경망 499</li>
+  <li>순환 참조 146</li>
+  <li>스칼라 42</li>
+  <li>스트라이드 465</li>
+  <li>스파이럴 데이터셋 397</li>
+  <li>슬라이스 388</li>
+  <li>슬라이스 조작 함수 387</li>
+  <li>시계열 500</li>
+  <li>시그모이드 함수 355</li>
+  <li>신경망 351</li>
+  <li>신경망 구현 356</li>
+  <li>쌍곡탄젠트 277</li>
+</ul>
+
+<h4 id="ㅇ">ㅇ</h4>
+<ul>
+  <li>아핀 변환 351</li>
+  <li>앙상블 학습 457</li>
+  <li>야코비 행렬 304</li>
+  <li>약한 참조 148, 153</li>
+  <li>에포크 399</li>
+  <li>역 드롭아웃 457</li>
+  <li>역전파 53, 61, 62, 115, 255, 262, 301, 335</li>
+  <li>역전파 비활성 모드 157, 264</li>
+  <li>역전파 활성 모드 157</li>
+  <li>연결 75</li>
+  <li>연산자 오버로드 167, 169</li>
+  <li>연쇄 법칙 61</li>
+  <li>오버피팅 419</li>
+  <li>오일러의 수 51</li>
+  <li>오차역전파법 61</li>
+  <li>옵티마이저 컬렉션 431</li>
+  <li>완전연결계층 351</li>
+  <li>우선순위 큐 139</li>
+  <li>원소별 계산 299</li>
+  <li>원핫 벡터 393</li>
+  <li>위상 128</li>
+  <li>위상 정렬 133</li>
+  <li>은닉 상태 500</li>
+  <li>은닉층 358</li>
+  <li>음수 180</li>
+  <li>이미지 변환 220</li>
+  <li>이미지넷 492</li>
+  <li>인식 정확도 416</li>
+</ul>
+
+<p>찾아보기 545</p>
+
+<ul>
+  <li>인플레이스 연산 525</li>
+  <li>입력층 358</li>
+</ul>
+
+<h4 id="ㅈ">ㅈ</h4>
+<ul>
+  <li>자동 미분 100</li>
+  <li>자동 미분의 forward 모드 304</li>
+  <li>자동 미분의 reverse 모드 305</li>
+  <li>자연로그의 밑 51</li>
+  <li>잔차 343</li>
+  <li>재귀 82, 83</li>
+  <li>전진차분 57</li>
+  <li>전처리 409</li>
+  <li>전치 합성곱 483</li>
+  <li>정적 계산 그래프 200</li>
+  <li>정적 계산 그래프의 장점 204</li>
+  <li>제너레이터 372</li>
+  <li>준 뉴턴 방법 293</li>
+  <li>중앙차분 56</li>
+  <li>중첩 함수 140</li>
+  <li>지속적 통합 98</li>
+  <li>진정한 미분 56</li>
+</ul>
+
+<h4 id="ㅊ">ㅊ</h4>
+<ul>
+  <li>차원 42</li>
+  <li>참조 카운트 144</li>
+  <li>창조자 74</li>
+  <li>체이너 203</li>
+  <li>최대 풀링 473</li>
+  <li>최적화 126, 233, 381</li>
+  <li>추론 154</li>
+  <li>축 42</li>
+  <li>출력이 여러 개인 함수 105</li>
+  <li>출력층 358</li>
+</ul>
+
+<h4 id="ㅋ">ㅋ</h4>
+<ul>
+  <li>커널 463</li>
+  <li>코어 클래스 188</li>
+  <li>쿠다 438</li>
+  <li>쿠파이 435</li>
+</ul>
+
+<h4 id="ㅌ">ㅌ</h4>
+<ul>
+  <li>테스트 93</li>
+  <li>테스트 모드 458</li>
+  <li>테일러 급수 226</li>
+  <li>텐서 42, 299</li>
+  <li>텐서플로 201</li>
+  <li>토이 데이터셋 341</li>
+  <li>튜플 106</li>
+  <li>특징 맵 471</li>
+</ul>
+
+<h4 id="ㅍ">ㅍ</h4>
+<ul>
+  <li>파이썬 143</li>
+  <li>파이썬 단위 테스트 93</li>
+  <li>파이썬 인터프리터 143</li>
+  <li>파이썬 함수 85, 113</li>
+  <li>파이썬의 특수 메서드 46</li>
+  <li>패딩 464</li>
+  <li>패키지 187</li>
+  <li>편미분 116</li>
+  <li>편향 351</li>
+  <li>평균 교차 엔트로피 오차 394</li>
+  <li>평균 제곱 오차 343</li>
+  <li>평균 풀링 474</li>
+  <li>평탄화 424</li>
+  <li>풀링층 461, 473</li>
+  <li>플레이스홀더 201</li>
+  <li>피드포워드 499</li>
+  <li>필터 463</li>
+</ul>
+
+<h4 id="ㅎ">ㅎ</h4>
+<ul>
+  <li>하이퍼볼릭 탄젠트 277</li>
+  <li>하이퍼파라미터 358</li>
+  <li>학습 154</li>
+  <li>함수 45</li>
+  <li>함수 연결 52</li>
+  <li>함수 우선순위 133</li>
+  <li>합성 함수 52</li>
+  <li>합성 함수의 미분 58</li>
+  <li>
+    <p>합성곱 신경망 461</p>
+  </li>
+  <li>합성곱 연산 462</li>
+  <li>합성곱층 461</li>
+  <li>해석적으로 계산 58</li>
+  <li>행렬 42</li>
+  <li>행렬의 곱 333</li>
+  <li>행렬의 전치 312</li>
+  <li>헤세 행렬 243, 292</li>
+  <li>헤세 행렬과 벡터의 곱 293</li>
+  <li>형상 체크 335</li>
+  <li>확률적경사하강법 383</li>
+  <li>활성화 함수 355</li>
+  <li>회귀 342</li>
+</ul>
+
+<h4 id="a">A</h4>
+<ul>
+  <li>affine transformation 351</li>
+  <li>Aggressive Buffer Release 353</li>
+  <li>assert 문 76</li>
+  <li>assertEqual 94</li>
+  <li>assertGreater 94</li>
+  <li>assertTrue 94</li>
+  <li>automatic differentiation 100</li>
+  <li>Average 풀링 474</li>
+  <li>axis 42, 321</li>
+</ul>
+
+<h4 id="b">B</h4>
+<ul>
+  <li>backpropagation 61</li>
+  <li>Backpropagation Through Time 504</li>
+  <li>Banana function 233</li>
+  <li>Batch Normalization 455</li>
+  <li>bias 351</li>
+  <li>BPTT 504</li>
+</ul>
+
+<h4 id="c">C</h4>
+<ul>
+  <li>chain rule 61</li>
+  <li>Chainer 203</li>
+  <li>CI 98</li>
+  <li>circular reference 146</li>
+  <li>CNN 461</li>
+  <li>composite function 52</li>
+  <li>continuous integration 98</li>
+  <li>convolution layer 461</li>
+  <li>Convolutional Neural Network 461</li>
+  <li>cp.asarray 437</li>
+  <li>cp.asnumpy 437</li>
+  <li>CPython 143</li>
+  <li>CUDA 438</li>
+  <li>CuPy 435</li>
+  <li>cupy 438</li>
+</ul>
+
+<h4 id="d">D</h4>
+<ul>
+  <li>data augmentation 455</li>
+  <li>decision boundary 401</li>
+  <li>Define-and-Run 200</li>
+  <li>Define-by-Run 73, 202, 429</li>
+  <li>DeZero 데이터셋 421</li>
+  <li>dezero 임포트 193</li>
+  <li>differentiable programming 202</li>
+  <li>dimension 42</li>
+  <li>Direct Dropout 457</li>
+  <li>Domain-Specific Language 201</li>
+  <li>DOT 언어 211</li>
+  <li>double backprop 287, 293</li>
+  <li>double backpropagation 287</li>
+  <li>DSL 201</li>
+</ul>
+
+<h4 id="e">E</h4>
+<ul>
+  <li>Ensemble Learning 457</li>
+  <li>epoch 399</li>
+  <li>Euler’s number 51</li>
+</ul>
+
+<h4 id="f">F</h4>
+<ul>
+  <li>feature map 471</li>
+  <li>feed forward 499</li>
+  <li>forward difference 57</li>
+  <li>forward 모드 자동 미분 101</li>
+  <li>fully connected layer 351</li>
+</ul>
+
+<h4 id="g">G</h4>
+<ul>
+  <li>Garbage Collection 144</li>
+  <li>GC 144, 147</li>
+</ul>
+
+<p>찾아보기 547</p>
+
+<ul>
+  <li>generational garbage collection 147</li>
+  <li>generator 372</li>
+  <li>Goldstein-Price 함수 198</li>
+  <li>Google Colab 533</li>
+  <li>gradient 235</li>
+  <li>gradient checking 60, 96</li>
+  <li>gradient clipping 382</li>
+  <li>Gradient Descent 236</li>
+  <li>Graphviz 209</li>
+</ul>
+
+<h4 id="h">H</h4>
+<ul>
+  <li>Hessian matrix 243, 292</li>
+  <li>Hessian-vector product 293</li>
+  <li>hidden layer 358</li>
+  <li>hidden state 500</li>
+  <li>hyperparameter 358</li>
+</ul>
+
+<h4 id="i">I</h4>
+<ul>
+  <li>im2col 477</li>
+  <li>ImageNet 492</li>
+  <li>inference 154</li>
+  <li>input layer 358</li>
+  <li>Inverted Dropout 457</li>
+  <li>iterator 411</li>
+</ul>
+
+<h4 id="j">J</h4>
+<ul>
+  <li>Jacobian matrix 304</li>
+</ul>
+
+<h4 id="k">K</h4>
+<ul>
+  <li>keepdims 321</li>
+  <li>kernel 463</li>
+</ul>
+
+<h4 id="l">L</h4>
+<ul>
+  <li>linear regression 341</li>
+  <li>linear transformation 351</li>
+  <li>link 76</li>
+  <li>linked list 76</li>
+  <li>list comprehension 107</li>
+  <li>list unpack 112</li>
+  <li>loss function 64, 301</li>
+  <li>LSTM 계층 515</li>
+</ul>
+
+<h4 id="m">M</h4>
+<ul>
+  <li>Maclaurin’s series 227</li>
+  <li>MATLAB 100</li>
+  <li>matrix 42</li>
+  <li>Max 풀링 473</li>
+  <li>mean squared error 343</li>
+  <li>memory leak 143</li>
+  <li>memory profiler 150</li>
+  <li>middle layer 358</li>
+  <li>mini batch 399</li>
+  <li>MNIST 데이터셋 422</li>
+  <li>Momentum 384</li>
+  <li>multi-class classification 387</li>
+  <li>Multi-Layer Perceptron 379</li>
+</ul>
+
+<h4 id="n">N</h4>
+<ul>
+  <li>Napier’s constant 51</li>
+  <li>ndarray 인스턴스 41</li>
+  <li>Newton’s method 239</li>
+  <li>node 76</li>
+  <li>np.allclose 97</li>
+  <li>np.broadcast_to 326</li>
+  <li>np.dot 334</li>
+  <li>np.load 447</li>
+  <li>np.max 487</li>
+  <li>np.ndarray 41</li>
+  <li>np.ones_like 88</li>
+  <li>np.reshape 307</li>
+  <li>np.save 447</li>
+  <li>np.savez 449</li>
+  <li>np.savez_compressed 449</li>
+  <li>np.sum 321</li>
+  <li>np.transpose 312</li>
+  <li>numerical differentiation 56, 100</li>
+  <li>numpy.ndarray 41</li>
+  <li>N층 신경망 356</li>
+</ul>
+
+<h4 id="o">O</h4>
+<ul>
+  <li>one-hot vector 393</li>
+  <li>ONNX 521</li>
+  <li>operator overload 169</li>
+  <li>out of memory 143</li>
+  <li>output layer 358</li>
+  <li>overfitting 419</li>
+</ul>
+
+<h4 id="p">P</h4>
+<ul>
+  <li>padding 464</li>
+  <li>pooling 485</li>
+  <li>pooling layer 461</li>
+  <li>pooling_simple 486</li>
+  <li>PyPI 522</li>
+</ul>
+
+<h4 id="q">Q</h4>
+<ul>
+  <li>QNM 293</li>
+  <li>Quasi-Newton Method 293</li>
+</ul>
+
+<h4 id="r">R</h4>
+<ul>
+  <li>Recurrent Neural Network 499</li>
+  <li>regression 342</li>
+  <li>ReLU 함수 355, 426</li>
+  <li>residual 343</li>
+  <li>ResNet 497</li>
+  <li>reverse 모드 자동 미분 101</li>
+  <li>RNN 499</li>
+  <li>RNN 계층 500</li>
+  <li>RNN 모델 502</li>
+  <li>Rosenbrock function 233</li>
+</ul>
+
+<h4 id="s">S</h4>
+<ul>
+  <li>scalar 42</li>
+  <li>sigmoid function 355</li>
+  <li>sin 함수 고차 미분 271</li>
+  <li>slice 388</li>
+  <li>softmax function 391</li>
+  <li>Sphere 함수 196</li>
+  <li>SqueezeNet 497</li>
+  <li>stride 465</li>
+  <li>symbolic differentiation 100</li>
+  <li>symbolic programming 201</li>
+</ul>
+
+<h4 id="t">T</h4>
+<ul>
+  <li>tail recursion 83</li>
+  <li>tanh 277</li>
+  <li>Taylor Series 226</li>
+  <li>tensor 42</li>
+  <li>tf.cond 201</li>
+  <li>tf.placeholder 201</li>
+  <li>Topological Sort 133</li>
+  <li>topology 128</li>
+  <li>toy dataset 341</li>
+  <li>training 154</li>
+  <li>Truncated BPTT 505</li>
+  <li>try 구문 452</li>
+  <li>TypeError 89</li>
+</ul>
+
+<h4 id="u">U</h4>
+<ul>
+  <li>unittest 93</li>
+  <li>unittest.TestCase 94</li>
+</ul>
+
+<h4 id="v">V</h4>
+<ul>
+  <li>vector 42</li>
+  <li>VGG16 489</li>
+</ul>
+
+<h4 id="w">W</h4>
+<ul>
+  <li>weak reference 148</li>
+  <li>weakref 모듈 148</li>
+  <li>weakref.ref 148</li>
+  <li>weight 351</li>
+  <li>Weight Decay 382, 455</li>
+  <li>WGAN-GP 289</li>
+  <li>with 문 157</li>
+</ul>
+
+<h4 id="y">Y</h4>
+<ul>
+  <li>yield 365</li>
+</ul>
+
+<p>찾아보기 549</p>
+
+<h1 id="dezero-api">DeZero API</h1>
+
+<h4 id="파일">파일</h4>
+<ul>
+  <li>__init__.py 191, 265</li>
+  <li>core_simple.py 188</li>
+  <li>core.py 261</li>
+  <li>cuda.py 438</li>
+  <li>dataloaders.py 413</li>
+  <li>datasets.py 397, 422, 497</li>
+  <li>functions.py 189, 271</li>
+  <li>functions_conv.py 479</li>
+  <li>layers.py 363</li>
+  <li>models.py 374, 497</li>
+  <li>optimizers.py 381, 384</li>
+  <li>transforms.py 410</li>
+  <li>utils.py 215, 327, 467, 481, 493</li>
+</ul>
+
+<h4 id="클래스">클래스</h4>
+<ul>
+  <li>AdaDelta 옵티마이저 384</li>
+  <li>AdaGrad 옵티마이저 384</li>
+  <li>Adam 옵티마이저 384</li>
+  <li>Add 함수 108, 331</li>
+  <li>BigData 데이터셋 406</li>
+  <li>BroadcastTo 함수 328</li>
+  <li>Compose 410</li>
+  <li>Config 155, 459
+    <ul>
+      <li>enable_backprop 155 (도서 오탈자: enable_backporp)</li>
+      <li>train 459</li>
+    </ul>
+  </li>
+  <li>Conv2d 계층 484</li>
+  <li>Cos 함수 272</li>
+  <li>DataLoader 413, 441</li>
+  <li>Dataset 404
+    <ul>
+      <li>__getitem__ 404, 409</li>
+      <li>__len__ 404</li>
+    </ul>
+  </li>
+  <li>Div 함수 183</li>
+  <li>Exp 함수 51</li>
+  <li>Function 46</li>
+  <li>인스턴스 변수
+    <ul>
+      <li>generation 137</li>
+      <li>input 68</li>
+      <li>inputs 110</li>
+      <li>output 75</li>
+      <li>outputs 110, 149</li>
+    </ul>
+  </li>
+  <li>메서드
+    <ul>
+      <li>__call__ 46, 112, 174</li>
+      <li>backward 68</li>
+      <li>forward 48</li>
+      <li>set_creator 75</li>
+    </ul>
+  </li>
+  <li>GetItem 함수 529</li>
+  <li>GetItemGrad 함수 530</li>
+  <li>Layer 363, 372
+    <ul>
+      <li>_flatten_params 450</li>
+      <li>cleargrads 365</li>
+      <li>load_weights 452</li>
+      <li>save_weights 452</li>
+      <li>to_cpu 441</li>
+      <li>to_gpu 441</li>
+    </ul>
+  </li>
+  <li>Linear 계층 366</li>
+  <li>LSTM 계층 516</li>
+  <li>MatMul 함수 338</li>
+  <li>MeanSquaredError 함수 348</li>
+  <li>MLP 모델 378</li>
+  <li>MNIST 데이터셋 422</li>
+  <li>Model 374</li>
+  <li>MomentumSGD 옵티마이저 385</li>
+  <li>Mul 함수 168</li>
+  <li>Neg 함수 180</li>
+  <li>Normalize 410</li>
+  <li>Optimizer 381</li>
+  <li>Parameter 362</li>
+  <li>Pow 함수 184</li>
+  <li>ReLU 함수 426</li>
+  <li>Reshape 함수 309</li>
+  <li>ResNet 모델 497</li>
+  <li>RNN 계층 500</li>
+  <li>SeqDataLoader 514</li>
+  <li>SGD 옵티마이저 382</li>
+  <li>Sigmoid 함수 356</li>
+  <li>SimpleRNN 계층 503</li>
+  <li>Sin 함수 225, 271, 443</li>
+  <li>
+    <p>SinCurve 데이터셋 507</p>
+  </li>
+  <li>Softmax 함수 393</li>
+  <li>Spiral 데이터셋 405</li>
+  <li>SqueezeNet 모델 497</li>
+  <li>Sub 함수 181</li>
+  <li>Sum 함수 320</li>
+  <li>SumTo 함수 329</li>
+  <li>Tanh 함수 279</li>
+  <li>Transpose 함수 313</li>
+  <li>Variable 40
+    <ul>
+      <li>인스턴스 변수
+        <ul>
+          <li>creator 75</li>
+          <li>data 40</li>
+          <li>grad 67, 122</li>
+          <li>name 161</li>
+        </ul>
+      </li>
+      <li>속성
+        <ul>
+          <li>__array_priority__ 178</li>
+          <li>dtype 163</li>
+          <li>ndim 163</li>
+          <li>shape 163</li>
+          <li>size 163</li>
+          <li>T 315</li>
+        </ul>
+      </li>
+      <li>메서드
+        <ul>
+          <li>__add__ 169</li>
+          <li>__init__ 40</li>
+          <li>__len__ 165</li>
+          <li>__mul__ 168</li>
+          <li>__neg__ 179, 180</li>
+          <li>__pow__ 179, 184</li>
+          <li>__radd__ 177</li>
+          <li>__repr__ 166</li>
+          <li>__rmul__ 176</li>
+          <li>__rsub__ 179, 182</li>
+          <li>__rtruediv__ 179, 183</li>
+          <li>__sub__ 179, 181</li>
+          <li>__truediv__ 179, 183</li>
+          <li>backward 78, 117, 139, 149, 152, 262, 264</li>
+          <li>cleargrad 125</li>
+          <li>cleargrads 365</li>
+          <li>reshape 311</li>
+          <li>set_creator 75</li>
+          <li>sum 324</li>
+          <li>to_cpu 440</li>
+          <li>to_gpu 441</li>
+          <li>unchain 506</li>
+          <li>unchain_backward 506</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>VGG16 모델 490</li>
+</ul>
+
+<h4 id="함수">함수</h4>
+<ul>
+  <li>_dot_func 218</li>
+  <li>_dot_var 217</li>
+  <li>add 113, 444</li>
+  <li>accuracy 416</li>
+  <li>as_array 90, 175, 444</li>
+  <li>as_cupy 439</li>
+  <li>as_numpy 438</li>
+  <li>as_variable 174</li>
+  <li>broadcast_to 328</li>
+  <li>im2col 477</li>
+  <li>conv2d 479</li>
+  <li>conv2d_simple 482</li>
+  <li>cos 273</li>
+  <li>div 183, 444</li>
+  <li>dropout 459</li>
+  <li>exp 86</li>
+  <li>get_array_module 438</li>
+  <li>get_conv_outsize 467</li>
+  <li>get_dot_graph 219</li>
+  <li>get_file 493</li>
+  <li>get_item 529</li>
+  <li>get_spiral 397</li>
+  <li>is_simple_core 192</li>
+  <li>linear 353</li>
+  <li>linear_simple 353</li>
+  <li>matmul 338</li>
+  <li>max 487</li>
+  <li>mean_squared_error 348</li>
+  <li>mul 169, 444</li>
+  <li>neg 180</li>
+  <li>no_grad 159</li>
+  <li>numerical_diff 96</li>
+</ul>
+
+<p>DeZero API 551</p>
+
+<ul>
+  <li>pair 481</li>
+  <li>plot_dot_graph 221</li>
+  <li>pooling 485</li>
+  <li>pooling_simple 486</li>
+  <li>pow 184</li>
+  <li>rdiv 183, 444</li>
+  <li>relu 426</li>
+  <li>reshape 309</li>
+  <li>reshape_sum_backward 323</li>
+  <li>rsub 182, 444</li>
+  <li>setup_variable 190</li>
+  <li>sigmoid 356</li>
+  <li>sigmoid_simple 355</li>
+  <li>sin 225</li>
+  <li>softmax_cross_entropy 395</li>
+  <li>softmax_cross_entropy_simple 394</li>
+  <li>softmax 393</li>
+  <li>softmax_simple 393</li>
+  <li>softmax1d 391</li>
+  <li>square 86</li>
+  <li>sub 181, 444</li>
+  <li>sum 320</li>
+  <li>sum_to 329</li>
+  <li>tanh 279</li>
+  <li>test_mode 459</li>
+  <li>transpose 313</li>
+  <li>using_config 157</li>
+</ul>
+
+<h1 id="이번엔-프레임워크다-손으로-배우는-본격-딥러닝-학습서">이번엔 프레임워크다! 손으로 배우는 본격 딥러닝 학습서</h1>
+
+<h2 id="deep-learning-from-scratch-3">Deep Learning from Scratch 3</h2>
+
+<p>이 책은 ‘밑바닥부터’ 직접 만들어보며 즐겁게 딥러닝을 익힐 수 있는 시리즈의 장점을 그대로 따랐습니다. DeZero라는 딥러닝 프레임워크를 단계별로 차근차근 구현하다 보면 어느새 프레임워크 기본 지식을 익히게 됩니다. 딥러닝과 파이썬 지식을 어느 정도 갖췄다면 전편을 읽지 않았더라도 충분히 따라올 수 있습니다.</p>
+
+<ul>
+  <li><strong>제1고지</strong> 프레임워크 개발을 위한 기반을 마련합니다.</li>
+  <li><strong>제2고지</strong> 프레임워크를 사용하는 코드가 더 자연스럽게 보이도록 합니다.</li>
+  <li><strong>제3고지</strong> 2차 미분을 구할 수 있도록 프레임워크를 확장합니다. ‘역전파의 역전파’ 구조를 배우고 이해하면 프레임워크의 새로운 가능성에 눈을 뜨게 됩니다.</li>
+  <li><strong>제4고지</strong> 프레임워크를 신경망용으로 정비하고 이를 사용해 손쉽게 신경망을 구축합니다.</li>
+  <li><strong>제5고지</strong> CPU 대응, 모델 저장과 복원 등 실전 딥러닝에 꼭 필요한 기능을 추가합니다. CNN, RNN 등 발전된 모델도 다룹니다. 딥러닝 응용을 다루는 이 주제들을 프레임워크로 구현한다면 간단한 코드만으로 해결할 수 있습니다.</li>
+</ul>
+
+<hr />
+
+<blockquote>
+  <p>이 책으로 딥러닝 프레임워크에 대한 기본 구조를 이해하고 나면 텐서플로와 파이토치 같은 프레임워크 코드를 직접 보는 것도 한결 수월해질 것입니다. 딥러닝뿐만 아니라 머신러닝, 인공지능에 관심 있는 파이썬 엔지니어에게는 꼭 추천하고 싶습니다.
+<strong>박진형</strong>, XL8 공동 창업자</p>
+</blockquote>
+
+<blockquote>
+  <p>라이브러리나 프레임워크를 구현하는 작업은 어렵고 힘들지만 딥러닝 핵심 요소를 공부할 수 있는 좋은 기회입니다. 이 책은 미분 자동 계산부터 신경망까지 딥러닝 프레임워크를 구현하는 긴 여정을 안내합니다. 자신만의 프레임워크를 구축하기 위한 좋은 출발점이 될 것입니다.
+<strong>옥찬호</strong>, 넥슨 코리아 프로그래머</p>
+</blockquote>
+
+<hr />
+
+<h3 id="관련-도서">관련 도서</h3>
+<ul>
+  <li>밑바닥부터 시작하는 딥러닝</li>
+  <li>밑바닥부터 시작하는 딥러닝 2</li>
+  <li>파이토치 첫걸음</li>
+</ul>
+
+<p><strong>예제 소스</strong> <a href="https://github.com/WegraLee/deep-learning-from-scratch-3">github.com/WegraLee/deep-learning-from-scratch-3</a></p>
+
+<p>인공지능 / 딥러닝
+ISBN 979-11-6224-359-6 (93000)
+정가 38,000원</p>
+
+<p><strong>O’REILLY®</strong>
+<strong>한빛미디어</strong> Hanbit Media, Inc.</p>
+
+
+            <!-- 구글 애드센스 출력 -->
+            <div class="mt-5">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3321560028329475"
+    crossorigin="anonymous"></script>
+<!-- jinydev-java -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3321560028329475" data-ad-slot="9323221865"
+    data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+            </div>
+        </div>
+
+        <div class="bd-toc mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 text-body-secondary">
+
+  <button class="btn btn-link p-md-0 mb-2 mb-md-0 text-decoration-none bd-toc-toggle d-md-none" type="button"
+    data-bs-toggle="collapse" data-bs-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
+    서브목차
+    <svg class="bi d-md-none ms-2" aria-hidden="true">
+      <use xlink:href="#chevron-expand"></use>
+    </svg>
+  </button>
+
+  <strong class="d-none d-md-block h6 my-2">서브목차</strong>
+
+  <div class="collapse bd-toc-collapse" id="tocContents">
+    <nav id="TableOfContents">
+      <!--
+      <ul>
+        <li><a href="#quick-start">Quick start</a></li>
+        <li><a href="#cdn-links">CDN links</a></li>
+        <li><a href="#next-steps">Next steps</a></li>
+        <li><a href="#js-components">JS components</a></li>
+        <li><a href="#important-globals">Important globals</a>
+          <ul>
+            <li><a href="#html5-doctype">HTML5 doctype</a></li>
+            <li><a href="#responsive-meta-tag">Responsive meta tag</a></li>
+            <li><a href="#box-sizing">Box-sizing</a></li>
+            <li><a href="#reboot">Reboot</a></li>
+          </ul>
+        </li>
+        <li><a href="#community">Community</a></li>
+      </ul>
+      -->
+    </nav>
+  </div>
+</div>
+    </main>
+</div>
+
+<!-- 공용 대화 오디오 플레이어 컨트롤러 스크립트 -->
+<script src="/assets/js/audio.js" defer></script>
+
+  <footer class="border-top mt-5 pt-5 pb-4 bg-light text-secondary">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      <!-- 브랜드 및 강의 소개 -->
+      <div class="col-lg-5">
+        <div class="d-flex align-items-center mb-3">
+          <svg class="me-2" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z" fill="#2b3947"/>
+            <path d="M10 13l2-3 2 3M22 13l-2-3-2 3M11 20c1.5 2 3.5 2 5 0 1.5 2 3.5 2 5 0" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="15" r="1.5" fill="#fff"/>
+            <circle cx="20" cy="15" r="1.5" fill="#fff"/>
+          </svg>
+          <span class="fs-5 fw-bold text-dark">밑바닥부터 시작하는 딥러닝 3</span>
+        </div>
+        <p class="small text-secondary mb-3 pe-lg-4 lh-base">
+          파이썬으로 직접 구현하며 배우는 딥러닝 프레임워크 (DeZero) 오픈 강의 노트입니다.
+          복잡한 라이브러리의 블랙박스를 열고, 계산 그래프(DAG)와 자동 미분 엔진, 신경망 계층의 근본 기술을 기초 수학과 코드로 완벽히 정복합니다.
+        </p>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="badge rounded-pill bg-white text-dark border px-2 py-1 small">#DeZero</span>
+          <span class="badge rounded-pill bg-white text-dark border px-2 py-1 small">#PyTorch_Architecture</span>
+          <span class="badge rounded-pill bg-white text-dark border px-2 py-1 small">#Autograd</span>
+          <span class="badge rounded-pill bg-white text-dark border px-2 py-1 small">#DeepLearning</span>
+        </div>
+      </div>
+
+      <!-- 학습 로드맵 바로가기 -->
+      <div class="col-6 col-lg-4">
+        <h6 class="fw-bold text-dark mb-3">🗺️ 학습 로드맵</h6>
+        <div class="row g-2 small">
+          <div class="col-6">
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><a href="/00_%ED%94%84%EB%A1%A4%EB%A1%9C%EA%B7%B8/" class="text-secondary text-decoration-none hover-primary">00. 프롤로그</a></li>
+              <li class="mb-2"><a href="/01_%EB%AF%B8%EB%B6%84_%EC%9E%90%EB%8F%99_%EA%B3%84%EC%82%B0/" class="text-secondary text-decoration-none hover-primary">01. 제1고지 미분 계산</a></li>
+              <li class="mb-2"><a href="/02_%EC%9E%90%EC%97%B0%EC%8A%A4%EB%9F%AC%EC%9A%B4_%EC%BD%94%EB%93%9C%EB%A1%9C/" class="text-secondary text-decoration-none hover-primary">02. 제2고지 자연스러운 코드</a></li>
+              <li class="mb-2"><a href="/03_%EA%B3%A0%EC%B0%A8_%EB%AF%B8%EB%B6%84_%EA%B3%84%EC%82%B0/" class="text-secondary text-decoration-none hover-primary">03. 제3고지 고차 미분</a></li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><a href="/04_%EC%8B%A0%EA%B2%BD%EB%A7%9D_%EB%A7%8C%EB%93%A4%EA%B8%B0/" class="text-secondary text-decoration-none hover-primary">04. 제4고지 신경망 구축</a></li>
+              <li class="mb-2"><a href="/05_DeZero%EC%9D%98_%EB%8F%84%EC%A0%84/" class="text-secondary text-decoration-none hover-primary">05. 제5고지 GPU·CNN·RNN</a></li>
+              <li class="mb-2"><a href="/06_%EB%B6%80%EB%A1%9D/" class="text-secondary text-decoration-none hover-primary">06. 부록 & API</a></li>
+              <li class="mb-2"><a href="/curriculum/" class="text-dark fw-bold text-decoration-none hover-primary">📋 전체 60단계 목차</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 강의 안내 및 커뮤니티 -->
+      <div class="col-6 col-lg-3">
+        <h6 class="fw-bold text-dark mb-3">🧭 안내 및 정보</h6>
+        <ul class="list-unstyled small mb-0">
+          <li class="mb-2"><a href="/character/" class="text-secondary text-decoration-none hover-primary">🧭 탐험대 캐릭터 소개</a></li>
+          <li class="mb-2"><a href="/#book-ref" class="text-secondary text-decoration-none hover-primary">📚 참고 교재 (한빛미디어)</a></li>
+          <li class="mb-2"><a href="https://github.com/jinydev" target="_blank" rel="noopener" class="text-secondary text-decoration-none hover-primary">💻 GitHub 저장소</a></li>
+          <li class="mb-2"><a href="mailto:infohojin@naver.com" class="text-secondary text-decoration-none hover-primary">✉️ 문의 및 피드백 (Contact)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 하단 카피라이트 & 크레딧 -->
+    <hr class="my-3 text-muted">
+    <div class="row align-items-center small">
+      <div class="col-md-7 text-center text-md-start mb-2 mb-md-0">
+        <p class="mb-0 text-secondary">
+          Copyright &copy; 2017~2026 <strong>JinyDev</strong>. All Rights Reserved.
+          <span class="d-none d-sm-inline mx-1">|</span>
+          <span class="text-muted">Directed & Created with ❤️ by Prof. Hojin Lee.</span>
+        </p>
+      </div>
+      <div class="col-md-5 text-center text-md-end">
+        <a href="#" class="text-decoration-none text-secondary me-3" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+          맨 위로 가기 ↑
+        </a>
+        <a href="https://github.com/jinydev" target="_blank" rel="noopener" class="text-decoration-none text-secondary me-3">GitHub</a>
+        <a href="mailto:infohojin@naver.com" class="text-decoration-none text-secondary">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+    window.addEventListener('load', async function () {
+      mermaid.initialize({ startOnLoad: false });
+
+      const mermaidCodes = document.querySelectorAll('pre code.language-mermaid');
+      const mermaidDivs = [];
+
+      mermaidCodes.forEach(codeBlock => {
+        const mermaidDefinition = codeBlock.textContent.trim();
+        const container = codeBlock.closest('div.highlighter-rouge');
+
+        const mermaidDiv = document.createElement('div');
+        mermaidDiv.className = 'mermaid';
+        mermaidDiv.textContent = mermaidDefinition;
+
+        if (container) {
+          container.replaceWith(mermaidDiv);
+        } else {
+          const pre = codeBlock.parentElement;
+          if (pre) pre.replaceWith(mermaidDiv);
+        }
+        mermaidDivs.push(mermaidDiv);
+      });
+
+      if (mermaidDivs.length > 0) {
+        await mermaid.run({ nodes: mermaidDivs });
+      }
+    });
+  </script>
+  <script src="/assets/js/toc.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, dorothy, jiny, toto, early 40s, youthful face, smooth skin, salt-and-pepper hair, thin round glasses, solid navy polo, verification checklist, gradient check, pure white background, clean anime line art, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), rich warm flat cel shading, storybook educational illustration, masterpiece. Professor Hojin, Dorothy, Jiny, and Toto gather around a verification podium. Professor Hojin holds a golden clipboard titled 'Gradient Checking (Step 10)', explaining that while slow, numerical differentiation serves as our ultimate ground-truth benchmark to verify our upcoming backprop implementation. Pure solid clean white background (#FFFFFF), isolated group composition, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Jiny
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Gradient Checking Preview: Numerical Diff as the Truth Benchmark

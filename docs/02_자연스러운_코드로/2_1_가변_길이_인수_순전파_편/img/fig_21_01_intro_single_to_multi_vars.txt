@@ -1,0 +1,15 @@
+[TAG LAYER]
+professor hojin, 1man, solo, korean, early 40s, youthful face, smooth skin, parted short salt-and-pepper hair, thin round wire-rim glasses, encouraging smile, solid navy polo shirt, no badge, no snu text, blue jeans, white background, studio ghibli, clean espresso lines, solid pure white background, warm cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration. Full-body standing portrait of Professor Hojin in his early 40s (youthful smooth skin without wrinkles, salt-and-pepper short hair, thin round metal wire-rim glasses, kind smile). He wears a plain solid dark charcoal navy polo shirt (NO badges, NO logos, NO SNU text) and blue jeans. He stands beside a vintage chalkboard illustrating a single wooden Variable box branching out into multiple glowing wooden boxes, opening the door to multi-variable operations. Pure solid white background (#FFFFFF), soft subtle contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy DeZero Educational Anime v1.0
+Trigger: studio ghibli 2d style, clean line art, solid pure white background
+Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: 단일 입출력에서 다중 입출력으로의 도약

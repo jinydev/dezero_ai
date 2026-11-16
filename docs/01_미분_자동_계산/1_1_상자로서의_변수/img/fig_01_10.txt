@@ -1,0 +1,16 @@
+[TAG LAYER]
+jiny, 1cat, tuxedo cat, scholar glasses, red bell collar, conductor baton, floating axis arrows, Axis 0, Axis 1, 2D array grid, dimensions, pure solid white background, clean line art, soft cel shading, masterpiece
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), soft warm flat cel shading, storybook educational illustration, masterpiece. Jiny the lab assistant cat, an adorable slightly chubby black-and-white bicolor tuxedo cat with cow pattern fur, intelligent olive-green eyes, wearing tiny round scholar glasses and a red collar with a golden bell. Standing playfully on his hind paws, Jiny holds a light wooden conductor's baton, directing two vibrant glowing dimensional arrows: a horizontal cyan-blue arrow pointing right labeled 'Axis 0 $\rightarrow$' and a vertical amber-gold arrow pointing down labeled 'Axis 1 $\downarrow$' across a floating pastel 2D array grid. Jiny wears an intellectual, satisfied smile, illustrating the fundamental directions and axes of multidimensional arrays. Pure solid clean white background (#FFFFFF), isolated character and diagram cutout, subtle soft contact shadow at base, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Jiny
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: jiny, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Dimension and Axes (Axis 0 and Axis 1) in Arrays

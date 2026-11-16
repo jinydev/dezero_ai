@@ -1,0 +1,15 @@
+[TAG LAYER]
+professor hojin, 1man, solo, korean, early 40s, navy polo shirt, inspecting current backward code, magnifying glass, white background, studio ghibli, clean espresso lines, solid pure white background, warm cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading. Professor Hojin (early 40s, smooth skin, salt-and-pepper hair, thin round glasses, plain navy polo shirt) pointing a laser pointer at the `funcs.pop()` line in the DeZero code, inviting everyone to investigate what happens in complex networks. Pure solid white background (#FFFFFF), soft contact shadow, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, dark background, blurry, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, extra fingers, garbled text, kanji, hiragana, katakana, japanese text
+
+[LORA INFO]
+Model: Dorothy DeZero Educational Anime v1.0
+Trigger: studio ghibli 2d style, clean line art, solid pure white background
+Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: 현재 DeZero는 이 순서를 지키고 있는가? 코드 진단
