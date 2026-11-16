@@ -1,0 +1,16 @@
+[TAG LAYER]
+tinman, 1robot, jiny cat, balance scale, gradient checking, backprop vs numerical diff, pure solid white background, clean anime line art, soft 2d cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Tinman (silver tin robot body, cute retro monitor head, cheerful cyan LED dot eyes) and Assistant Jiny (smart Korean tuxedo cat with round scholar glasses and red bell collar) verify algorithmic correctness using a brass balance scale for 'Gradient Checking' (기울기 확인). On one pan of the scale rests a fast glowing backpropagation gear, and on the other pan rests a trusted golden weight labeled 'Numerical Diff'. The scale is in perfect horizontal balance, showing 0.0000 difference and proving the backpropagation implementation has zero bugs. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at base, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Tinman, Assistant Jiny
+Model: Dorothy STEM Universe Master LoRA
+Trigger: tinman, jiny, gradient checking, balance scale
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: Gradient Checking: Verifying Backpropagation Implementation Against Trusted Numerical Differentiation
