@@ -292,7 +292,7 @@
 
           <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
             <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/rl_ai" target="_blank"
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/dezero_ai" target="_blank"
                 rel="noopener">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
                   viewBox="0 0 512 499.36" role="img">
@@ -496,7 +496,16 @@
         <div class="bd-content ps-lg-4">
             <h1 id="3단계-함수-연결">3단계 함수 연결</h1>
 
-<p>지금까지 DeZero의 ‘변수’와 ‘함수’를 만들어봤습니다. 그리고 2단계에서는 Square라는 제곱 계산용 함수 클래스를 구현했습니다. 이번 단계에서는 또 다른 함수를 구현하고 여러 함수를 조합해 계산할 수 있도록 하겠습니다.</p>
+<p>지금까지 DeZero의 ‘변수’와 ‘함수’를 만들어봤습니다.</p>
+
+<p>그리고 2단계에서는 Square라는 제곱 계산용 함수 클래스를 구현했습니다.</p>
+
+<p><img src="./img/fig_03_01_b_variable_and_square_recap.jpg" alt="도로시와 토토의 1단계 변수 상자와 2단계 제곱 함수 회상" /><br />
+<em>도로시와 반려견 토토가 1~2단계에서 완성한 Variable 상자와 Square 함수 블록의 성과를 되돌아보고 있습니다.</em></p>
+
+<hr />
+
+<p>이번 단계에서는 또 다른 함수를 구현하고 여러 함수를 조합해 계산할 수 있도록 하겠습니다.</p>
 
 <p><img src="./img/fig_03_01_intro_connecting_functions.jpg" alt="이호진 교수님이 들려주는 함수 연결과 조합의 원리" /><br />
 <em>이호진 교수님이 여러 함수 블록(Square, Exp)을 결합하여 강력한 계산 체인을 구성하는 원리를 소개하고 있습니다.</em></p>
@@ -505,7 +514,9 @@
 
 <h2 id="31-exp-함수-구현">3.1 Exp 함수 구현</h2>
 
-<p>우선 DeZero에 새로운 함수를 하나 구현하겠습니다. 바로 $y = e^x$ 라는 계산을 하는 함수입니다. 여기서 $e$ 는 자연로그의 밑<sup>base of the natural logarithm</sup>으로 구체적인 값은 2.718… 입니다(오일러의 수<sup>Euler’s number</sup> 혹은 네이피어 상수<sup>Napier’s constant</sup>라고도 합니다).</p>
+<p>우선 DeZero에 새로운 함수를 하나 구현하겠습니다.</p>
+
+<p>바로 $y = e^x$ 라는 계산을 하는 함수입니다. 여기서 $e$ 는 자연로그의 밑<sup>base of the natural logarithm</sup>으로 구체적인 값은 2.718… 입니다(오일러의 수<sup>Euler’s number</sup> 혹은 네이피어 상수<sup>Napier’s constant</sup>라고도 합니다).</p>
 
 <p><img src="./img/fig_03_02_eulers_constant_napier.jpg" alt="이호진 교수님의 오일러 상수 e 설명" /><br />
 <em>이호진 교수님이 자연상수이자 지수 함수의 밑인 오일러의 수(e ≈ 2.718…)의 수학적 성질을 설명하고 있습니다.</em></p>
@@ -520,22 +531,32 @@
         <span class="k">return</span> <span class="n">np</span><span class="p">.</span><span class="nf">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Square 클래스와 마찬가지로 Function 클래스를 상속한 다음 forward 메서드에서 원하는 계산을 구현했습니다. Square 클래스와의 차이는 forward 메서드의 내용이 <code class="language-plaintext highlighter-rouge">x ** 2</code>에서 <code class="language-plaintext highlighter-rouge">np.exp(x)</code>로 바뀐 점입니다.</p>
+<p>Square 클래스와 마찬가지로 Function 클래스를 상속한 다음 forward 메서드에서 원하는 계산을 구현했습니다.</p>
+
+<p>Square 클래스와의 차이는 forward 메서드의 내용이 <code class="language-plaintext highlighter-rouge">x ** 2</code>에서 <code class="language-plaintext highlighter-rouge">np.exp(x)</code>로 바뀐 점입니다.</p>
 
 <hr />
 
 <h2 id="32-함수-연결">3.2 함수 연결</h2>
 
-<p>Function 클래스의 <code class="language-plaintext highlighter-rouge">__call__</code> 메서드는 입력과 출력이 모두 Variable 인스턴스이므로 자연스럽게 DeZero 함수들을 연이어 사용할 수 있습니다. $y = (e^{x^2})^2$ 이라는 계산을 예로 생각해보죠.</p>
+<p>Function 클래스의 <code class="language-plaintext highlighter-rouge">__call__</code> 메서드는 입력과 출력이 모두 Variable 인스턴스이므로 자연스럽게 DeZero 함수들을 연이어 사용할 수 있습니다.</p>
+
+<p><img src="./img/fig_03_02_b_function_chaining_concept.jpg" alt="조교 지니가 안내하는 표준 규격 퍼즐 커넥터를 통한 함수 연결 원리" /><br />
+<em>조교 지니가 입출력이 모두 Variable로 통일되어 있어 여러 함수 블록을 레고처럼 무한히 연결할 수 있는 원리를 설명하고 있습니다.</em></p>
+
+<hr />
+
+<p>$y = (e^{x^2})^2$ 이라는 계산을 예로 생각해보죠.</p>
 
 <p><img src="./img/fig_03_03_chained_calculation_three_stages.jpg" alt="도로시와 토토의 3단계 함수 연쇄 계산 트랙 관찰" /><br />
 <em>도로시와 토토가 입력 x=0.5에서 시작해 A(Square), B(Exp), C(Square)를 차례로 거치며 최종 출력 y가 계산되는 과정을 관찰하고 있습니다.</em></p>
 
 <hr />
 
-<p>코드는 다음과 같이 작성할 수 있습니다.</p>
+<p>코드는 다음과 같이 작성할 수 있습니다. 3개의 함수 A, B, C를 연이어 적용했습니다.</p>
 
 <p><strong>steps/step03.py</strong></p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">A</span> <span class="o">=</span> <span class="nc">Square</span><span class="p">()</span>
 <span class="n">B</span> <span class="o">=</span> <span class="nc">Exp</span><span class="p">()</span>
 <span class="n">C</span> <span class="o">=</span> <span class="nc">Square</span><span class="p">()</span>
@@ -549,11 +570,17 @@
 
 <hr />
 
+<p>여기서 중요한 점은 중간에 등장하는 4개의 변수 $x, a, b, y$ 가 모두 Variable 인스턴스라는 것입니다.</p>
+
 <p><strong>실행 결과</strong></p>
+
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.648721270700128
 </code></pre></div></div>
 
-<p>3개의 함수 A, B, C를 연이어 적용했습니다. 여기서 중요한 점은 중간에 등장하는 4개의 변수 $x, a, b, y$ 가 모두 Variable 인스턴스라는 것입니다. Function 클래스의 <code class="language-plaintext highlighter-rouge">__call__</code> 메서드의 입출력이 Variable 인스턴스로 통일되어 있는 덕분에 이와 같이 여러 함수를 연속하여 적용할 수 있는 것이죠.</p>
+<p>Function 클래스의 <code class="language-plaintext highlighter-rouge">__call__</code> 메서드의 입출력이 Variable 인스턴스로 통일되어 있는 덕분에 이와 같이 여러 함수를 연속하여 적용할 수 있는 것이죠.</p>
+
+<p><img src="./img/fig_03_03_b_continuous_pipeline_flow.jpg" alt="로봇 틴맨과 도로시의 4단계 변수 파이프라인 릴레이 점검" /><br />
+<em>로봇 틴맨과 도로시가 4개의 중간 변수($x \to a \to b \to y$)가 3개의 연속된 함수($A \to B \to C$)를 거치며 데이터가 매끄럽게 변환되는 파이프라인을 점검하고 있습니다.</em></p>
 
 <hr />
 
@@ -566,7 +593,11 @@
 
 <blockquote>
   <p><strong>NOTE</strong><br />
-[그림 3-1]과 같이 여러 함수를 순서대로 적용하여 만들어진 변환 전체를 하나의 큰 함수로 볼 수도 있습니다. 이처럼 여러 함수로 구성된 함수를 합성 함수<sup>composite function</sup>라고 합니다. 합성 함수를 구성하는 각 함수의 계산은 간단하더라도, 연속으로 적용하면 더 복잡한 계산도 해낼 수 있다는 사실을 기억하세요.</p>
+[그림 3-1]과 같이 여러 함수를 순서대로 적용하여 만들어진 변환 전체를 하나의 큰 함수로 볼 수도 있습니다.</p>
+
+  <p>이처럼 여러 함수로 구성된 함수를 합성 함수<sup>composite function</sup>라고 합니다.</p>
+
+  <p>합성 함수를 구성하는 각 함수의 계산은 간단하더라도, 연속으로 적용하면 더 복잡한 계산도 해낼 수 있다는 사실을 기억하세요.</p>
 </blockquote>
 
 <p><img src="./img/fig_03_04_composite_function_magnification.jpg" alt="조교 지니의 톱니바퀴 합성 함수(Composite Function) 강의" /><br />
@@ -574,11 +605,20 @@
 
 <hr />
 
-<p>그런데 일련의 계산을 ‘계산 그래프’로 보여드린 이유는 무엇일까요?</p>
+<h4 id="그런데-일련의-계산을-계산-그래프로-보여드린-이유는-무엇일까요">그런데 일련의 계산을 ‘계산 그래프’로 보여드린 이유는 무엇일까요?</h4>
 
-<p>그 이유는 계산 그래프를 이용하면 각 변수에 대한 미분을 효율적으로 계산할 수 있기 때문이랍니다(정확하게는 그럴 준비가 됩니다).</p>
+<p>그 이유는 계산 그래프를 이용하면 각 변수에 대한 <strong>미분을 효율적으로 계산</strong>할 수 있기 때문이랍니다.</p>
 
-<p>그리고 변수별 미분을 계산하는 알고리즘이 바로 역전파입니다. 다음 단계부터는 역전파를 구현할 수 있도록 DeZero를 확장하겠습니다.</p>
+<p>(정확하게는 그럴 준비가 됩니다).</p>
+
+<p><img src="./img/fig_03_04_b_computational_graph_why_derivative.jpg" alt="이호진 교수님이 밝히는 계산 그래프의 진정한 이유: 역전파 미분의 관문" /><br />
+<em>이호진 교수님이 순방향 계산 그래프를 반대로 거슬러 올라가며 모든 미분을 한 번에 해결하는 ‘역전파(Backpropagation)’의 비밀을 예고하고 있습니다.</em></p>
+
+<hr />
+
+<p>그리고 변수별 미분을 계산하는 알고리즘이 바로 <strong>역전파</strong>입니다.</p>
+
+<p>다음 단계부터는 역전파를 구현할 수 있도록 DeZero를 확장하겠습니다.</p>
 
 <p><img src="./img/fig_03_05_gateway_to_backpropagation.jpg" alt="이호진 교수님이 안내하는 순전파에서 역전파로의 도약 관문" /><br />
 <em>이호진 교수님이 순전파 계산 그래프를 기반으로 다음 단계에서 펼쳐질 역전파(Backpropagation)의 세계를 안내하고 있습니다.</em></p>

@@ -17,7 +17,7 @@ https://colab.research.google.com/github/WegraLee/deep-learning-from-scratch-3/b
 이 링크를 브라우저에서 열면 [그림 C-1]과 같은 화면이 나타납니다. [그림 C-1]처럼 노트북 내용이 '셀<sup>cell</sup>'로 나뉘어 있는데, 셀에서는 텍스트 외에도 파이썬 같은 프로그래밍 언어로 코드를 작성하고 실행할 수 있습니다. 셀의 코드를 실행하려면 셀을 클릭하여 선택한 다음 코드 왼쪽의 '셀 실행' 버튼을 클릭합니다. 또는 키보드 단축키 'Ctrl + Enter'로 실행할 수도 있습니다(맥에서는 'Command + Return').
 
 > [!NOTE]
-> [그림 C-1]은 이 책의 깃허브 저장소에 있는 `examples/mnist_colab_gpu.ipynb` 문서를 구글 콜랩으로 연 모습입니다. 이처럼 깃허브에 저장해둔 ipynb 파일은 구글 콜랩에서 열 수 있는데, 단순히 URL 중 'github.com'을 'colab.research.google.com/github'로 대체하면 됩니다.
+> [그림 C-1]은 이 교제의 깃허브 저장소에 있는 `examples/mnist_colab_gpu.ipynb` 문서를 구글 콜랩으로 연 모습입니다. 이처럼 깃허브에 저장해둔 ipynb 파일은 구글 콜랩에서 열 수 있는데, 단순히 URL 중 'github.com'을 'colab.research.google.com/github'로 대체하면 됩니다.
 
 #### 그림 C-1 구글 콜랩 화면
 ![그림 C-1](../img/fig-1810.jpg)

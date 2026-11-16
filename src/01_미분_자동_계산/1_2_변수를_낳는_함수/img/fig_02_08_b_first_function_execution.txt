@@ -1,0 +1,16 @@
+[TAG LAYER]
+dorothy, 1girl, toto, 1dog, input box 10, function machine, output box 100, eureka, celebration, 4.5 heads tall, chestnut twin pigtails, denim overalls, red sneakers, milk-white puppy, sky-blue bandana, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Educational celebration illustration showing Dorothy and puppy Toto seeing their first DeZero function execute successfully. In the scene, a cute wooden variable box containing number cube '10' was fed into the brass Function machine f, and a shiny, larger new wooden box containing number cube '100' emerged at the output tray. Dorothy (4.5 heads tall, chestnut pigtails, STEM HERO overalls, red sneakers) claps her hands in delight, and fluffy white puppy Toto wags his tail happily beside the glowing '100' box. A clean wooden label in the foreground reads 'y.data = 100'. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, brown spots on dog, multi-colored dog fur, duplicate dogs, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Dorothy LoRA v1.0
+Trigger: dorothy, 1girl, toto, 1dog, stem hero overalls, pure solid white background
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Step 2 - First Function Execution Verification: x(10) -> f -> y(100)

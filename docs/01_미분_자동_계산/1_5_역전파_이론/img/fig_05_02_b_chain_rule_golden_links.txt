@@ -1,0 +1,16 @@
+[TAG LAYER]
+dorothy, 1girl, toto, 1dog, chain rule, interconnected golden links, mathematical chain, pure solid white background, clean anime line art, soft 2d cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm flat cel shading, storybook educational illustration, masterpiece. Dorothy (4.5 heads tall, chestnut twin pigtails, denim overalls, red sneakers) and her faithful white puppy Toto (pure milk-white fur, NO spots, sky-blue bandana) playfully examine a series of oversized, glowing golden chain links connected in a row, representing the 'Chain Rule' (연쇄 법칙). Each interlinked loop has clean engraved mathematical symbols: [da/dx], [db/da], and [dy/db], showing how composite functions multiply together like links in an unbreakable golden chain. Dorothy smiles joyfully as Toto gently taps a link with his paw. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA
+Trigger: dorothy, toto, chain rule, golden chain links
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: The Chain Rule: Composite Functions Interlinked Like an Elegant Golden Chain

@@ -1,0 +1,16 @@
+[TAG LAYER]
+dorothy, 1girl, toto, 1dog, wooden box, glowing number cube, assignment, reference, 4.5 heads tall, chestnut twin pigtails, colorful hair ties, orange striped t-shirt, denim overalls, stem hero patch, red canvas sneakers, bichon puppy, solid milk-white fur, no spots, black button nose, sky-blue bandana, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Educational infographic illustration showing Dorothy and puppy Toto demonstrating the 3 core principles of a Variable box in DeZero. In the center, Dorothy (9-10yo girl, 4.5 heads tall, chestnut wavy twin pigtails with colorful beads, denim overalls with 'STEM HERO' patch, orange striped shirt, red sneakers) happily places a glowing golden data cube labeled 'Data' into a smooth polished wooden gift box labeled 'Variable', demonstrating Assignment (대입). Beside her, fluffy milk-white puppy Toto (solid warm white fur, no spots, sky-blue bandana) curiously peeks into another open wooden box to see the glowing number inside, demonstrating Reference (참조). The separation between the box container and the data cube is clear and intuitive. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate dogs, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Dorothy LoRA v1.0
+Trigger: dorothy, 1girl, toto, 1dog, stem hero overalls, pure solid white background
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Step 1 - Three Principles of a Variable (Box and Data, Assignment, Reference)

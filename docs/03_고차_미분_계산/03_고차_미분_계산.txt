@@ -1,0 +1,43 @@
+# Chapter 03: Higher-Order Derivatives & Visualization (03. 제3고지 고차 미분 계산) 16:9 Cover Specification & Prompt
+# File: 03_고차_미분_계산.png (16:9 widescreen ratio, 1376x768)
+# Guide Standard: /Users/hojin9/Library/Mobile Documents/com~apple~CloudDocs/02.강의/A04_Dezero/guides/커버생성_가이드.md
+# Reference Dataset: Professor Hojin Adult 7-heads proportion, 7:3 salt & pepper hair, thin metal glasses
+# Content Source: /Users/hojin9/Library/Mobile Documents/com~apple~CloudDocs/02.강의/A04_Dezero/src/03_고차_미분_계산/index.md
+
+================================================================================
+[1. 이호진 교수님 얼굴 데이터셋 및 스타일 참조 유의사항 (Facial Consistency Guidelines)]
+================================================================================
+본 챕터 일러스트레이션의 이호진 교수님(Professor Hojin)은 공식 가이드의 얼굴 조형을 100% 영구 보존해야 합니다:
+
+1. 얼굴 조형 및 성인 동안 유지 (Anti-Aging & Adult Male Anatomy):
+   - 신체 비율: 정확한 7등신(7 heads tall) 성인 남성 2D 애니메이션 비율 (절대 소년/치비 체형 금지).
+   - 연령대: 40대 초반의 지적이고 건강한 성인 남성 (Early 40s adult Korean professor).
+   - 안면 특징: 갸름하고 스마트한 성인 턱선, 잔주름 없는 건강한 살구빛 피부 (#FEEFE6 / #F5CEBA).
+
+2. 헤어스타일 및 안경 (Hairstyle & Glasses):
+   - 7:3 가르마 숏 컷, 다크 차콜 흑발 (#2C2D30) + 은빛 솔트앤페퍼 스트릭 (#8C9098).
+   - 슬림한 실버 라운드 메탈 와이어테 안경 (#9EA7B0). 두꺼운 뿔테 금지.
+
+3. 복장 및 규칙:
+   - 솔리드 다크 차콜 네이비 반팔 폴로 셔츠 (#1F242C), 중청 데님 청바지 (#3F638A), 그레이 스니커즈 (#7F8287).
+   - 상단 100% 순백색 (#FFFFFF) 여백 유지, 칠판/분필 전면 배제.
+
+================================================================================
+[2. 최종 이미지 생성 실행 프롬프트 (Master Production Prompt)]
+================================================================================
+Studio Ghibli 2D anime style, 2D animation aesthetic, clean crisp dark espresso brown line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece, highly detailed. 16:9 wide composition, pure solid clean white background (#FFFFFF), isolated character group with subtle soft contact shadows under feet, NO chalkboard, NO blackboard, NO banner, NO slide borders, upper area completely blank solid white (#FFFFFF).
+
+On the right, Professor Hojin: Adult Korean male engineering professor in his early 40s, 7 heads tall adult proportions, handsome mature face with smooth skin, stylish 7:3 short hair with silver streaks, thin round wire glasses, gentle crinkled kind eyes, encouraging mentor smile. Wearing solid dark charcoal navy polo shirt, blue jeans, and grey suede sneakers. He holds a desktop display chart showing a clean parabolic mathematical curve with 1st-derivative slope and 2nd-derivative curvature lines, pointing out the optimal minimum point reached via Newton's method.
+
+In the center, Dorothy: 9-year-old girl (4.5 heads tall, chestnut twin pigtails with beads, cute bangs, warm eyes, joyful smile, blue denim overalls with STEM patch, striped t-shirt, red sneakers), kneeling beside a transparent multi-layered 3D curved hill model, sliding a golden bead down the slope toward the bottom in single Newton optimization steps.
+
+Beside Dorothy, Toto: adorable fluffy solid cream-white puppy (bichon-maltese mix, solid milk-white coat with NO spots, black button nose, round black eyes, cheerful dog smile, sky-blue bandana, wagging tail), sitting proudly next to a small wooden stand displaying a clean Graphviz node tree diagram with neat circles and arrows.
+
+On the left, Jiny: adorable chubby black-and-white bicolor tuxedo cat wearing tiny round scholar glasses and red collar with bell, sitting on a wooden chair at a sturdy wooden table, examining a large high-resolution Graphviz computation graph tree on an external monitor, verifying double-backpropagation gradient nodes.
+
+Balanced 16:9 wide composition, pure solid white background, upper 25 percent completely blank white space, no Japanese text, Korean and English labels only.
+
+================================================================================
+[3. 마스터 네거티브 프롬프트 (Master Negative Prompt)]
+================================================================================
+chalkboard, blackboard, board banner, writing on board, holding chalk, teenage boy professor, young boy face, child face on professor, huge anime eyes on professor, round baby face on adult, wrinkles, old elderly man, sagging skin, university logo, school badge, name tag, presentation frame, slide border, title banner, upper text, headlines, top typography, floating abstract icons, messy glowing arrows, 3d cgi render, photorealistic, dark background, room walls, blurry, deformed hands, extra fingers, garbled text, kanji, hiragana, katakana, japanese text, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, watermark, signature

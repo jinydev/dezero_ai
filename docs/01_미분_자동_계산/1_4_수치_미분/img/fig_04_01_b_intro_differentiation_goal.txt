@@ -1,0 +1,16 @@
+[TAG LAYER]
+dorothy, 1girl, assistant jiny, 1cat, toto, 1dog, goal, automatic differentiation, variable box, function machine, 4.5 heads tall, chestnut twin pigtails, denim overalls, stem hero patch, red canvas sneakers, tuxedo cat, scholar glasses, milk-white puppy, sky-blue bandana, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Inspiring educational illustration showing Dorothy, Assistant Jiny, and puppy Toto preparing for the ultimate goal of DeZero: Automatic Differentiation. In the center, young Dorothy (4.5 heads tall, chestnut twin pigtails with colorful beads, denim overalls with 'STEM HERO' patch, orange striped shirt, red sneakers) and Assistant Jiny (smart tuxedo cat with scholar glasses, pink nose, red collar with gold bell) connect a wooden Variable box to a brass Function machine. Floating ahead of them is a glowing golden goal banner labeled 'Automatic Differentiation (미분 자동 계산)'. Fluffy milk-white puppy Toto wags his tail happily beside them. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, duplicate cats, duplicate dogs, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Dorothy, Assistant Jiny, Toto
+Model: Dorothy STEM Universe Master LoRA / Dorothy LoRA v1.0
+Trigger: dorothy, 1girl, assistant jiny, 1cat, toto, 1dog, stem hero overalls, pure solid white background
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Step 4 - The Ultimate Goal: Automatic Differentiation

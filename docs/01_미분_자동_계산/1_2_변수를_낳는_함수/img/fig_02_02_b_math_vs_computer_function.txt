@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, 1man, dorothy, 1girl, toto, 1dog, early 40s, youthful face, smooth skin, salt-and-pepper hair, thin round glasses, plain navy polo, math function vs computer function, input data, calculation process, output result, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Educational illustration showing Professor Hojin (youthful early 40s Korean professor, strictly smooth unwrinkled skin, stylish salt-and-pepper short hair, thin minimalist round metal wire-rim glasses, plain dark charcoal navy polo shirt with NO badges, classic blue jeans) explaining the difference between mathematical functions and computer programming functions to young Dorothy (twin pigtails with colorful beads, overalls with 'STEM HERO' patch, red sneakers) and fluffy white puppy Toto. In front of them are two artistic visual displays: on the left, a classical scroll showing mathematical relation f(x) = y; on the right, an animated clean mechanical conveyor showing computer input data entering, an algorithm processing gears, and an output data box popping out. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate dogs, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Step 2 - Mathematical Function vs Computer Function

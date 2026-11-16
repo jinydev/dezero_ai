@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, 1man, dorothy, 1girl, toto, 1dog, tinman, 1robot, jiny cat, computational graph, backward flow, reverse arrows, glowing gradient pulses, pure solid white background, clean anime line art, soft 2d cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Professor Hojin (early 40s, smooth youthful skin, salt-and-pepper short hair, thin round wire-rim glasses, plain solid dark charcoal navy polo shirt with NO badges or logos, classic blue denim jeans) enthusiastically introduces the breakthrough of 'Backpropagation' (역전파) to Dorothy, Toto, Tinman, and Assistant Jiny the tuxedo cat. In front of them floats a clear educational computational graph with forward function nodes and reverse flowing cyan-blue gradient arrows pointing backward from output y towards input x. Dorothy (chestnut pigtails, denim overalls) gazes with excitement, Toto sits happily with his sky-blue bandana, and Tinman’s monitor head displays cheerful cyan LED dot eyes. Pure solid clean white background (#FFFFFF), isolated character and prop cutout, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Toto, Tinman, Assistant Jiny
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, dorothy, toto, tinman, jiny
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: The Dawn of Backpropagation: Flowing Gradients Backward on Computational Graphs

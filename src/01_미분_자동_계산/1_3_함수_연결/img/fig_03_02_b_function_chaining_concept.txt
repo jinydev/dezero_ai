@@ -1,0 +1,16 @@
+[TAG LAYER]
+assistant jiny, 1cat, tuxedo cat, scholar glasses, red collar with gold bell, dorothy, 1girl, function chaining, modular connector, puzzle piece, input variable, output variable, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Educational infographic illustration showing Assistant Jiny (clever tuxedo cat with shiny black fur and white chest/paws, wearing tiny round scholar glasses, pink nose, red collar with tiny golden bell) demonstrating why DeZero functions can chain together seamlessly. Jiny uses a small wooden pointer wand to showcase two modular function blocks (Function A and Function B). The output port of Function A is a standardized 'Variable' socket that clicks perfectly into the input port of Function B (also labeled 'Variable') like precision puzzle blocks. Dorothy watches with glowing realization that uniform Variable I/O enables infinite chaining. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, duplicate cats, multiple cats, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Assistant Jiny, Dorothy
+Model: Dorothy STEM Universe Master LoRA / Jiny LoRA v1.0
+Trigger: assistant jiny, tuxedo cat, scholar glasses, red collar gold bell, function chaining, pure solid white background
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Step 3 - Function Chaining via Unified Variable Input and Output

@@ -1,0 +1,16 @@
+[TAG LAYER]
+professor hojin, 1man, dorothy, 1girl, toto, 1dog, early 40s, youthful face, smooth skin, salt-and-pepper hair, thin round glasses, plain navy polo, forward graph, reverse arrow, derivative discovery, backpropagation teaser, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Inspiring educational illustration showing Professor Hojin revealing the true reason for building computational graphs to young Dorothy and puppy Toto. Professor Hojin (youthful early 40s Korean professor, strictly smooth unwrinkled skin, stylish salt-and-pepper short hair, thin minimalist round metal wire-rim glasses, plain dark charcoal navy polo shirt with NO badges, classic blue jeans) holds a radiant golden pointer. Above a clean forward computation graph (nodes x -> a -> b -> y), he highlights a glowing ethereal reverse path traveling backward (y -> x) with magical reverse arrows labeled 'Derivative / Backpropagation'. Dorothy gazes in awe, realizing that this graph structure is the secret key to unlocking automatic differentiation. Beside them, white puppy Toto wags his tail cheerfully. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, wrinkles, old man, elderly, snu, snu badge, snu logo, name tag, brown spots on dog, multi-colored dog fur, duplicate dogs, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Professor Hojin, Dorothy, Toto
+Model: Dorothy STEM Universe Master LoRA / Prof. Hojin LoRA v1.0
+Trigger: professor hojin, early 40s, youthful face, salt-and-pepper hair, thin round glasses, solid navy polo
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Step 3 - Why Computational Graphs: The Secret Gateway to Efficient Backpropagation

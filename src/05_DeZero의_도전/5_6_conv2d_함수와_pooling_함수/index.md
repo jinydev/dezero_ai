@@ -23,7 +23,7 @@ title: "57단계 conv2d 함수와 pooling 함수"
 [그림 57-1]과 같이 커널을 적용할 영역을 꺼낸 다음, 한 줄로 형상을 바꿔<sup>reshape</sup> 최종적으로는 '행렬(2차원 텐서)'로 변환합니다. 이것이 `im2col` 함수가 수행하는 작업입니다.
 
 > **CAUTION**
-> 체이너(Chainer)의 `im2col`은 [그림 57-1]의 1단계까지의 작업만 수행합니다(reshape 부분이 제외됩니다). 왜냐하면 영역을 꺼낸 후 텐서 곱\*을 하여 원하는 계산을 수행할 수 있기 때문입니다. 이 책에서는 (텐서 곱이 아닌) 행렬 곱을 사용하기 때문에 reshape까지 해줘야 합니다. 한편 DeZero의 `im2col` 함수는 인수로 `to_matrix` 플래그를 받는데, 이 값이 `True`일 때만 [그림 57-1]의 reshape 부분까지 처리해줍니다.
+> 체이너(Chainer)의 `im2col`은 [그림 57-1]의 1단계까지의 작업만 수행합니다(reshape 부분이 제외됩니다). 왜냐하면 영역을 꺼낸 후 텐서 곱\*을 하여 원하는 계산을 수행할 수 있기 때문입니다. 이 교제에서는 (텐서 곱이 아닌) 행렬 곱을 사용하기 때문에 reshape까지 해줘야 합니다. 한편 DeZero의 `im2col` 함수는 인수로 `to_matrix` 플래그를 받는데, 이 값이 `True`일 때만 [그림 57-1]의 reshape 부분까지 처리해줍니다.
 
 `im2col`로 입력 데이터를 전개한 후에는 합성곱층의 커널(필터)을 한 줄로 전개합니다. 그런 다음 [그림 57-2]처럼 두 행렬을 곱합니다.
 
@@ -43,7 +43,7 @@ title: "57단계 conv2d 함수와 pooling 함수"
 
 ## 57.2 conv2d 함수 구현
 
-이 책에서는 DeZero의 `im2col` 함수를 블랙박스처럼 사용한다고 가정합니다(즉, 상세 구현은 신경 쓰지 않습니다). 어쨌든 `im2col`도 DeZero 함수이므로 입력으로 `Variable` 인스턴스를 받으며 `backward`를 호출하여 미분도 계산할 수 있습니다.
+이 교제에서는 DeZero의 `im2col` 함수를 블랙박스처럼 사용한다고 가정합니다(즉, 상세 구현은 신경 쓰지 않습니다). 어쨌든 `im2col`도 DeZero 함수이므로 입력으로 `Variable` 인스턴스를 받으며 `backward`를 호출하여 미분도 계산할 수 있습니다.
 
 > **CAUTION**
 > CNN에서 이용하는 함수들은 코드 양이 많으므로 `dezero/functions.py`가 아닌 `dezero/functions_conv.py`에 모아뒀습니다. DeZero의 `im2col` 함수 역시 `dezero/functions_conv.py`에 있습니다. 하지만 `dezero/functions_conv.py`에서 구현한 DeZero 함수들을 `dezero/functions.py`에서 임포트하고 있으므로 사용자는 `dezero/functions.py`만 임포트하면 모든 함수를 사용할 수 있습니다.

@@ -292,7 +292,7 @@
 
           <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
             <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/rl_ai" target="_blank"
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/dezero_ai" target="_blank"
                 rel="noopener">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
                   viewBox="0 0 512 499.36" role="img">
@@ -496,12 +496,14 @@
         <div class="bd-content ps-lg-4">
             <h1 id="1단계-상자로서의-변수">1단계 상자로서의 변수</h1>
 
-<p>첫 번째 단계에서는 DeZero의 구성 요소인 ‘변수’를 만듭니다. 변수는 DeZero에서 가장 중요한 개념입니다.</p>
+<p>첫 번째 단계에서는 DeZero의 구성 요소인 ‘변수’를 만듭니다.</p>
+
+<p>변수는 DeZero에서 가장 중요한 개념입니다.</p>
 
 <p>이번 단계에서는 변수가 어떤 기능을 하는지 이해하고, 그 기능에 맞게 코드로 구현합니다.</p>
 
 <p><img src="./img/fig_01_01_intro_variable_box.jpg" alt="이호진 교수님이 들려주는 DeZero 변수(Variable) 상자의 개념" /><br />
-<em>이호진 교수님이 DeZero의 첫걸음인 ‘상자로서의 변수’ 개념을 따뜻하게 소개하고 있습니다.</em></p>
+<em>DeZero의 첫걸음인 ‘상자로서의 변수’ 개념을 따뜻하게 소개하고 있습니다.</em></p>
 
 <hr />
 
@@ -516,7 +518,7 @@
 
 <hr />
 
-<p>정리하면 다음과 같습니다.</p>
+<p>변수의 핵심 성질을 정리하면 다음과 같습니다.</p>
 
 <ul>
   <li>상자와 데이터는 별개다.</li>
@@ -524,33 +526,40 @@
   <li>상자 속을 들여다보면 데이터를 알 수 있다(참조한다).</li>
 </ul>
 
+<p><img src="./img/fig_01_01_b_variable_three_principles.jpg" alt="도로시와 토토가 탐구하는 변수의 3대 성질(독립성, 대입, 참조)" /><br />
+<em>도로시와 반려견 토토가 상자와 데이터의 독립성, 대입(할당), 참조의 3대 원리를 직관적으로 살펴보고 있습니다.</em></p>
+
+<hr />
+
 <p>그럼 이 상자 그림에 맞게 DeZero 변수를 구현해보죠.</p>
 
 <hr />
 
 <h2 id="12-variable-클래스-구현">1.2 Variable 클래스 구현</h2>
 
-<p>변수는 영어로 variable입니다.</p>
+<p>변수는 영어로 variable입니다. 영어 단어의 뜻으로 먼저 변수가 무엇인지 다시 한번 살펴보도록 합니다.</p>
 
 <p><img src="./img/fig_01_02_word_variable.jpg" alt="도로시와 조교 지니의 Variable 어원 탐구" /><br />
 <em>도로시와 조교 지니가 ‘변할 수 있는 상자’라는 뜻의 Variable 어원을 탐구하고 있습니다.</em></p>
 
 <hr />
 
-<p>그래서 DeZero에서 사용하는 변수라는 개념을 Variable이라는 이름의 클래스로 구현하겠습니다.</p>
+<p>DeZero에서는 사용하는 변수의 개념을 Variable이라는 이름의 클래스로 별도 구현하도록 하겠습니다.</p>
 
-<p>덧붙여서, 파이썬에서는 클래스 이름의 첫 글자를 보통 대문자로 합니다.</p>
+<p>덧붙여서, 파이썬에서는 클래스 이름의 설계할때에는 첫 글자를 보통 대문자로 합니다.</p>
 
-<p>파이썬이 권장하는 코딩 규칙은 PEP 8*을 참고하세요.</p>
+<p>이는 파이썬이 권장하는 코딩 규칙은 PEP 8*을 적용하기 때문 입니다.</p>
+
+<p>* https://www.python.org/dev/peps/pep-0008/</p>
 
 <p><img src="./img/fig_01_03_pep8_class_naming.jpg" alt="이호진 교수님의 파이썬 PEP 8 클래스 명명 규칙 가이드" /><br />
 <em>이호진 교수님이 파이썬 표준 코딩 규칙(PEP 8)에 따른 클래스 이름 표기법(대문자 시작)을 설명하고 있습니다.</em></p>
 
 <hr />
 
-<p>이제 Variable 클래스가 상자가 되도록 구현해보죠.</p>
+<p>구체적으로 Variable 클래스가 변수 상자가 되도록 코드를 구현해 보도록 하겠습니다.</p>
 
-<p>다음은 이 기능을 최소한의 코드로 작성해본 모습입니다.</p>
+<p>다음은 먼저 최소한의 코드로만 작성해본 모습입니다.</p>
 
 <p><strong>steps/step01.py</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Variable</span><span class="p">:</span>
@@ -558,19 +567,23 @@
         <span class="n">self</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
 </code></pre></div></div>
 
+<hr />
+
 <p>보는 바와 같이 초기화 함수 <code class="language-plaintext highlighter-rouge">__init__</code>에 주어진 인수를 인스턴스 변수 <code class="language-plaintext highlighter-rouge">data</code>에 대입했습니다.</p>
 
 <p>아주 간단한 코드지만, 이제 Variable 클래스를 상자로 사용할 수 있습니다.</p>
 
 <p>실제 데이터가 Variable의 <code class="language-plaintext highlighter-rouge">data</code>에 보관되기 때문이죠.</p>
 
+<p><img src="./img/fig_01_03_b_variable_init_data.jpg" alt="조교 지니가 안내하는 Variable 클래스의 self.data 보관 구조" /><br />
+<em>조교 지니가 Variable 클래스 인스턴스 상자 내부의 <code class="language-plaintext highlighter-rouge">self.data</code> 슬롯에 실제 데이터가 안전하게 저장되는 구조를 설명하고 있습니다.</em></p>
+
 <hr />
 
 <p>다음 예를 보면 더 명확해질 것입니다.</p>
 
-<p>* https://www.python.org/dev/peps/pep-0008/</p>
-
 <p><strong>steps/step01.py</strong></p>
+
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
@@ -578,13 +591,18 @@
 <span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></div>
 
+<hr />
+
+<p>코드를 실행한 결과 입니다. 이 예에서 상자에 넣는 데이터로는 ‘넘파이의 다차원 배열’을 사용했습니다.</p>
+
 <p><strong>실행 결과</strong></p>
+
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.0
 </code></pre></div></div>
 
-<p>이 예에서 상자에 넣는 데이터로는 ‘넘파이의 다차원 배열’을 사용했습니다.</p>
+<p>이때 x는 Variable 인스턴스이며, 실제 데이터는 x 안에 담겨 있습니다.</p>
 
-<p>이때 x는 Variable 인스턴스이며, 실제 데이터는 x 안에 담겨 있습니다. 즉, x는 데이터 자체가 아니라 데이터를 담은 상자가 됩니다.</p>
+<p>즉, x는 데이터 자체가 아니라 데이터를 담은 상자가 됩니다.</p>
 
 <p><img src="./img/fig_01_04_variable_instance_box.jpg" alt="인스턴스 x 상자 안에 보관된 실제 데이터 1.0" /><br />
 <em>인스턴스 x라는 상자 안에 실제 데이터 1.0(x.data)이 안전하게 담겨 있는 모습입니다.</em></p>
@@ -593,7 +611,7 @@
 
 <blockquote>
   <p><strong>NOTE</strong><br />
-예시 코드 바로 위에 대응하는 파일 이름을 적어뒀습니다. 바로 앞 코드에는 <code class="language-plaintext highlighter-rouge">steps/step01.py</code>라고 적혀 있는데, 이 책 깃허브 저장소의 <code class="language-plaintext highlighter-rouge">steps/step01.py</code> 파일에서 이 코드를 찾을 수 있다는 뜻입니다. 파일 이름을 적지 않은 경우는 대응하는 파일이 없다는 뜻입니다.</p>
+예시 코드 바로 위에 대응하는 파일 이름을 적어뒀습니다. 바로 앞 코드에는 <code class="language-plaintext highlighter-rouge">steps/step01.py</code>라고 적혀 있는데, 이 교제 깃허브 저장소의 <code class="language-plaintext highlighter-rouge">steps/step01.py</code> 파일에서 이 코드를 찾을 수 있다는 뜻입니다. 파일 이름을 적지 않은 경우는 대응하는 파일이 없다는 뜻입니다.</p>
 </blockquote>
 
 <p><img src="./img/fig_01_05_repo_steps_mapping.jpg" alt="조교 지니의 깃허브 실습 코드 매핑 안내" /><br />
@@ -601,16 +619,20 @@
 
 <hr />
 
-<p>머신러닝 시스템은 기본 데이터 구조로 ‘다차원 배열’을 사용합니다.</p>
+<h4 id="머신러닝-시스템은-기본-데이터-구조로-다차원-배열을-사용합니다">머신러닝 시스템은 기본 데이터 구조로 ‘다차원 배열’을 사용합니다.</h4>
 
-<p>그래서 DeZero의 Variable 클래스는 넘파이의 다차원 배열만 취급합니다. 넘파이의 다차원 배열 클래스는 <code class="language-plaintext highlighter-rouge">numpy.ndarray</code>이며 <code class="language-plaintext highlighter-rouge">np.ndarray</code>로 줄여 쓰곤 합니다.</p>
+<p>그래서 DeZero의 Variable 클래스는 <strong>넘파이의 다차원 배열</strong>만 취급합니다.</p>
+
+<p>넘파이의 다차원 배열 클래스는 <code class="language-plaintext highlighter-rouge">numpy.ndarray</code>이며 <code class="language-plaintext highlighter-rouge">np.ndarray</code>로 줄여 쓰곤 합니다.</p>
 
 <p><img src="./img/fig_01_06_numpy_ndarray_core.jpg" alt="이호진 교수님이 소개하는 머신러닝의 핵심 np.ndarray" /><br />
 <em>이호진 교수님이 머신러닝의 핵심 데이터 구조인 넘파이 다차원 배열(ndarray)을 설명하고 있습니다.</em></p>
 
 <hr />
 
-<p>넘파이 배열은 앞의 코드에서 볼 수 있듯 <code class="language-plaintext highlighter-rouge">np.array</code> 함수를 이용해 생성할 수 있습니다. 이 책에서는 앞으로 <code class="language-plaintext highlighter-rouge">numpy.ndarray</code> 인스턴스를 단순히 ndarray 인스턴스라고 부르겠습니다.</p>
+<p>넘파이 배열은 앞의 코드에서 볼 수 있듯 <code class="language-plaintext highlighter-rouge">np.array</code> 함수를 이용해 생성할 수 있습니다.</p>
+
+<p>이 책에서는 앞으로 <code class="language-plaintext highlighter-rouge">numpy.ndarray</code> 인스턴스를 단순히 ndarray 인스턴스라고 부르겠습니다.</p>
 
 <p><img src="./img/fig_01_07_nparray_constructor.jpg" alt="도로시의 np.array() 배열 생성 실습" /><br />
 <em>도로시가 np.array() 함수를 사용하여 일반 숫자를 넘파이 다차원 배열로 생성하고 있습니다.</em></p>
@@ -624,11 +646,16 @@
 <span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></div>
 
+<p>보는 바와 같이 <code class="language-plaintext highlighter-rouge">x.data = ...</code> 형태로 쓰면 새로운 데이터가 대입됩니다.</p>
+
+<hr />
+
+<p>이제 Variable 클래스를 상자로 사용할 수 있게 되었습니다.</p>
+
 <p><strong>실행 결과</strong></p>
+
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2.0
 </code></pre></div></div>
-
-<p>보는 바와 같이 <code class="language-plaintext highlighter-rouge">x.data = ...</code> 형태로 쓰면 새로운 데이터가 대입됩니다. 이제 Variable 클래스를 상자로 사용할 수 있게 되었습니다.</p>
 
 <hr />
 
@@ -680,7 +707,14 @@
 
 <p>넘파이의 ndarray 인스턴스에는 <code class="language-plaintext highlighter-rouge">ndim</code>이라는 인스턴스 변수가 있습니다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">ndim</code>은 ‘number of dimensions’의 약자로, 다차원 배열의 ‘차원 수’를 뜻합니다. 한번 사용해보죠.</p>
+<p><code class="language-plaintext highlighter-rouge">ndim</code>은 ‘number of dimensions’의 약자로, 다차원 배열의 ‘차원 수’를 뜻합니다.</p>
+
+<p><img src="./img/fig_01_10_b_ndim_inspection.jpg" alt="로봇 틴맨과 도로시의 ndarray ndim(차원 수) 측정 검사" /><br />
+<em>로봇 틴맨과 도로시가 0차원 스칼라(ndim=0), 1차원 벡터(ndim=1), 2차원 행렬(ndim=2)의 차원 수(축의 개수)를 측정하고 있습니다.</em></p>
+
+<hr />
+
+<p>한번 사용해보죠.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -695,13 +729,17 @@
 <span class="mi">2</span>
 </code></pre></div></div>
 
-<p>여기서는 파이썬 인터프리터의 대화 모드에서 실행했습니다(인터프리터를 이용하는 예에서는 독자가 입력해야 하는 코드 앞에 <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code> 기호를 붙였습니다). 앞의 예시와 같이 인스턴스 변수인 <code class="language-plaintext highlighter-rouge">ndim</code>을 사용하여 배열이 몇 차원인지 확인할 수 있습니다.</p>
+<p>여기서는 파이썬 인터프리터의 대화 모드에서 실행했습니다(인터프리터를 이용하는 예에서는 독자가 입력해야 하는 코드 앞에 <code class="language-plaintext highlighter-rouge">&gt;&gt;&gt;</code> 기호를 붙였습니다).</p>
+
+<p>앞의 예시와 같이 인스턴스 변수인 <code class="language-plaintext highlighter-rouge">ndim</code>을 사용하여 배열이 몇 차원인지 확인할 수 있습니다.</p>
 
 <hr />
 
 <blockquote>
   <p><strong>CAUTION</strong><br />
-벡터를 다룰 때는 ‘차원’이라는 말에 주의해야 합니다. 예를 들어 <code class="language-plaintext highlighter-rouge">np.array([1, 2, 3])</code>은 벡터인데, 세 개의 요소가 일렬로 늘어서 있기 때문에 ‘3차원 벡터’라고도 합니다. 이때 ‘벡터의 차원’은 벡터의 원소 수를 말합니다. 한편 ‘3차원 배열’이라고 할 때의 ‘배열의 차원’은 (원소가 아닌) 축이 3개라는 뜻입니다.</p>
+벡터를 다룰 때는 ‘차원’이라는 말에 주의해야 합니다.</p>
+
+  <p>예를 들어 <code class="language-plaintext highlighter-rouge">np.array([1, 2, 3])</code>은 벡터인데, 세 개의 요소가 일렬로 늘어서 있기 때문에 ‘3차원 벡터’라고도 합니다. 이때 ‘벡터의 차원’은 벡터의 원소 수를 말합니다. 한편 ‘3차원 배열’이라고 할 때의 ‘배열의 차원’은 (원소가 아닌) 축이 3개라는 뜻입니다.</p>
 </blockquote>
 
 <p><img src="./img/fig_01_12_vector_vs_array_dimension.jpg" alt="조교 지니의 3차원 벡터와 3차원 배열 차이점 비교" /><br />
@@ -713,7 +751,7 @@
 
 <p>그러나 이 강의에서는 당분간 스칼라만을 취급하겠습니다.</p>
 
-<p>나중에 37단계에 가면 벡터와 행렬도 다룰 수 있도록 DeZero를 확장할 것입니다.</p>
+<p>나중에 단계에 가면 벡터와 행렬도 다룰 수 있도록 DeZero를 확장할 것입니다.</p>
 
 <p><img src="./img/fig_01_13_scalar_first_future_tensor.jpg" alt="이호진 교수님의 스칼라 기초 다지기와 37단계 텐서 확장 로드맵" /><br />
 <em>이호진 교수님이 지금은 기본 스칼라에 집중하고 향후 고차원 텐서로 나아갈 로드맵을 격려하고 있습니다.</em></p>

@@ -292,7 +292,7 @@
 
           <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
             <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/rl_ai" target="_blank"
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/dezero_ai" target="_blank"
                 rel="noopener">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
                   viewBox="0 0 512 499.36" role="img">
@@ -683,7 +683,7 @@ steps
 
 <h2 id="234-실제-__init__py-파일">23.4 실제 __init__.py 파일</h2>
 
-<p>이 책에서는 앞으로(23단계에서 32단계까지) DeZero 코어 파일로 <code class="language-plaintext highlighter-rouge">dezero/core_simple.py</code>를 사용합니다. 그러다가 33단계부터는 <code class="language-plaintext highlighter-rouge">dezero/core.py</code>로 대체할 것입니다. 그래서 실제 <code class="language-plaintext highlighter-rouge">dezero/__init__.py</code>는 <code class="language-plaintext highlighter-rouge">core_simple.py</code>와 <code class="language-plaintext highlighter-rouge">core.py</code> 중 하나를 선택해 임포트하도록 작성되어 있습니다.</p>
+<p>이 교제에서는 앞으로(23단계에서 32단계까지) DeZero 코어 파일로 <code class="language-plaintext highlighter-rouge">dezero/core_simple.py</code>를 사용합니다. 그러다가 33단계부터는 <code class="language-plaintext highlighter-rouge">dezero/core.py</code>로 대체할 것입니다. 그래서 실제 <code class="language-plaintext highlighter-rouge">dezero/__init__.py</code>는 <code class="language-plaintext highlighter-rouge">core_simple.py</code>와 <code class="language-plaintext highlighter-rouge">core.py</code> 중 하나를 선택해 임포트하도록 작성되어 있습니다.</p>
 
 <p><strong>dezero/__init__.py</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">is_simple_core</span> <span class="o">=</span> <span class="bp">True</span>
@@ -740,7 +740,7 @@ steps
 
 <p>우선 <code class="language-plaintext highlighter-rouge">if '__file__' in globals():</code> 문장에서 <code class="language-plaintext highlighter-rouge">__file__</code> 이라는 전역 변수가 정의되어 있는지 확인합니다. <code class="language-plaintext highlighter-rouge">python steps/step23.py</code>처럼 터미널에서 <code class="language-plaintext highlighter-rouge">python</code> 명령으로 실행한다면 <code class="language-plaintext highlighter-rouge">__file__</code> 변수가 정의되어 있습니다. 이 경우 현재 파일(<code class="language-plaintext highlighter-rouge">step23.py</code>)이 위치한 디렉터리의 부모 디렉터리(<code class="language-plaintext highlighter-rouge">..</code>)를 모듈 검색 경로에 추가합니다. 이로써 파이썬 명령어를 어디에서 실행하든 <code class="language-plaintext highlighter-rouge">dezero</code> 디렉터리의 파일들은 제대로 임포트할 수 있게 됩니다. 예를 들어 명령줄에서 <code class="language-plaintext highlighter-rouge">python steps/step23.py</code> 형태로 실행하든 <code class="language-plaintext highlighter-rouge">cd steps; python step23.py</code> 형태로 디렉터리를 옮겨 실행하</p>
 
-<p>든 상관없이 코드가 정상 작동합니다. 참고로 책 지면에서는 편의상 이 모듈 검색 경로 추가 코드는 (매번 똑같이 반복되므로) 생략하고 보여줍니다.</p>
+<p>든 상관없이 코드가 정상 작동합니다. 참고로 교제 지면에서는 편의상 이 모듈 검색 경로 추가 코드는 (매번 똑같이 반복되므로) 생략하고 보여줍니다.</p>
 
 <blockquote>
   <p><strong>NOTE</strong><br />
@@ -750,7 +750,7 @@ steps
 <p>방금 보여드린 코드가 <code class="language-plaintext highlighter-rouge">step23.py</code>의 전부입니다(생략한 코드는 없습니다). 이것으로 DeZero 프레임워크의 원형이 완성되었습니다. 앞으로는 <code class="language-plaintext highlighter-rouge">dezero</code> 디렉터리에 있는 파일(모듈)들을 확장하는 식으로 진행하겠습니다.</p>
 
 <hr />
-<p>* 옮긴이_ 번역 시점에 우리나라에서는 ‘구글 코랩’으로 더 많이 쓰고 있으나, 구글의 공식 소개 동영상(https://bit.ly/31hbc1L)에서도 ‘콜랩(Colab)’으로 표기하고 있고, 실제 원어민 발음에 훨씬 가까우며, 외래어 표기법상으로도 맞기 때문에 이 책에서는 ‘콜랩’으로 옮기겠습니다.</p>
+<p>* 옮긴이_ 번역 시점에 우리나라에서는 ‘구글 코랩’으로 더 많이 쓰고 있으나, 구글의 공식 소개 동영상(https://bit.ly/31hbc1L)에서도 ‘콜랩(Colab)’으로 표기하고 있고, 실제 원어민 발음에 훨씬 가까우며, 외래어 표기법상으로도 맞기 때문에 이 교제에서는 ‘콜랩’으로 옮기겠습니다.</p>
 
 
             <!-- 구글 애드센스 출력 -->

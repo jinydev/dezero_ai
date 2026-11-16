@@ -1,0 +1,16 @@
+[TAG LAYER]
+tinman, 1robot, tinny, dorothy, 1girl, 4 variables, 3 functions, conveyor relay, x to a to b to y, data flow, inspection, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Educational infographic illustration showing Tinman (friendly retro silver tin robot with monitor head, spinning brass gears, gentle cyan LED dot eyes) and Dorothy inspecting a 4-stage variable pipeline relay. Across an artistic low track, four distinct wooden Variable boxes (labeled 'x', 'a', 'b', 'y') travel smoothly between three inline function machines (A: Square, B: Exp, C: Square). Tinman's chest monitor displays the live data values transferring from 0.5 to 0.25 to 1.284 to 1.648. Dorothy checks the boxes with a joyful smile, marveling at how all intermediate values are consistent Variable objects. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, duplicate robots, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Tinman, Dorothy
+Model: Dorothy STEM Universe Master LoRA / Tinman LoRA v1.0
+Trigger: tinman, robot, dorothy, 1girl, pipeline flow, pure solid white background
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Step 3 - Continuous Flow of 4 Intermediate Variable Instances (x -> a -> b -> y)

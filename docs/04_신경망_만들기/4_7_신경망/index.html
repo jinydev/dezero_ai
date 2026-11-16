@@ -292,7 +292,7 @@
 
           <ul class="navbar-nav flex-row flex-wrap ms-md-auto">
             <li class="nav-item col-6 col-lg-auto">
-              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/rl_ai" target="_blank"
+              <a class="nav-link py-2 px-0 px-lg-2" href="https://github.com/jinydev/dezero_ai" target="_blank"
                 rel="noopener">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="navbar-nav-svg"
                   viewBox="0 0 512 499.36" role="img">
@@ -546,7 +546,7 @@
 
 <blockquote>
   <p><strong>NOTE</strong>
-선형 변환은 엄밀히 말하면 <code class="language-plaintext highlighter-rouge">y = F.matmul(x, W)</code>까지로, <code class="language-plaintext highlighter-rouge">b</code>는 포함되지 않습니다. 그러나 신경망 분야에서는 <code class="language-plaintext highlighter-rouge">b</code>를 더하는 계산까지 포함한 연산을 선형 변환이라고 부르는 것이 일반적입니다(이 책도 마찬가지입니다). 그리고 선형 변환은 신경망에서는 <strong>완전연결계층(fully connected layer)</strong>에 해당하며, 매개변수 <code class="language-plaintext highlighter-rouge">W</code>는 <strong>가중치(weight)</strong>, 매개변수 <code class="language-plaintext highlighter-rouge">b</code>는 <strong>편향(bias)</strong>이라고 합니다.</p>
+선형 변환은 엄밀히 말하면 <code class="language-plaintext highlighter-rouge">y = F.matmul(x, W)</code>까지로, <code class="language-plaintext highlighter-rouge">b</code>는 포함되지 않습니다. 그러나 신경망 분야에서는 <code class="language-plaintext highlighter-rouge">b</code>를 더하는 계산까지 포함한 연산을 선형 변환이라고 부르는 것이 일반적입니다(이 교제도 마찬가지입니다). 그리고 선형 변환은 신경망에서는 <strong>완전연결계층(fully connected layer)</strong>에 해당하며, 매개변수 <code class="language-plaintext highlighter-rouge">W</code>는 <strong>가중치(weight)</strong>, 매개변수 <code class="language-plaintext highlighter-rouge">b</code>는 <strong>편향(bias)</strong>이라고 합니다.</p>
 </blockquote>
 
 <p>이번 절에서는 앞의 선형 변환을 <code class="language-plaintext highlighter-rouge">linear</code> 함수로 구현하겠습니다. 이전 단계에서 설명한 대로 구현 방법은 두 가지입니다. 하나는 앞의 코드와 같이 지금까지 구현해온 DeZero 함수를 사용하는 방식이고, 다른 하나는 <code class="language-plaintext highlighter-rouge">Function</code> 클래스를 상속하여 새롭게 <code class="language-plaintext highlighter-rouge">Linear</code>라는 함수 클래스를 구현하는 방식입니다. 역시 앞서 설명한 대로 후자가 메모리를 더 효율적으로 씁니다. 그 차이는 [그림 43-1]을 보면 알 수 있습니다.</p>
@@ -600,7 +600,7 @@
 
 <blockquote>
   <p><strong>NOTE</strong>
-신경망에서 메모리의 대부분을 차지하는 것이 중간 계산 결과인 텐서(<code class="language-plaintext highlighter-rouge">ndarray</code> 인스턴스)입니다. 특히 큰 텐서를 취급하는 경우 <code class="language-plaintext highlighter-rouge">ndarray</code> 인스턴스가 거대해지므로 불필요한 <code class="language-plaintext highlighter-rouge">ndarray</code> 인스턴스는 즉시 삭제하는 것이 바람직합니다. 이 책에서는 불필요한 <code class="language-plaintext highlighter-rouge">ndarray</code> 인스턴스를 (<code class="language-plaintext highlighter-rouge">t.data = None</code>처럼) 손수 삭제했으나 자동화하는 방법도 존재합니다. 일례로 체이너(Chainer)는 Aggressive Buffer Release라는 구조를 이용합니다.</p>
+신경망에서 메모리의 대부분을 차지하는 것이 중간 계산 결과인 텐서(<code class="language-plaintext highlighter-rouge">ndarray</code> 인스턴스)입니다. 특히 큰 텐서를 취급하는 경우 <code class="language-plaintext highlighter-rouge">ndarray</code> 인스턴스가 거대해지므로 불필요한 <code class="language-plaintext highlighter-rouge">ndarray</code> 인스턴스는 즉시 삭제하는 것이 바람직합니다. 이 교제에서는 불필요한 <code class="language-plaintext highlighter-rouge">ndarray</code> 인스턴스를 (<code class="language-plaintext highlighter-rouge">t.data = None</code>처럼) 손수 삭제했으나 자동화하는 방법도 존재합니다. 일례로 체이너(Chainer)는 Aggressive Buffer Release라는 구조를 이용합니다.</p>
 </blockquote>
 
 <p>이상이 메모리 사용을 개선하는 ‘묘수’입니다. 여기에서 구현한 <code class="language-plaintext highlighter-rouge">linear_simple</code> 함수는 <code class="language-plaintext highlighter-rouge">dezero/functions.py</code>에 추가해두었고, <code class="language-plaintext highlighter-rouge">Function</code> 클래스를 상속한 <code class="language-plaintext highlighter-rouge">Linear</code> 클래스와 <code class="language-plaintext highlighter-rouge">linear</code> 함수는 <code class="language-plaintext highlighter-rouge">dezero/functions.py</code>에 구현되어 있습니다. 간단한 코드이므로 관심 있는 분은 참고하시기 바랍니다.</p>

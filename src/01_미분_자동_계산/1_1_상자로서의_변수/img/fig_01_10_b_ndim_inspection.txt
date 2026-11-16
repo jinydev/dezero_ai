@@ -1,0 +1,16 @@
+[TAG LAYER]
+tinman, 1robot, tinny, dorothy, 1girl, ndim, dimension inspection, measuring tape, magnifying glass, scalar, vector, matrix, pure solid white background, clean anime line art, soft 2D cel shading, masterpiece, best quality
+
+[PROMPT]
+Studio Ghibli 2D anime style, clean crisp dark espresso line art (#26211E), warm vibrant flat cel shading, storybook educational illustration, masterpiece. Educational infographic illustration showing Tinman (friendly retro silver tin robot with monitor head, spinning brass gears, gentle cyan LED dot eyes) and Dorothy (4.5 heads tall, chestnut twin pigtails with colorful beads, 'STEM HERO' denim overalls, orange striped tee, red canvas sneakers) inspecting the `ndim` property of ndarray instances. Tinman's chest monitor screen clearly displays 'ndim: Axis Count'. On the clean floor are three floating visual aids: a single glowing point labeled '0D (ndim=0)', a 1D straight rod with beads labeled '1D (ndim=1)', and a 2D flat coordinate grid plane labeled '2D (ndim=2)'. Dorothy holds a playful magnifying glass examining the axes with delight. Pure solid clean white background (#FFFFFF), isolated character group, subtle soft contact shadow at feet, centered, 1:1 square ratio, zero slide frames, no Japanese text.
+
+[NEGATIVE PROMPT]
+3d, photorealistic, realistic photograph, 3d cgi render, oil painting, rough pencil sketch, presentation slide frame, slide border, title banner, header text box, footer card, text containers, powerpoint template, dark background, complex outdoor background, room interior walls, blurry, low resolution, extra fingers, deformed hands, mutated limbs, garbled text, gibberish letters, kanji, hiragana, katakana, japanese text, duplicate robots, extra animals, watermark, signature
+
+[LORA INFO]
+Characters: Tinman, Dorothy
+Model: Dorothy STEM Universe Master LoRA / Tinman LoRA v1.0
+Trigger: tinman, robot, dorothy, 1girl, ndim inspection, pure solid white background
+Recommended Weight: 0.85
+Aspect Ratio: 1:1 (1024x1024)
+Target Concept: DeZero Step 1 - ndarray ndim Inspection (0D scalar, 1D vector, 2D matrix)
